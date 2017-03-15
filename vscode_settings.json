@@ -1,0 +1,30 @@
+{
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "Sublime Material Theme - Dark",
+    "vsicons.projectDetection.disableDetect": true,
+    "editor.fontFamily": "Monaco",
+    "editor.rulers": [
+        100,
+        80
+    ],
+    "editor.snippetSuggestions": "inline",
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
+    "window.restoreFullscreen": true,
+    "workbench.welcome.enabled": false,
+    "zenMode.hideTabs": false,
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.fontFamily": "Menlo",
+    "terminal.integrated.shellArgs.osx": [
+        "-l"
+    ],
+    "terminal.integrated.rightClickCopyPaste": true,
+    "terminal.integrated.fontLigatures": true,
+    "terminal.integrated.scrollback": 5000,
+    "editor.wordWrap": "bounded",
+    "python.pythonPath": "python2",
+    "python.venvPath": "~/Envs",
+    "python.linting.pep8Enabled": true,
+    "vsicons.presets.angular": false,
+    "files.autoSave": "onFocusChange"
+}
