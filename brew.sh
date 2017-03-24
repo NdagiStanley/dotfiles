@@ -9,6 +9,7 @@ brew install zsh-syntax-highlighting
 
 brew install heroku
 brew install hub
+brew install wget
 brew install ctags
 brew install httpie
 brew install tree
