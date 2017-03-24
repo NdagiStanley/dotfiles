@@ -13,6 +13,7 @@ brew install wget
 brew install ctags
 brew install httpie
 brew install tree
+brew install mysql
 brew install git
 
 # Remove outdated versions from the cellar.
