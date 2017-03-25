@@ -8,9 +8,10 @@ vim +PluginInstall +qall
 
 # Zsh
 git clone https://github.com/NdagiStanley/rafiki-zsh.git
-cp rafiki-zsh/rafiki.zsh-theme ~/.oh-my-zsh/custom/themes/rafiki.zsh-theme
+cp rafiki-zsh/rafiki.zsh-theme $ZSH/custom/themes/rafiki.zsh-theme
 vim ~/.zshrc
 # ZSH_THEME='rafiki'
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH/zsh-syntax-highlighting
 
 # Install VSCode
 # echo "body {-webkit-font-smoothing: antialiased;}" >> /Applications/Visual\ Studio\ Code\ -\ Insiders.app/Contents/Resources/app/out/vs/workbench/electron-browser/workbench.main.css
