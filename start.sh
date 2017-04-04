@@ -8,6 +8,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
 # Zsh
+# Install ohmyzsh
 git clone https://github.com/NdagiStanley/rafiki-zsh.git
 mkdir $ZSH/custom/themes/
 cp rafiki-zsh/rafiki.zsh-theme $ZSH/custom/themes/rafiki.zsh-theme
