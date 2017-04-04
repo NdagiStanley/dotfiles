@@ -1,4 +1,5 @@
 # Install XCode
+# Install Brew
 git clone https://github.com/NdagiStanley/dotfiles.git
 cp dotfiles/.vimrc ~/.vimrc
 
