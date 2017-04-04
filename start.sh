@@ -8,6 +8,7 @@ vim +PluginInstall +qall
 
 # Zsh
 git clone https://github.com/NdagiStanley/rafiki-zsh.git
+mkdir $ZSH/custom/themes/
 cp rafiki-zsh/rafiki.zsh-theme $ZSH/custom/themes/rafiki.zsh-theme
 vim ~/.zshrc
 # ZSH_THEME='rafiki'
