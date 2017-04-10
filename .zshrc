@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=`pwd`/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -89,24 +89,25 @@ export SSH_KEY_PATH="~/.ssh/"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 eval "$(hub alias -s)"
 alias g="hub"
-alias gcm="git commit -m"  # Same as gcmsg
 alias gpo="git push origin"
 alias gfu="git fetch upstream"
 
 # Shortcuts
-alias d="cd ~/Google\ Drive"
+alias d="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias h="history"
 alias e="exit"
 alias p="cd ~/Projects"
+alias c="code"
+alias ci="code-insiders"
 
 alias cl="clear"
 alias b="brew"
 
 # Python
 alias py="python3"
-alias py2="python2"
+alias py2="python2.7"
 alias ipy="ipython"
 alias ptpy="ptpython"
 
@@ -114,6 +115,7 @@ alias ptpy="ptpython"
 alias d="docker"
 alias di="docker images"
 alias dp="docker ps"
+alias dc="docker-compose"
 
 alias mdbrew="brew update && brew upgrade && brew cleanup && brew prune"
 alias reload="source ~/.zshrc"
