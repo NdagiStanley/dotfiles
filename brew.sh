@@ -4,7 +4,6 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
-brew install zsh
 brew install zsh-syntax-highlighting
 
 brew install heroku
@@ -14,7 +13,6 @@ brew install ctags
 brew install httpie
 brew install tree
 brew install mysql
-brew install git
 
 # Remove outdated versions from the cellar.
 brew cleanup
