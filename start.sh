@@ -1,6 +1,6 @@
 # Install XCode
 # Install Brew
-git clone https://github.com/NdagiStanley/dotfiles.git
+git clone git@github.com:NdagiStanley/dotfiles.git
 cp dotfiles/.vimrc ~/.vimrc
 
 # Vim
@@ -9,6 +9,8 @@ vim +PluginInstall +qall
 
 # Zsh
 # Install ohmyzsh
+cp dotfiles/.zshrc ~/.zshrc
+source .zshrc
 git clone https://github.com/NdagiStanley/rafiki-zsh.git
 mkdir $ZSH/custom/themes/
 cp rafiki-zsh/rafiki.zsh-theme $ZSH/custom/themes/rafiki.zsh-theme
