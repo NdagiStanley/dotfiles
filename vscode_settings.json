@@ -1,10 +1,21 @@
-# Settings Sync
-# Check in gist - comments
+// Settings Sync
+// Check in gist - comments
+// Place your settings in this file to overwrite the default settings
 {
+    "sync.gist": "03cba71fae1589ea7536b20612186c69",
+    "sync.lastUpload": "2017-05-11T09:33:51.558Z",
+    "sync.autoDownload": false,
+    "sync.autoUpload": true,
+    "sync.lastDownload": "",
+    "sync.forceDownload": false,
+    "sync.anonymousGist": false,
+    "sync.host": "",
+    "sync.pathPrefix": "",
+    "sync.quietSync": false,
+    "workbench.colorTheme": "Solarized Dark",
     "workbench.iconTheme": "vscode-icons",
-    "workbench.colorTheme": "Sublime Material Theme - Dark",
-    "vsicons.projectDetection.disableDetect": true,
-    "editor.fontFamily": "Monaco",
+    "workbench.welcome.enabled": false,
+    "editor.fontFamily": "Menlo",
     "editor.rulers": [
         100,
         80
@@ -12,9 +23,12 @@
     "editor.snippetSuggestions": "inline",
     "editor.formatOnType": true,
     "editor.formatOnPaste": true,
+    "editor.cursorStyle": "line-thin",
+    "editor.renderWhitespace": "all",
+    "editor.renderIndentGuides": true,
+    "editor.wordWrap": "off",
     "window.restoreFullscreen": true,
-    "workbench.welcome.enabled": false,
-    "zenMode.hideTabs": false,
+    "window.nativeTabs": true,
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.fontFamily": "Menlo",
     "terminal.integrated.shellArgs.osx": [
@@ -23,10 +37,19 @@
     "terminal.integrated.rightClickCopyPaste": true,
     "terminal.integrated.fontLigatures": true,
     "terminal.integrated.scrollback": 5000,
-    "editor.wordWrap": "bounded",
-    "python.pythonPath": "python2",
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 3000,
+    "files.trimTrailingWhitespace": true,
+    "python.pythonPath": "python",
     "python.venvPath": "~/Envs",
     "python.linting.pep8Enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.formatting.formatOnSave": true,
+    "docker.enableLinting": true,
+    "extensions.autoUpdate": true,
     "vsicons.presets.angular": false,
-    "files.autoSave": "onFocusChange"
+    "zenMode.hideTabs": false,
+    "zenMode.hideStatusBar": false,
+    "zenMode.hideActivityBar": false
 }

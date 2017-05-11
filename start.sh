@@ -14,10 +14,10 @@ source .zshrc
 git clone https://github.com/NdagiStanley/rafiki-zsh.git
 mkdir $ZSH/custom/themes/
 cp rafiki-zsh/rafiki.zsh-theme $ZSH/custom/themes/rafiki.zsh-theme
-vim ~/.zshrc
-# ZSH_THEME='rafiki'
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH/zsh-syntax-highlighting
+
+sh brew.sh
+sh cask.sh
+sh virtualenvwrapper.sh
 
 # Install VSCode
 # echo "body {-webkit-font-smoothing: antialiased;}" >> /Applications/Visual\ Studio\ Code\ -\ Insiders.app/Contents/Resources/app/out/vs/workbench/electron-browser/workbench.main.css
-# Copy vscode_settings.json

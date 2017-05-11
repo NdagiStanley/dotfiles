@@ -58,6 +58,11 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+#Python
+
+# virtualenvwrapper
+# Uncomment the following line once you've installed virtualenvwrapper
+# source /usr/local/bin/virtualenvwrapper.sh
 export WORKON_HOME=~/Envs
 export PROJECT_HOME=~/Projects
 
