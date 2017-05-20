@@ -58,13 +58,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-#Python
-
-# virtualenvwrapper
-# Uncomment the following line once you've installed virtualenvwrapper
-# source /usr/local/bin/virtualenvwrapper.sh
 export WORKON_HOME=~/Envs
 export PROJECT_HOME=~/Projects
+source /usr/local/bin/virtualenvwrapper.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -91,7 +87,6 @@ export SSH_KEY_PATH="~/.ssh/"
 eval "$(hub alias -s)"
 alias g="hub"
 alias gpo="git push origin"
-alias gfu="git fetch upstream"
 
 # Shortcuts
 alias d="cd ~/Dropbox"
@@ -104,7 +99,8 @@ alias c="code"
 alias ci="code-insiders"
 
 alias cl="clear"
-alias b="brew"
+alias bi="brew install"
+alias bci="brew cask install"
 
 # Python
 alias py="python3"
@@ -117,6 +113,10 @@ alias d="docker"
 alias di="docker images"
 alias dp="docker ps"
 alias dc="docker-compose"
+
+# DB
+alias pg-start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+alias pg-stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 
 alias mdbrew="brew update && brew upgrade && brew cleanup && brew prune"
 alias reload="source ~/.zshrc"
@@ -174,3 +174,11 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 
 # zsh-syntax-highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Go
+export PATH=$PATH:/usr/local/go/bin
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# VScode
+# echo "body {-webkit-font-smoothing: antialiased;}" >> /Applications/Visual\ Studio\ Code\ -\ Insiders.app/Contents/Resources/app/out/vs/workbench/electron-browser/workbench.main.css
