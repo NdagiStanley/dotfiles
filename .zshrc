@@ -58,8 +58,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+
 export WORKON_HOME=~/Envs
 export PROJECT_HOME=~/Projects
+export VIRTUALENVWRAPPER_PYTHON=`which python3`
 source /usr/local/bin/virtualenvwrapper.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"

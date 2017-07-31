@@ -1,16 +1,12 @@
-pip install virtualenvwrapper
-export WORKON_HOME=~/.virtualenvs
-export PROJECT_HOME=~/Projects
+pip3 install virtualenvwrapper
+# Sometimes this on sierra may fail so confirm `brew install python` runs and try `sudo pip install --ignore-installed virtualenvwrapper`
+# .zshrc contains WORKON_HOME and PROJECT_HOME
+
+export VIRTUALENVWRAPPER_PYTHON=`which python3`
 source /usr/local/bin/virtualenvwrapper.sh
 
 # postactivate
 #
 # PS1="$_OLD_VIRTUAL_PS1"
-# _OLD_RPROMPT="$RPROMPT"
-# RPROMPT="%{${fg_bold[white]}%}[Env: %{${fg[green]}%}`basename \"$VIRTUAL_ENV\"`%{${fg_bold[white]}%}]%{${reset_color}%} $RPROMPT
-#
-
-# postdeactivate
-#
-# RPROMPT="$_OLD_RPROMPT"
+# PROMPT="$PROMPT%{${fg_bold[white]}%}[pyEnv: %{${fg[green]}%}`basename \"$VIRTUAL_ENV\"`%{${fg_bold[white]}%}]%{${reset_color}%}"
 #
