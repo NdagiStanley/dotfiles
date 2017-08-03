@@ -14,6 +14,7 @@ cp .vimrc ~/.vimrc
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
+sh tap.sh
 sh brew.sh
 sh cask.sh
 
@@ -35,13 +36,3 @@ cp .tmux.conf ~/.tmux.conf
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 cp .zshrc ~/.zshrc
 source ~/.zshrc  # Confirm if this line is needed
-
-# Autosuggestions
-git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-
-# Rafiki
-mkdir -p $ZSH_CUSTOM/themes && curl -o $ZSH_CUSTOM/themes/rafiki.zsh-theme https://raw.githubusercontent.com/NdagiStanley/rafiki-zsh/develop/rafiki.zsh-theme
-source ~/.zshrc
-
-cd
-zsh

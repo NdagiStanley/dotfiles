@@ -4,6 +4,7 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
+brew install codeclimate
 brew install ctags # for indexing of files, simply put
 brew install heroku
 brew install httpie

@@ -61,7 +61,7 @@ source $ZSH/oh-my-zsh.sh
 
 export WORKON_HOME=~/Envs
 export PROJECT_HOME=~/Projects
-export VIRTUALENVWRAPPER_PYTHON=`which python3`
+export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
 source /usr/local/bin/virtualenvwrapper.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -106,9 +106,13 @@ alias bci="brew cask install"
 
 # Python
 alias py="python3"
-alias py2="python2.7"
+alias py2="python2"
 alias ipy="ipython"
 alias ptpy="ptpython"
+alias pi="pip install"
+alias pui="pip uninstall"
+alias pf="pip freeze"
+alias pc="pip_chill"
 
 # Docker
 alias d="docker"
