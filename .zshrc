@@ -182,7 +182,10 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Go
-export PATH=$PATH:/usr/local/go/bin
+gvm use go1.6.2
+export PATH="$PATH:$HOME/go_appengine"
+# ensure you have a GO directory with src directory
+export GOPATH="$GOPATH:$HOME/GO"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
