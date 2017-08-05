@@ -4,20 +4,21 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
-brew install codeclimate
-brew install ctags # for indexing of files, simply put
-brew install heroku
-brew install httpie
-brew install hub
-brew install mysql
-brew install node
-brew install postgres
-brew install python
-brew install python3
-brew install tmux
-brew install tree
-brew install wget
-brew install zsh-syntax-highlighting
+brew install codeclimate 2> /dev/null
+brew install ctags 2> /dev/null  # for indexing of files, simply put
+brew install heroku 2> /dev/null
+brew install httpie 2> /dev/null
+brew install hub 2> /dev/null
+brew install mercurial 2> /dev/null
+brew install mysql 2> /dev/null
+brew install node 2> /dev/null
+brew install postgres 2> /dev/null
+brew install python 2> /dev/null
+brew install python3 2> /dev/null
+brew install tmux 2> /dev/null
+brew install tree 2> /dev/null
+brew install wget 2> /dev/null
+brew install zsh-syntax-highlighting 2> /dev/null
 
 # Remove outdated versions from the cellar.
 brew cleanup
