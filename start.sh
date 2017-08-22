@@ -31,6 +31,16 @@ cp iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
 # Tmux
 cp .tmux.conf ~/.tmux.conf
 
+# CircleCI
+curl -o /usr/local/bin/circleci https://circle-downloads.s3.amazonaws.com/releases/build_agent_wrapper/circleci && chmod +x /usr/local/bin/circleci
+
+# Codeclimate
+# Command to run
+# CODECLIMATE_DEBUG=1 codeclimate analyze
+
+# 21
+curl https://21.co | sh
+
 # Zsh
 # Install ohmyzsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
