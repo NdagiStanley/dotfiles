@@ -15,6 +15,7 @@ brew install node 2> /dev/null
 brew install postgres 2> /dev/null
 brew install python 2> /dev/null
 brew install python3 2> /dev/null
+brew install ruby 2> /dev/null
 brew install tmux 2> /dev/null
 brew install tree 2> /dev/null
 brew install wget 2> /dev/null
