@@ -14,5 +14,6 @@ source /usr/local/bin/virtualenvwrapper.sh
 # postmkvirtualenv
 #
 # pip install pep8
+# pip install pycodesytle
 # pip install pip_autoremove
 # pip install pip_chill
