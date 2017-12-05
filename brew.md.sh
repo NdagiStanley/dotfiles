@@ -4,12 +4,16 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
+brew install ack 2> /dev/null
 brew install codeclimate 2> /dev/null
+brew install coreutils 2> /dev/null
 brew install ctags 2> /dev/null  # for indexing of files, simply put
+brew install dark-mode 2> /dev/null
 brew install htop 2> /dev/null
 brew install heroku 2> /dev/null
 brew install httpie 2> /dev/null
 brew install hub 2> /dev/null
+brew install imagemagick --with-webp 2> /dev/null
 brew install mercurial 2> /dev/null
 brew install mysql 2> /dev/null
 brew install node 2> /dev/null
