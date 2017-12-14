@@ -1,3 +1,9 @@
+cp .functions ~/.functions
+cp aliases.sh ~/aliases.sh
+
+# Custom .zshrc
+cp .zshrc ~/.zshrc
+
 # Autosuggestions
 git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 

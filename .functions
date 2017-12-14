@@ -9,18 +9,6 @@ server() {
   python -m SimpleHTTPServer "$@"
 }
 
-gp () {
-   git push origin `git rev-parse --abbrev-ref HEAD` $@
-}
-
-pull() {
-  git pull origin `git rev-parse --abbrev-ref HEAD` $@
-}
-
-dri() {
-    docker rmi $(docker images -f dangling=true -q)
-}
-
 function gitio() {
   if [ -z "${1}" -o -z "${2}" ]; then
     echo "Usage: \`gitio slug url\`";
