@@ -40,6 +40,7 @@ alias di="docker images"
 alias dp="docker ps"
 alias dc="docker-compose"
 alias dri="docker rmi $(docker images -f dangling=true -q)"
+alias d-reset="sh docker_reset.sh"
 
 # DB
 alias pg-start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"

@@ -3,9 +3,15 @@ brew tap caskroom/fonts 2> /dev/null
 brew cask install font-source-code-pro 2> /dev/null
 
 # Others
+brew cask install amazon-music 2> /dev/null
+brew cask install cyberduck 2> /dev/null
 brew cask install dropbox 2> /dev/null
 brew cask install docker 2> /dev/null
+brew cask install firefox-developer-edition 2> /dev/null
 brew cask install gitter 2> /dev/null
+brew cask install google-chrome 2> /dev/null
+brew cask install google-chrome-canary 2> /dev/null
+brew cask install grammarly 2> /dev/null
 brew cask install insomnia 2> /dev/null
 brew cask install kap 2> /dev/null
 brew cask install kindle 2> /dev/null
