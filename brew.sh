@@ -4,12 +4,9 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
-
-brew install heroku 2> /dev/null
 brew install htop 2> /dev/null
 brew install httpie 2> /dev/null
 brew install hub 2> /dev/null
-brew install mysql 2> /dev/null
 brew install node 2> /dev/null
 brew install postgres 2> /dev/null
 brew install python 2> /dev/null
