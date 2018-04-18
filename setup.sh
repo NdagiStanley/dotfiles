@@ -51,7 +51,6 @@ function __basic__() {
     # Install homebrew & basic apps
     sh install.sh homebrew
     sh brew.sh
-    sh cask.sh
 
     # Install oh-my-zsh
     sh install.sh oh-my-zsh
@@ -66,6 +65,10 @@ function __quick__() {
 function __python__() {
     echo "Running Python setup..."
     __basic__
+    brew install python@2 2> /dev/null
+    pip2 install --upgrade pip
+    brew install python 2> /dev/null
+    pip install --upgrade pip
     cp .zshrc ~/.zshrc
     sh code/virtualenvwrapper.sh
     __finish__
