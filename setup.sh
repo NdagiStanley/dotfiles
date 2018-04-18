@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 function __finish__() {
     source ~/.zshrc
     echo "We're done. Your MAC is now setup!"
@@ -48,12 +54,18 @@ function __pro__() {
 }
 
 function __basic__() {
+    # Ask for the administrator password upfront
+    sudo -v
+
+    # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+    while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+    
     # Install homebrew & basic apps
     sh install.sh homebrew
     sh brew.sh
 
     # Install oh-my-zsh
-    sh install.sh oh-my-zsh
+    sh install.sh zsh
 }
 
 function __quick__() {
@@ -65,10 +77,7 @@ function __quick__() {
 function __python__() {
     echo "Running Python setup..."
     __basic__
-    brew install python@2 2> /dev/null
-    pip2 install --upgrade pip
-    brew install python 2> /dev/null
-    pip install --upgrade pip
+    sh install.sh pip
     cp .zshrc ~/.zshrc
     sh code/virtualenvwrapper.sh
     __finish__
