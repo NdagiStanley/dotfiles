@@ -1,2 +1,4 @@
 [user]
 	name = NdagiStanley
+[core]
+	excludesfile = /Users/stanmd/.gitignore_global
