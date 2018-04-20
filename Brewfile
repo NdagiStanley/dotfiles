@@ -6,13 +6,14 @@ tap "caskroom/fonts"
 tap "caskroom/versions"
 tap "caskroom/cask"
 brew "ack"
+brew "python"
+brew "awscli"
 brew "coreutils"
 brew "ctags"
 brew "dark-mode"
 brew "node"
 brew "heroku"
 brew "htop"
-brew "python"
 brew "httpie"
 brew "hub"
 brew "imagemagick", args: ["with-webp"]
@@ -33,6 +34,7 @@ cask "dbeaver-community"
 cask "docker"
 cask "dropbox"
 cask "firefox"
+cask "google-chrome"
 cask "grammarly"
 cask "insomnia"
 cask "iterm2"
@@ -53,11 +55,10 @@ cask "vlc"
 cask "caskroom/fonts/font-source-code-pro"
 cask "caskroom/versions/firefox-developer-edition"
 cask "caskroom/versions/google-chrome-canary"
+cask "caskroom/versions/visual-studio-code-insiders"
 mas "Bandwidth+", id: 490461369
 mas "CleanMyDrive 2", id: 523620159
 mas "Freckle", id: 879917538
-mas "Install macOS High Sierra", id: 0
-mas "Install macOS High Sierra", id: 0
 mas "LastPass", id: 926036361
 mas "Taurine", id: 960276676
 mas "Xcode", id: 497799835
