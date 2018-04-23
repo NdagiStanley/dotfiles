@@ -48,7 +48,9 @@ export EDITOR='vim'
 export SSH_KEY_PATH="~/.ssh/"
 
 # zsh-syntax-highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 # Go
 # Install gvm - https://github.com/moovweb/gvm plus the version(s) you want
