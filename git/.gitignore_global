@@ -35,3 +35,42 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Javascript #
+##############
+# JS Dependency directories
+node_modules/
+
+# Bower dependency directory (https://bower.io/)
+bower_components
+
+# Python #
+##########
+# Python Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# VS Code #
+###########
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# VIM #
+#######
+# Swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
+
+# Session
+Session.vim
+
+# Temporary
+.netrwhist
+*~
+# Auto-generated tag files
+tags

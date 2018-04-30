@@ -29,10 +29,7 @@ alias py="python3"
 alias py2="python2"
 alias ipy="ipython"
 alias ptpy="ptpython"
-alias pi="pip install"
-alias pui="pip uninstall"
 alias pf="pip freeze"
-alias pc="pip-chill"
 
 # Docker
 alias d="docker"
