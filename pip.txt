@@ -1,11 +1,9 @@
-click==6.7
 pbr==4.0.2
-pep8==1.7.1
 pip-autoremove==0.9.0
-pip-chill==0.1.7
 pycodestyle==2.4.0
 six==1.11.0
 stevedore==1.28.0
+utils==0.9.0
 virtualenv==15.2.0
 virtualenv-clone==0.3.0
 virtualenvwrapper==4.8.2

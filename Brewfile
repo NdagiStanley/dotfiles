@@ -26,6 +26,7 @@ brew "ruby"
 brew "tmux"
 brew "tree"
 brew "wget"
+brew "zsh"
 brew "zsh-syntax-highlighting"
 cask "amazon-music"
 cask "boom-3d"
@@ -50,6 +51,7 @@ cask "skype"
 cask "slack"
 cask "sonic-pi"
 cask "spectacle"
+cask "telegram"
 cask "tipp10"
 cask "vlc"
 cask "caskroom/fonts/font-source-code-pro"
@@ -60,5 +62,8 @@ mas "Bandwidth+", id: 490461369
 mas "CleanMyDrive 2", id: 523620159
 mas "Freckle", id: 879917538
 mas "LastPass", id: 926036361
+mas "macOS High Sierra", id: Install
+mas "Notebook", id: 1173152781
 mas "Taurine", id: 960276676
+mas "Trello", id: 1278508951
 mas "Xcode", id: 497799835
