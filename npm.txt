@@ -1,3 +1,8 @@
 @vue/cli
+httpster
+ijavascript
+node
 npm
+vsce
+vscode
 vue-cli
