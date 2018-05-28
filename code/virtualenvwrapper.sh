@@ -8,12 +8,11 @@ source /usr/local/bin/virtualenvwrapper.sh
 # postactivate
 #
 # PS1="$_OLD_VIRTUAL_PS1"
-# PROMPT="$PROMPT%{${fg_bold[cyan]}%}pyEnv:%{${fg_bold[white]}%}(%{${fg[green]}%}`basename \"$VIRTUAL_ENV\"`%{${fg_bold[white]}%}) %{${reset_color}%}"
-#
+# PROMPT="$PROMPT%{${fg_bold[yellow]}%}pyEnv:%{${fg_bold[white]}%}(%{${fg[green]}%}`basename \"$VIRTUAL_ENV\"`%{${fg_bold[white]}%}) %{${reset_color}%}"
+
 
 # postmkvirtualenv
 #
-# pip install pep8
-# pip install pycodesytle
-# pip install pip_autoremove
-# pip install pip_chill
+pip --no-cache-dir install autopep8
+pip --no-cache-dir install pip-autoremove
+pip --no-cache-dir install pycodestyle

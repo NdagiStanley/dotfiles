@@ -20,6 +20,7 @@ call vundle#end()            " required
 syntax on
 filetype indent plugin on
 
+" Use the Solarized Dark theme"
 set background=dark
 
 set tabstop=8
