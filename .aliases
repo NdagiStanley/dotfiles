@@ -20,7 +20,7 @@ alias p="cd ~/Projects"
 alias c="code"
 alias ci="code-insiders"
 
-alias cl="clear"
+alias cls="clear"
 alias bi="brew install"
 alias bci="brew cask install"
 
@@ -29,10 +29,7 @@ alias py="python3"
 alias py2="python2"
 alias ipy="ipython"
 alias ptpy="ptpython"
-alias pi="pip install"
-alias pui="pip uninstall"
 alias pf="pip freeze"
-alias pc="pip-chill"
 
 # Docker
 alias d="docker"
@@ -52,9 +49,9 @@ alias vlc="/Applications/VLC.app/Contents/MacOS/VLC --extraintf=http --http-pass
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
-	colorflag="--color"
+    colorflag="--color"
 else # macOS `ls`
-	colorflag="-G"
+    colorflag="-G"
 fi
 alias l="ls -lF ${colorflag}"
 
@@ -70,11 +67,11 @@ alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 # Get week number
 alias week='date +%V'
 
-# Recursively delete `.DS_Store` files
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
-
 # Lock the screen (when going AFK - Away from Keyboard)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
 # Empty the Trash on all mounted volumes and the main HDD.
 # Also, clear Apple’s System Logs to improve shell startup speed.

@@ -4,17 +4,27 @@ Install Xcode Command Line Tools from the App Store.
 
 `xcode-select --install`
 
-Clone repo and RUN:
+Clone repo `git clone https://github.com/NdagiStanley/dotfiles.git && cd dotfiles` and RUN:
 
-`git clone https://github.com/NdagiStanley/dotfiles.git && cd dotfiles && sh simple.sh`
-then `sh finish.sh && update`
+`sh setup.sh quick`
+
+> Python
+There's an option for running setup specific to python by running:
+
+`sh setup.sh python`
+
+#### PRO-MODE
 
 To have my setup (which has a bit more installs and configuration) run:
-`git clone https://github.com/NdagiStanley/dotfiles.git && cd dotfiles && sh start.sh`
-then `sh finish.sh && update`
 
-For Jupyter notebook: `sh jupyter.sh`
+`sh setup.sh --complete && update`
 
-For codeclimate: start `Docker` then run `sh tap.sh`
+Once in a while run `sh sync.sh` to sync up the dotfiles and push to github.
 
-Later on, have flags like `--quick`, `--complete`, `--go`, `--python`, `--js`, `--php` etc
+#### CODE
+
+For code-specific dotfiles checkout the [code folder](/code)
+
+#### MAC
+
+Run `./.macos` for specific my custom *System Preferences* setup. Edit it as you may please.
