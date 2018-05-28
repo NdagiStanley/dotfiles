@@ -13,5 +13,6 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # postmkvirtualenv
 #
+pip --no-cache-dir install autopep8
 pip --no-cache-dir install pip-autoremove
 pip --no-cache-dir install pycodestyle
