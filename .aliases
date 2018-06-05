@@ -8,7 +8,6 @@
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 eval "$(hub alias -s)"
 alias g="hub"
-alias gpo="git push origin"
 
 # Shortcuts
 alias db="cd ~/Dropbox"
