@@ -1,8 +1,13 @@
 @vue/cli
+@vue/cli-init
+contentful-cli
 httpster
 ijavascript
 node
 npm
+trello-cli
 vsce
 vscode
+vue
 vue-cli
+vuepress
