@@ -34,12 +34,14 @@ source $ZSH/oh-my-zsh.sh
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
     export WORKON_HOME=~/Envs
     export PROJECT_HOME=~/Projects
-    export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
+    export VIRTUALENVWRAPPER_PYTHON=`which python3`
     source /usr/local/bin/virtualenvwrapper.sh
 fi
 
 # You may need to manually set your language environment
 export LANG=en_GB.UTF-8
+# (LC_ALL became necessary for pip-env)
+export LC_ALL=en_GB.UTF-8
 
 # Preferred editor all sessions
 export EDITOR='vim'
