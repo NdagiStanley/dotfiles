@@ -1,6 +1,5 @@
 @vue/cli
 @vue/cli-init
-contentful-cli
 httpster
 ijavascript
 node
@@ -10,4 +9,3 @@ vsce
 vscode
 vue
 vue-cli
-vuepress

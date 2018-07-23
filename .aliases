@@ -33,10 +33,8 @@ alias pf="pip freeze"
 # Docker
 alias d="docker"
 alias di="docker images"
-alias dp="docker ps"
 alias dc="docker-compose"
-alias dri="docker rmi $(docker images -f dangling=true -q)"
-alias d-reset="sh docker_reset.sh"
+alias d-reset="sh dotfiles/code/docker_reset.sh"
 
 # DB
 alias pg-start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
@@ -97,3 +95,6 @@ alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
 alias notify="tput bel"
+
+# cat but for images - iterm
+alias imgcat=~/.iterm2/imgcat;alias imgls=~/.iterm2/imgls;alias it2attention=~/.iterm2/it2attention;alias it2check=~/.iterm2/it2check;alias it2copy=~/.iterm2/it2copy;alias it2dl=~/.iterm2/it2dl;alias it2getvar=~/.iterm2/it2getvar;alias it2setcolor=~/.iterm2/it2setcolor;alias it2setkeylabel=~/.iterm2/it2setkeylabel;alias it2ul=~/.iterm2/it2ul;alias it2universion=~/.iterm2/it2universion

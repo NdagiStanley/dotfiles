@@ -54,12 +54,6 @@ function __pro__() {
 }
 
 function __basic__() {
-    # Ask for the administrator password upfront
-    sudo -v
-
-    # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
-    while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-    
     # Install homebrew & basic apps
     sh install.sh homebrew
     sh brew.sh
@@ -79,6 +73,7 @@ function __python__() {
     __basic__
     sh install.sh pip
     cp .zshrc ~/.zshrc
+    # I opted not to copy the .aliases and .functions
     sh code/virtualenvwrapper.sh
     __finish__
 }
