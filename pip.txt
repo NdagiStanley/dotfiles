@@ -1,10 +1,7 @@
-pbr==4.0.4
-six==1.11.0
-stevedore==1.28.0
-virtualenv==16.0.0
-virtualenv-clone==0.3.0
-virtualenvwrapper==4.8.2
-
 autopep8
+ipython
+bpython
+ptpython
+ipdb
 pip-autoremove
-pycodestyle
+virtualenvwrapper

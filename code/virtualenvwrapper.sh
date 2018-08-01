@@ -13,6 +13,9 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # postmkvirtualenv
 #
-pip --no-cache-dir install autopep8
-pip --no-cache-dir install pip-autoremove
-pip --no-cache-dir install pycodestyle
+pip3 --no-cache-dir install autopep8
+pip3 --no-cache-dir install pip-autoremove
+pip3 --no-cache-dir install pycodestyle
+
+# Global as well
+pip3 --no-cache-dir install -e git://github.com/NdagiStanley/pip-chill.git#egg=pip-chill

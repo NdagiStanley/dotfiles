@@ -11,5 +11,5 @@ npm ls -g -j --depth=0 | jq -r '.dependencies|keys|join("\n")' > npm.txt
 # PIP packages
 echo "Dumping PIP packages to pip.txt"
 pip3 install --upgrade pip
-pip3 freeze > pip.txt
+pip-chill --no-version > pip.txt
 echo "Done!"
