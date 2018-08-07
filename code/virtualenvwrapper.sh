@@ -19,3 +19,4 @@ pip3 --no-cache-dir install pycodestyle
 
 # Global as well
 pip3 --no-cache-dir install -e git://github.com/NdagiStanley/pip-chill.git#egg=pip-chill
+pip3 --no-cache-dir install pydocstyle

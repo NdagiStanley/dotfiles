@@ -1,7 +1,6 @@
 autopep8
-ipython
 bpython
-ptpython
 ipdb
 pip-autoremove
+pydocstyle
 virtualenvwrapper
