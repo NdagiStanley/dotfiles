@@ -28,3 +28,7 @@ function tre() {
 function compare() {
   hub compare ${1:=develop}...$(git rev-parse --abbrev-ref HEAD)
 }
+
+function compare_branch() {
+  hub compare ${1:="$@"}...$(git rev-parse --abbrev-ref HEAD)
+}
