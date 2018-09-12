@@ -18,6 +18,8 @@ alias e="exit"
 alias p="cd ~/Projects"
 alias c="code"
 alias ci="code-insiders"
+alias wifi-off='networksetup -setairportpower en0 off'
+alias wifi-on='networksetup -setairportpower en0 on'
 
 alias cls="clear"
 alias bi="brew install"
@@ -35,7 +37,7 @@ alias pf="pip freeze"
 alias d="docker"
 alias di="docker images"
 alias dc="docker-compose"
-alias d-reset="sh dotfiles/code/docker_reset.sh"
+alias d-reset="sh ~/dotfiles/code/docker_reset.sh"
 
 # DB
 alias pg-start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
