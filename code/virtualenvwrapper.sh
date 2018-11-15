@@ -10,6 +10,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 # NEWLINE='
 # 👉 '
 
+# PS1="$_OLD_VIRTUAL_PS1"
 # local ret_status="%(?:%{$fg_bold[green]%}$RAFIKI_GOOD :%{$fg_bold[red]%}$RAFIKI_BAD )"
 # PROMPT='${ret_status} %{$fg[cyan]%}% $USER@%m%{$reset_color%} %~ $(git_prompt_info)'
 
