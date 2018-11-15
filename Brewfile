@@ -33,14 +33,15 @@ brew "tree"
 brew "wget"
 brew "zsh"
 brew "zsh-syntax-highlighting"
+brew "codeclimate/formulae/codeclimate"
 brew "heroku/brew/heroku"
+cask "aerial"
 cask "amazon-music"
 cask "android-file-transfer"
 cask "android-platform-tools"
 cask "android-sdk"
 cask "android-studio"
 cask "boom-3d"
-cask "cyberduck"
 cask "dbeaver-community"
 cask "docker"
 cask "dropbox"
@@ -68,12 +69,13 @@ cask "sonic-pi"
 cask "spectacle"
 cask "telegram"
 cask "tipp10"
+cask "tunnelblick"
+cask "visual-studio-code"
 cask "visual-studio-code-insiders"
 cask "vlc"
 mas "Bandwidth+", id: 490461369
 mas "Freckle", id: 879917538
 mas "LastPass", id: 926036361
-mas "Notebook", id: 1173152781
 mas "Taurine", id: 960276676
 mas "Trello", id: 1278508951
 mas "Xcode", id: 497799835
