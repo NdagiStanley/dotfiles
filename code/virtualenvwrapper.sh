@@ -20,6 +20,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # postmkvirtualenv
 #
+pip3 --no-cache-dir install autopep8
 pip3 --no-cache-dir install flake8
 pip3 --no-cache-dir install pip-autoremove
 pip3 --no-cache-dir install pip-chill
