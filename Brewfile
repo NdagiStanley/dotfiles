@@ -8,7 +8,6 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 brew "ack"
-brew "openssl"
 brew "python"
 brew "awscli"
 brew "cmatrix"
@@ -19,7 +18,7 @@ brew "gawk"
 brew "htop"
 brew "httpie"
 brew "hub"
-brew "imagemagick", args: ["with-webp"]
+brew "imagemagick"
 brew "jq"
 brew "mas"
 brew "mysql"
@@ -30,7 +29,7 @@ brew "python@2"
 brew "ruby"
 brew "tmux"
 brew "tree"
-brew "wget"
+brew "wget", link: false
 brew "zsh"
 brew "zsh-syntax-highlighting"
 brew "codeclimate/formulae/codeclimate"
@@ -73,9 +72,8 @@ cask "tunnelblick"
 cask "visual-studio-code"
 cask "visual-studio-code-insiders"
 cask "vlc"
+cask "zoom"
 mas "Bandwidth+", id: 490461369
-mas "Freckle", id: 879917538
-mas "LastPass", id: 926036361
 mas "Taurine", id: 960276676
 mas "Trello", id: 1278508951
 mas "Xcode", id: 497799835

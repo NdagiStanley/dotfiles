@@ -4,6 +4,7 @@ httpster
 ijavascript
 node
 npm
+pippi
 trello-cli
 vsce
 vscode

@@ -52,7 +52,7 @@ __pycache__/
 # VS Code #
 ###########
 .vscode/*
-!.vscode/settings.json
+.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
@@ -73,3 +73,8 @@ Session.vim
 *~
 # Auto-generated tag files
 tags
+
+# My files
+MD.MD
+md.Dockerfile
+md.dockerignore

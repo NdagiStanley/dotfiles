@@ -1,6 +1,8 @@
+autopep8
 bpython
+flake8
 ipdb
 pip-autoremove
 pip-chill
-pycodestyle
+pydocstyle
 virtualenvwrapper

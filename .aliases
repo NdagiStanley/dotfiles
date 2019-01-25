@@ -50,7 +50,7 @@ alias d-reset="sh ~/dotfiles/code/docker_reset.sh"
 alias pg-start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 alias pg-stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 
-alias mdbrew="brew update && brew upgrade && brew cu -a && brew cleanup && brew prune"
+alias mdbrew="brew update && brew upgrade && brew cu -a && brew cleanup"
 alias reload="source ~/.zshrc"
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC --extraintf=http --http-password=vlcdirect"
 
