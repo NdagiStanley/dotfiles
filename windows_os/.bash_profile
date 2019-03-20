@@ -18,3 +18,8 @@ alias ....="cd ../../.."
 # Git
 alias gst="g status"
 alias gcmsg="g commit -m"
+alias gaa="g add ."
+alias gco="git checkout"
+alias gd="git diff"
+alias ggpull='git pull origin "$(git_current_branch)"'
+alias ggpush='git push origin "$(git_current_branch)"'
