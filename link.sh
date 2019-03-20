@@ -25,6 +25,10 @@ function __vim__() {
     ln -sfv "$(pwd)/.vimrc" "$HOME/.vimrc"
 }
 
+function __windows__() {
+    cd windows_os && sh link.sh
+}
+
 if [ "$1" != "" ] && type "__$1__" &> /dev/null; then
     eval "__$1__"
 elif [ "$1" == "--all" ]; then
@@ -35,5 +39,5 @@ elif [ "$1" == "--all" ]; then
     __git__
     __vim__
 else
-    echo "Usage: ./link.sh (zsh/ functions/ aliases/ tmux/ git/ vim | --all)"
+    echo "Usage: ./link.sh (zsh/ functions/ aliases/ tmux/ git/ vim/ windows (for Windows OS) | --all)"
 fi
