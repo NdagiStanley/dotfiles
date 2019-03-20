@@ -10,9 +10,9 @@ WMIC useraccount where name='<$(whoami)>' rename stanmd
 
 
 # Run on PowerShell
-
 # Install Chocolatey
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+cd .. && sh install.sh choco
+
 # Chocofile is created from $(choco list -la > Chocofile) (with some obvious chunks and non-user installed packages removed)
 while read APP; do choco install "$APP" | { read first rest ; echo $first ; };
 

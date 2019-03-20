@@ -8,6 +8,12 @@ function __homebrew__() {
     echo "Homebrew is already installed"
 }
 
+# Run on PowerShell
+function __choco__() {
+    echo "Installing chocolatey..."
+    Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+}
+
 function __zsh__() {
     echo "Installing oh-my-zsh..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -40,5 +46,5 @@ elif [ "$1" == "--all" ]; then
     __npm__
     __pip__
 else
-    echo "Usage: ./install.sh (homebrew/ oh-my-zsh/ npm/ pip | --all)"
+    echo "Usage: ./install.sh (homebrew/ oh-my-zsh/ npm/ pip/ choco (for Windows OS) | --all)"
 fi
