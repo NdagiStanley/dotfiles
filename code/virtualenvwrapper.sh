@@ -18,13 +18,18 @@ source /usr/local/bin/virtualenvwrapper.sh
 # PROMPT="$PROMPT%{${fg_bold[yellow]}%}pyEnv:%{${fg_bold[white]}%}(%{${fg[green]}%}`basename \"$VIRTUAL_ENV\"`%{${fg_bold[white]}%}) %{${reset_color}%} $NEWLINE "
 # pip-chill
 
+# (Uncomment till here)
+
 
 # postmkvirtualenv
-#
-pip3 --no-cache-dir install autopep8
-pip3 --no-cache-dir install flake8
-pip3 --no-cache-dir install pip-autoremove
-pip3 --no-cache-dir install pip-chill
+# (Uncomment the lines below)
+# pip3 --no-cache-dir install autopep8
+# pip3 --no-cache-dir install flake8
+# pip3 --no-cache-dir install pip-autoremove
+# pip3 --no-cache-dir install pip-chill
+
+# (Uncomment till here)
+
 
 # Global as well
 pip3 --no-cache-dir install pydocstyle
