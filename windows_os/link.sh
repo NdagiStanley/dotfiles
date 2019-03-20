@@ -13,7 +13,7 @@ for file in $files; do
 done
 
 windows_dir=~/dotfiles/windows_os
-files="bash_profile bash_prompt bashrc"
+files="bash_profile bashrc"
 for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -sf "$windows_dir/.$file" ~/.$file

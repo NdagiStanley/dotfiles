@@ -17,7 +17,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 while read APP; do choco install "$APP" | { read first rest ; echo $first ; };
 
 # Hub - Git
-Add-Content $PROFILE "`nSet-Alias git hub"
+Add-Content $PROFILE "nSet-Alias git hub"
 
 # Enable Subsystem Linux 
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
@@ -32,4 +32,5 @@ ssh-add ~/.ssh/id_rsa
 clip < ~/.ssh/id_rsa.pub
 > https://github.com/settings/keys
 
-sh install.sh
+# Same as running $(sh link.sh windows) at the root level
+sh link.sh
