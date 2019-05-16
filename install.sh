@@ -8,12 +8,6 @@ function __homebrew__() {
     echo "Homebrew is already installed"
 }
 
-# Run on PowerShell
-function __choco__() {
-    echo "Installing chocolatey..."
-    Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-}
-
 function __zsh__() {
     echo "Installing oh-my-zsh..."
     (sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)") &
@@ -28,8 +22,7 @@ function __npm__() {
 function __brew__() {
     echo "Installing Brew packages..."
     __homebrew__
-    sh mac_os/brew.sh
-    sh mac_os/more_brew.sh
+    brew bundle --file=mac_os/work/Brewfile
 }
 
 function __pip__() {

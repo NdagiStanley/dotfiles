@@ -25,7 +25,7 @@ function __pro__() {
     vim +PluginInstall +qall
 
     # Install everything in Brewfile
-    brew bundle
+    brew bundle --file=mac_os/Brewfile
 
     # Postgres
     brew services start postgresql
