@@ -1,12 +1,7 @@
 @vue/cli
-@vue/cli-init
 httpster
 ijavascript
 node
 npm
-pippi
-trello-cli
 vsce
 vscode
-vue
-vue-cli
