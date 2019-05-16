@@ -1,15 +1,32 @@
 #!/usr/bin/env bash
 
-# Brewfile
-echo "Dumping all things brew to Brewfile"
-brew bundle dump --force
+function __brew__() {
+    # Brewfile
+    echo "Dumping all things brew to Brewfile"
+    brew bundle dump --force
+    echo "Move the Brewfile to `mac_os` or `mac_os/work`"
+}
 
-# Global NPM packages
-echo "Dumping npm packages to npm.txt"
-npm ls -g -j --depth=0 | jq -r '.dependencies|keys|join("\n")' > npm.txt
+function __npm__() {
+    # Global NPM packages
+    echo "Dumping npm packages to npm.txt"
+    npm ls -g -j --depth=0 | jq -r '.dependencies|keys|join("\n")' > npm.txt
+}
 
-# PIP packages
-echo "Dumping PIP packages to pip.txt"
-pip3 install --upgrade pip
-pip-chill --no-version > pip.txt
-echo "Done!"
+function __pip__() {
+    # PIP packages
+    echo "Dumping PIP packages to pip.txt"
+    pip3 install --upgrade pip
+    pip-chill --no-version > pip.txt
+    echo "Done!"
+}
+
+if [ "$1" != "" ] && type "__$1__" &> /dev/null; then
+    eval "__$1__"
+elif [ "$1" == "--complete" ]; then
+    __brew__
+    __npm__
+    __pip__
+else
+    echo "Usage: ./sync.sh (brew/ npm/ pip | --complete)"
+fi
