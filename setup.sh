@@ -56,7 +56,52 @@ function __pro__() {
 function __basic__() {
     # Install homebrew & basic apps
     sh install.sh homebrew
-    sh brew.sh
+    sh mac_os/brew.sh
+
+    # Install oh-my-zsh
+    sh install.sh zsh
+}
+
+function __work__() {
+    echo "Running Work setup..."
+    __basic__
+
+    # Python
+    sh install.sh pip
+    sh code/virtualenvwrapper.sh
+    
+    # `the rest`
+    cp .zshrc ~/.zshrc
+    cp .functions ~/.functions
+    cp .aliases ~/.aliases
+    brew install hub
+
+    # Link `the rest`
+    sh link.sh zsh
+    sh link.sh functions
+    sh link.sh aliases
+    sh link.sh git
+
+    # Vim
+    cp .vimrc ~/.vimrc
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    vim +PluginInstall +qall
+    sh link.sh vim
+
+    # Zsh
+    git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+    mkdir -p $ZSH_CUSTOM/themes && curl -o $ZSH_CUSTOM/themes/rafiki.zsh-theme https://raw.githubusercontent.com/NdagiStanley/rafiki-zsh/own-editions/rafiki.zsh-theme
+
+    # JS
+    brew install node
+    npm i -g npm
+    npm i -g node
+    npm i -g ijavascript
+    npm i -g httpster
+
+    sh install.sh brew
+    
+    __finish__
 
     # Install oh-my-zsh
     sh install.sh zsh
@@ -83,5 +128,5 @@ if [ "$1" != "" ] && type "__$1__" &> /dev/null; then
 elif [ "$1" == "--complete" ]; then
     __pro__
 else
-    echo "Usage: ./setup.sh (quick/ python | --complete)"
+    echo "Usage: ./setup.sh (quick/ python/ work | --complete)"
 fi

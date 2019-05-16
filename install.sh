@@ -16,13 +16,20 @@ function __choco__() {
 
 function __zsh__() {
     echo "Installing oh-my-zsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    (sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)") &
 }
 
 function __npm__() {
     echo "Installing NPM global packages..."
     brew install node
     while read line; do npm i -g "$line"; done < npm.txt
+}
+
+function __brew__() {
+    echo "Installing Brew packages..."
+    __homebrew__
+    sh mac_os/brew.sh
+    sh mac_os/more_brew.sh
 }
 
 function __pip__() {
@@ -46,5 +53,5 @@ elif [ "$1" == "--all" ]; then
     __npm__
     __pip__
 else
-    echo "Usage: ./install.sh (homebrew/ oh-my-zsh/ npm/ pip/ choco (for Windows OS) | --all)"
+    echo "Usage: ./install.sh (homebrew/ brew/ oh-my-zsh/ npm/ pip/ choco (for Windows OS) | --all)"
 fi
