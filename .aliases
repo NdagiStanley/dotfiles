@@ -97,7 +97,7 @@ alias showdt="defaults write com.apple.finder CreateDesktop -bool true && killal
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
 # Get macOS Software Updates, and update Homebrew, npm, and their installed packages as well as Oh My Zsh
-alias update='sudo softwareupdate -i -a; mdbrew; npm install npm -g; npm update -g; upgrade_oh_my_zsh'
+alias update='sudo softwareupdate -i -a; mdbrew; npm update -g; upgrade_oh_my_zsh'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
