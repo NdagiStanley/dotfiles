@@ -13,6 +13,22 @@ git clone https://github.com/NdagiStanley/dotfiles.git && cd dotfiles
 
 # UNIX/ LINUX
 
+### Caveat
+
+There is very little difference between Unix and Linux setup. Brew works for both.
+
+However for Linux, installation is different so just run:
+
+> Linux installation
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+```
+
+Then proceed.
+
+_Please note that, for Linux, where __mas__ is used (in the Brewfiles) utilized when running `sh setup.sh work` and `sh setup.sh pro` an error will occur. Ignore this._
+
+
 ## Quick setup
 ```
 sh setup.sh basic
