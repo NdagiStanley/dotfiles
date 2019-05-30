@@ -1,31 +1,103 @@
 # dotfiles
 
-Install Xcode Command Line Tools from the App Store.
+First, install Xcode Command Line Tools from the App Store
 
-`xcode-select --install`
+```
+xcode-select --install
+```
 
-Clone repo `git clone https://github.com/NdagiStanley/dotfiles.git && cd dotfiles` and RUN:
+Next, clone this repo
+```
+git clone https://github.com/NdagiStanley/dotfiles.git && cd dotfiles
+```
 
-`sh setup.sh quick`
+# UNIX/ LINUX
 
-> Python
+## Quick setup
+```
+sh setup.sh basic
+```
+> You'll be prompted for your password
 
-- There's an option for running setup specific to python by running:
+then run:
+```
+sh setup.sh finish
+```
 
-    `sh setup.sh python`
 
-## PRO-MODE
+### Python
+
+There's an option for running setup specific to python by running:
+
+> Ensure you've run __`sh setup.sh basic`__ before you proceed
+  ```
+  sh setup.sh python
+  ```
+
+
+## Work-mode
+```
+sh setup.sh basic
+```
+> You'll be prompted for your password
+
+then run:
+```
+sh setup.sh work
+```
+
+
+## PRO-mode
 
 To have my setup (which has a bit more installs and configuration) run:
 
-`sh setup.sh --complete && update`
+_Install homebrew, oh-my-zsh, npm packages & pip packages_
+```
+sh install.sh --all
+```
+> You'll be prompted for your password
 
-Once in a while run `sh sync.sh` to sync up the dotfiles and push to github.
+then run:
 
-### CODE
+```
+sh setup.sh pro
+```
+
+# Windows OS
+
+Follow the instructions [here](/windows_os).
+
+# Et al
+
+## Maintenance
+
+Once in a while I run:
+
+- `sh sync.sh`
+
+    _to sync up the dotfiles and push to Github. This applies to you if you forked this repo or have your own dotfiles hosted online_
+
+- `update`
+
+    _to run a system-wide update (I do it almost daily)_ 🙂
+
+## CODE
 
 For code-specific dotfiles checkout the [code folder](/code)
 
-### MAC
+## MAC
 
-Run `./.macos` for specific my custom *System Preferences* setup. Edit it as you may please.
+Run `sh mac_os/setup.sh` for specific my custom *System Preferences* setup. Edit it as you may please.
+
+## GIT
+
+_SSH keys_
+```
+ssh-keygen -t rsa -b 4096 -C ".."
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/id_rsa
+pbcopy < ~/.ssh/id_rsa.pub
+```
+> The last command is different in [Linux](/linux_os#git) and [Windows](/windows_os#git) ([Reference](https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account))
+
+The SSH Public Key is now in your clipboard. Navigate to [this page](https://github.com/settings/keys), click on **New SSH key**, enter a _title_, paste the _Public Key_ and click on **Add SSH key**.

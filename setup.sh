@@ -16,9 +16,6 @@ function __link__() {
 }
 
 function __pro__() {
-    # Install homebrew, oh-my-zsh, npm packages & pip packages
-    sh install.sh --all
-
     # Vim
     cp .vimrc ~/.vimrc
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -45,7 +42,10 @@ function __pro__() {
     __link__
 
     # Autosuggestions
-    git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+    ZSH_AUTOSUGGESTIONS_DIR="$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+    if [ ! -d "$ZSH_AUTOSUGGESTIONS_DIR" ]; then
+        git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_AUTOSUGGESTIONS_DIR
+    fi
 
     # Rafiki
     mkdir -p $ZSH_CUSTOM/themes && curl -o $ZSH_CUSTOM/themes/rafiki.zsh-theme https://raw.githubusercontent.com/NdagiStanley/rafiki-zsh/own-editions/rafiki.zsh-theme
@@ -64,7 +64,6 @@ function __basic__() {
 
 function __work__() {
     echo "Running Work setup..."
-    __basic__
 
     # Python
     sh install.sh pip
@@ -88,8 +87,13 @@ function __work__() {
     vim +PluginInstall +qall
     sh link.sh vim
 
-    # Zsh
-    git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+    # Autosuggestions
+    ZSH_AUTOSUGGESTIONS_DIR="$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+    if [ ! -d "$ZSH_AUTOSUGGESTIONS_DIR" ]; then
+        git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_AUTOSUGGESTIONS_DIR
+    fi
+
+    # Rafiki
     mkdir -p $ZSH_CUSTOM/themes && curl -o $ZSH_CUSTOM/themes/rafiki.zsh-theme https://raw.githubusercontent.com/NdagiStanley/rafiki-zsh/own-editions/rafiki.zsh-theme
 
     # JS
@@ -99,12 +103,10 @@ function __work__() {
     npm i -g ijavascript
     npm i -g httpster
 
+    # Install only a few critical apps
     sh install.sh brew
     
     __finish__
-
-    # Install oh-my-zsh
-    sh install.sh zsh
 }
 
 function __quick__() {
@@ -115,7 +117,6 @@ function __quick__() {
 
 function __python__() {
     echo "Running Python setup..."
-    __basic__
     sh install.sh pip
     cp .zshrc ~/.zshrc
     # I opted not to copy the .aliases and .functions
@@ -123,10 +124,15 @@ function __python__() {
     __finish__
 }
 
+function __windows__() {
+    echo "Running Windows setup..."
+    sh install.sh choco
+    cd windows_os && sh setup.sh
+    cd ..
+}
+
 if [ "$1" != "" ] && type "__$1__" &> /dev/null; then
     eval "__$1__"
-elif [ "$1" == "--complete" ]; then
-    __pro__
 else
-    echo "Usage: ./setup.sh (quick/ python/ work | --complete)"
+    echo "Usage: ./setup.sh (quick/ python/ work/ pro/ windows)"
 fi

@@ -27,7 +27,7 @@ sudo scutil --set LocalHostName "0x008080"
 sudo nvram SystemAudioVolume=" "
 
 # Set highlight color to green
-defaults write NSGlobalDomain AppleHighlightColor -string "0 0.501960 0.501960"
+# defaults write NSGlobalDomain AppleHighlightColor -string "0 0.501960 0.501960"
 
 # Set sidebar icon size to medium
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2

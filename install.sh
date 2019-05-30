@@ -10,7 +10,7 @@ function __homebrew__() {
 
 function __zsh__() {
     echo "Installing oh-my-zsh..."
-    (sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)") &
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 }
 
 function __npm__() {
@@ -23,6 +23,11 @@ function __brew__() {
     echo "Installing Brew packages..."
     __homebrew__
     brew bundle --file=mac_os/work/Brewfile
+}
+
+function __choco__() {
+    echo "Installing Windows OS apps..."
+    sh windows_os/install.sh
 }
 
 function __pip__() {
@@ -38,13 +43,9 @@ if [ "$1" != "" ] && type "__$1__" &> /dev/null; then
     eval "__$1__"
 elif [ "$1" == "--all" ]; then
     __homebrew__
-    __zsh__
-    ZSH_AUTOSUGGESTIONS_DIR="$ZSH_CUSTOM/plugins/zsh-autosuggestions"
-    if [ ! -d "$ZSH_AUTOSUGGESTIONS_DIR" ]; then
-        git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_AUTOSUGGESTIONS_DIR
-    fi
     __npm__
     __pip__
+    __zsh__
 else
     echo "Usage: ./install.sh (homebrew/ brew/ oh-my-zsh/ npm/ pip/ choco (for Windows OS) | --all)"
 fi
