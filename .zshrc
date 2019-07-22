@@ -63,6 +63,11 @@ fi
 # ensure you have a GO directory with src directory
 # export GOPATH="$GOPATH:$HOME/GO"
 
+export GOPATH="${HOME}/.go"
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # GNU Command Line Tools

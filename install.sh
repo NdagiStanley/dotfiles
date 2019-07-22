@@ -14,8 +14,12 @@ function __zsh__() {
 }
 
 function __npm__() {
+    if ! node --version &> /dev/null; then
+        echo "Installing node"
+        brew install node
+    fi
+    echo "Node is already installed"
     echo "Installing NPM global packages..."
-    brew install node
     while read line; do npm i -g "$line"; done < npm.txt
 }
 

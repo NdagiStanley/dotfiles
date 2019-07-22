@@ -75,6 +75,9 @@ Session.vim
 tags
 
 # My files
-MD.MD
-md.Dockerfile
-md.dockerignore
+MD.md
+MD.Dockerfile
+MD.dockerignore
+MD.docker-compose.yml
+MD.html
+md.py
