@@ -12,17 +12,50 @@ function __finish__() {
 }
 
 function __link__() {
-    sh link.sh --all
+    sh link.sh --main
 }
 
-function __pro__() {
+function __core__() {
     # Vim
     cp .vimrc ~/.vimrc
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall
 
-    # Install everything in Brewfile
-    brew bundle --file=mac_os/Brewfile
+    # Zsh Autosuggestions
+    ZSH_AUTOSUGGESTIONS_DIR="$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+    if [ ! -d "$ZSH_AUTOSUGGESTIONS_DIR" ]; then
+        git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_AUTOSUGGESTIONS_DIR
+    fi
+
+    # Rafiki zsh theme
+    mkdir -p $ZSH_CUSTOM/themes && curl -o $ZSH_CUSTOM/themes/rafiki.zsh-theme https://raw.githubusercontent.com/NdagiStanley/rafiki-zsh/own-editions/rafiki.zsh-theme
+
+    # Copy functions, aliases, zshrc
+    cp .functions ~/.functions
+    cp .aliases ~/.aliases
+    cp .zshrc ~/.zshrc
+
+    # Link zsh, functions, aliases, git, vim
+    __link__
+}
+
+function __pro__() {
+    echo "Running Pro setup..."
+
+    # Vim
+    # Copy functions, aliases, zshrc
+    # Zsh Autosuggestions
+    # Rafiki zsh theme
+    __core__
+
+    # Brew install everything
+    sh install.sh probrew
+
+    # Python
+    __python__
+
+    # JS
+    __javascript__
 
     # Postgres
     brew services start postgresql
@@ -31,24 +64,11 @@ function __pro__() {
     # CircleCI CLI
     curl -o /usr/local/bin/circleci https://circle-downloads.s3.amazonaws.com/releases/build_agent_wrapper/circleci && chmod +x /usr/local/bin/circleci
 
-    # Python
-    sh code/virtualenvwrapper.sh
-
-    # tmux, functions, aliases, zshrc
+    # tmux
     cp .tmux.conf ~/.tmux.conf
-    cp .functions ~/.functions
-    cp .aliases ~/.aliases
-    cp .zshrc ~/.zshrc
-    __link__
 
-    # Autosuggestions
-    ZSH_AUTOSUGGESTIONS_DIR="$ZSH_CUSTOM/plugins/zsh-autosuggestions"
-    if [ ! -d "$ZSH_AUTOSUGGESTIONS_DIR" ]; then
-        git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_AUTOSUGGESTIONS_DIR
-    fi
-
-    # Rafiki
-    mkdir -p $ZSH_CUSTOM/themes && curl -o $ZSH_CUSTOM/themes/rafiki.zsh-theme https://raw.githubusercontent.com/NdagiStanley/rafiki-zsh/own-editions/rafiki.zsh-theme
+    # Link tmux
+    sh link.sh tmux
 
     __finish__
 }
@@ -56,7 +76,7 @@ function __pro__() {
 function __basic__() {
     # Install homebrew & basic apps
     sh install.sh homebrew
-    sh mac_os/brew.sh
+    sh brew.sh
 
     # Install oh-my-zsh
     sh install.sh zsh
@@ -65,63 +85,50 @@ function __basic__() {
 function __work__() {
     echo "Running Work setup..."
 
+    # Vim
+    # Copy functions, aliases, zshrc
+    # Zsh Autosuggestions
+    # Rafiki zsh theme
+    __core__
+
+    # Brew install only a few work-critical apps
+    sh install.sh workbrew
+
     # Python
-    sh install.sh pip
-    sh code/virtualenvwrapper.sh
-    
-    # `the rest`
-    cp .zshrc ~/.zshrc
-    cp .functions ~/.functions
-    cp .aliases ~/.aliases
-    brew install hub
+    __python__
+
+    # JS
+    __javascript__
 
     # Link `the rest`
     sh link.sh zsh
     sh link.sh functions
     sh link.sh aliases
     sh link.sh git
-
-    # Vim
-    cp .vimrc ~/.vimrc
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    vim +PluginInstall +qall
     sh link.sh vim
 
-    # Autosuggestions
-    ZSH_AUTOSUGGESTIONS_DIR="$ZSH_CUSTOM/plugins/zsh-autosuggestions"
-    if [ ! -d "$ZSH_AUTOSUGGESTIONS_DIR" ]; then
-        git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_AUTOSUGGESTIONS_DIR
-    fi
-
-    # Rafiki
-    mkdir -p $ZSH_CUSTOM/themes && curl -o $ZSH_CUSTOM/themes/rafiki.zsh-theme https://raw.githubusercontent.com/NdagiStanley/rafiki-zsh/own-editions/rafiki.zsh-theme
-
-    # JS
-    brew install node
-    npm i -g npm
-    npm i -g node
-    npm i -g ijavascript
-    npm i -g httpster
-
-    # Install only a few critical apps
-    sh install.sh brew
-    
-    __finish__
-}
-
-function __quick__() {
-    echo "Running Quick setup..."
-    __basic__
     __finish__
 }
 
 function __python__() {
     echo "Running Python setup..."
     sh install.sh pip
-    cp .zshrc ~/.zshrc
-    # I opted not to copy the .aliases and .functions
     sh code/virtualenvwrapper.sh
-    __finish__
+
+    # functions, aliases, zshrc
+    cp .functions ~/.functions
+    cp .aliases ~/.aliases
+    cp .zshrc ~/.zshrc
+}
+
+function __javascript__() {
+    sh install.sh npm
+
+    # npm install
+    npm i -g npm
+    npm i -g node
+    npm i -g ijavascript
+    npm i -g httpster
 }
 
 function __windows__() {
@@ -134,5 +141,5 @@ function __windows__() {
 if [ "$1" != "" ] && type "__$1__" &> /dev/null; then
     eval "__$1__"
 else
-    echo "Usage: ./setup.sh (quick/ python/ work/ pro/ windows)"
+    echo "Usage: ./setup.sh (basic/ finish/ python/ javascript/ work/ pro/ windows)"
 fi

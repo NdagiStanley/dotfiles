@@ -9,7 +9,5 @@ brew upgrade
 brew install tree 2> /dev/null
 brew install wget 2> /dev/null
 
-brew cask install google-chrome 2> /dev/null
-
 # Remove outdated versions from the cellar.
 brew cleanup

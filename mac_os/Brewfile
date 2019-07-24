@@ -22,7 +22,6 @@ brew "imagemagick"
 brew "jq"
 brew "mas"
 brew "mysql"
-brew "node"
 brew "pipenv"
 brew "postgresql", restart_service: true
 brew "python@2"

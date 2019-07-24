@@ -31,13 +31,12 @@ function __windows__() {
 
 if [ "$1" != "" ] && type "__$1__" &> /dev/null; then
     eval "__$1__"
-elif [ "$1" == "--all" ]; then
+elif [ "$1" == "--main" ]; then
     __zsh__
     __functions__
     __aliases__
-    __tmux__
     __git__
     __vim__
 else
-    echo "Usage: ./link.sh (zsh/ functions/ aliases/ tmux/ git/ vim/ windows (for Windows OS) | --all)"
+    echo "Usage: ./link.sh (zsh/ functions/ aliases/ tmux/ git/ vim/ windows (for Windows OS) | --main)"
 fi

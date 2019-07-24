@@ -16,17 +16,24 @@ function __zsh__() {
 function __npm__() {
     if ! node --version &> /dev/null; then
         echo "Installing node"
-        brew install node
+        curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
+
     fi
     echo "Node is already installed"
     echo "Installing NPM global packages..."
     while read line; do npm i -g "$line"; done < npm.txt
 }
 
-function __brew__() {
-    echo "Installing Brew packages..."
+function __workbrew__() {
+    echo "Installing Brew packages for work..."
     __homebrew__
     brew bundle --file=mac_os/work/Brewfile
+}
+
+function __probrew__() {
+    echo "Installing Brew packages for work..."
+    __homebrew__
+    brew bundle --file=mac_os/Brewfile
 }
 
 function __choco__() {
