@@ -20,13 +20,28 @@ There is very little difference between Unix and Linux setup. Brew works for bot
 However for Linux, installation is different so just run:
 
 > Linux installation
+
+Run:
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+```
+then:
+```bash
+test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+```
+and finally:
+```bash
+sudo apt-get install build-essential curl file git
 ```
 
 Then proceed.
 
 _Please note that, for Linux, where __mas__ is used (in the Brewfiles) utilized when running `sh setup.sh work` and `sh setup.sh pro` an error will occur. Ignore this._
+
+For a recurrent server or workstation (that's not personal), I just install oh-my-zsh by running `sh install zsh`. The bare minimum aliases are a time-saver!
 
 
 ## Quick setup
