@@ -48,6 +48,8 @@ bower_components
 # Python Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+# pyenv
+.python-version
 
 # VS Code #
 ###########
