@@ -1,7 +1,9 @@
 autopep8
+backcall
+black
 bpython
 flake8
-ipdb
+jedi
 pip-autoremove
 pip-chill
 pydocstyle

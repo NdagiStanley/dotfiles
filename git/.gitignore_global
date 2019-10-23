@@ -82,4 +82,6 @@ MD.Dockerfile
 MD.dockerignore
 MD.docker-compose.yml
 MD.html
-md.py
+MD.py
+MD.sh
+MD.csv

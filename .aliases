@@ -3,9 +3,6 @@
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 eval "$(hub alias -s)"
 alias g="hub"
 
@@ -77,7 +74,7 @@ alias week='date +%V'
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 # Recursively delete `.DS_Store` files
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+alias cleanup="sudo find . -type f -name '*.DS_Store' -ls -delete && emptytrash && docker system prune"
 
 # Empty the Trash on all mounted volumes and the main HDD.
 # Also, clear Apple’s System Logs to improve shell startup speed.
@@ -110,3 +107,5 @@ alias imgcat=~/.iterm2/imgcat;alias imgls=~/.iterm2/imgls;alias it2attention=~/.
 
 alias mi="mas install"
 alias ms="mas search"
+
+alias md="cd Projects/MD"

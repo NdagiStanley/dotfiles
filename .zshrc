@@ -84,3 +84,18 @@ fi
 # heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/Users/stanmd/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 export PATH="/usr/local/opt/openssl/bin:$PATH"
+
+# Install nvm: brew install nvm
+export NVM_DIR="$HOME/.nvm"
+if [[ -s $NVM_DIR ]]; then
+    [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+    [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+    # nvm install 8.9.0
+    # nvm use 8.9.0
+fi
+export RVM_DIR="$HOME/.rvm"
+if [[ -s $RVM_DIR ]]; then
+    source $HOME/.rvm/scripts/rvm
+    # rvm install "ruby-2.2.5"
+    # rvm use ruby-2.2.5
+fi

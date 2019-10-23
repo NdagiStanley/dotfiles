@@ -104,13 +104,17 @@ Follow the instructions [here](/windows_os).
 
 Once in a while I run:
 
-- `sh sync.sh`
+- `sh sync.sh --complete`
 
     _to sync up the dotfiles and push to Github. This applies to you if you forked this repo or have your own dotfiles hosted online_
 
 - `update`
 
     _to run a system-wide update (I do it almost daily)_ 🙂
+
+- `cleanup`
+
+    _to clean **.Trashes**, ***.DS_Store** among others plus **docker system prune**_
 
 ## CODE
 
