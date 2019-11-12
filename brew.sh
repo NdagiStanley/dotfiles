@@ -6,6 +6,7 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
+brew install hub 2> /dev/null
 brew install tree 2> /dev/null
 brew install wget 2> /dev/null
 
