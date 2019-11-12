@@ -24,7 +24,7 @@ function __core__() {
     # Zsh Autosuggestions
     ZSH_AUTOSUGGESTIONS_DIR="$ZSH_CUSTOM/plugins/zsh-autosuggestions"
     if [ ! -d "$ZSH_AUTOSUGGESTIONS_DIR" ]; then
-        git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_AUTOSUGGESTIONS_DIR
+        sudo git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_AUTOSUGGESTIONS_DIR
     fi
 
     # Rafiki zsh theme
