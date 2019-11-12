@@ -9,12 +9,12 @@ function __homebrew__() {
 }
 
 function __zsh__() {
-    if ! lsb_release -d &> /dev/null; then
-        echo "Figured out, we're in Ubuntu. Installing zsh..."
+    if ! zsh &> /dev/null; then
+        echo "Figured out, zsh is not installed. Installing zsh..."
         brew install zsh
     fi
     echo "Installing oh-my-zsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 }
 
 function __npm__() {
