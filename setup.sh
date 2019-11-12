@@ -73,7 +73,7 @@ function __basic__() {
     sh brew.sh
 
     # Install oh-my-zsh
-    sudo sh install.sh zsh
+    sh install.sh zsh
 }
 
 function __work__() {
