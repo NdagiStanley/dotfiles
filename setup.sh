@@ -28,7 +28,7 @@ function __core__() {
     fi
 
     # Rafiki zsh theme
-    mkdir -p $ZSH_CUSTOM/themes && curl -o $ZSH_CUSTOM/themes/rafiki.zsh-theme https://raw.githubusercontent.com/NdagiStanley/rafiki-zsh/own-editions/rafiki.zsh-theme
+    mkdir -p $ZSH_CUSTOM/themes && sudo curl -o $ZSH_CUSTOM/themes/rafiki.zsh-theme https://raw.githubusercontent.com/NdagiStanley/rafiki-zsh/own-editions/rafiki.zsh-theme
 
     # Copy functions, aliases, zshrc
     cp .functions ~/.functions
