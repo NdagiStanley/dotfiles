@@ -9,7 +9,6 @@ brew upgrade
 brew install hub 2> /dev/null
 brew install tree 2> /dev/null
 brew install wget 2> /dev/null
-brew install z 2> /dev/null
 
 # Remove outdated versions from the cellar.
 brew cleanup
