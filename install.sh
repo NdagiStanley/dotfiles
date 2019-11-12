@@ -9,10 +9,7 @@ function __homebrew__() {
 }
 
 function __zsh__() {
-    if ! zsh &> /dev/null; then
-        echo "Figured out, zsh is not installed. Installing zsh..."
-        brew install zsh
-    fi
+    brew install zsh
     echo "Installing oh-my-zsh..."
     sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 }
