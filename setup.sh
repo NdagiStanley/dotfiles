@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-# Ask for the administrator password upfront
-sudo -v
-
-# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
 function __finish__() {
     source ~/.zshrc
     echo "We're done. Your MAC is now setup!"
@@ -79,7 +73,7 @@ function __basic__() {
     sh brew.sh
 
     # Install oh-my-zsh
-    sh install.sh zsh
+    sudo sh install.sh zsh
 }
 
 function __work__() {
