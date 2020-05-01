@@ -86,6 +86,7 @@ HEROKU_AC_ZSH_SETUP_PATH=/Users/stanmd/Library/Caches/heroku/autocomplete/zsh_se
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 
 # Install nvm: brew install nvm
+# Then create folder: mkdir ~/.nvm
 export NVM_DIR="$HOME/.nvm"
 if [[ -s $NVM_DIR ]]; then
     [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm

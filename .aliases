@@ -26,15 +26,16 @@ alias bci="brew cask install"
 alias bcui="brew cask uninstall"
 
 # Python
-alias py="python3"
+alias py="python"
 alias py2="python2"
 alias bpy="bpython"
 alias ipy="ipython"
 alias ptpy="ptpython"
 alias pc="pip-chill"
-alias pf="pip freeze"
-alias pi="pip install"
-alias pui="pip uninstall"
+alias pcc="pc | grep -v 'autopep8' | grep -v 'pip-autoremove' | grep -v 'flake8' | grep -v 'pip-chill'"
+alias pf="python -m pip freeze"
+alias pi="python -m pip install"
+alias pui="python -m pip uninstall"
 alias par="pip-autoremove"
 
 # Docker

@@ -3,14 +3,25 @@
 # working on the same project across various editors and IDEs
 # See how to download a plugin for your editor/ IDE: https://editorconfig.org/#download
 
+# top-most EditorConfig file
 root = true
 
+# Unix-style newlines with a newline ending every file
+# Trailing whitespaces trimmed
+# Set default character encoding (just in case)
+# Set default indent style
 [*]
-indent_style = space
-indent_size = 2
-charset = utf-8
-trim_trailing_whitespace = true
+end_of_line = lf
 insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+indent_style = space
 
-[*.py]
+# Matches multiple files with brace expansion notation
+# 4 space indentation
+[*.{py,js,css,sh}]
 indent_size = 4
+
+# 2 space indentation
+[*.{json,html,svg,yml}]
+indent_size = 2
