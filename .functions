@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 
 # Create a new directory and enter it
-function mkd() {
-  mkdir -p "$@" && cd "$_";
+mkd() {
+  mkdir -p "$@"
+  cd "$@" || exit
 }
 
 function server() {
   python -m SimpleHTTPServer "$@"
 }
 
+# Create a git.io short URL
 function gitio() {
-  if [ -z "${1}" -o -z "${2}" ]; then
+  if [ -z "${1}" ] || [ -z "${2}" ]; then
     echo "Usage: \`gitio slug url\`";
     return 1;
   fi;
@@ -26,9 +28,9 @@ function tre() {
 }
 
 function compare() {
-  hub compare ${1:=develop}...$(git rev-parse --abbrev-ref HEAD)
+  hub compare "${1:=develop}"..."$(git rev-parse --abbrev-ref HEAD)"
 }
 
 function compare_branch() {
-  hub compare ${1:="$@"}...$(git rev-parse --abbrev-ref HEAD)
+  hub compare ${1:="$@"}..."$(git rev-parse --abbrev-ref HEAD)"
 }

@@ -100,3 +100,7 @@ if [[ -s $RVM_DIR ]]; then
     # rvm install "ruby-2.2.5"
     # rvm use ruby-2.2.5
 fi
+
+export YOUVERSION_VOTD_VERSION=8
+
+export PATH="$PATH:$HOME/Projects/CTO/flutter/bin"

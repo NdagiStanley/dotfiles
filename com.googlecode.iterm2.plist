@@ -13,6 +13,8 @@
 			<string>Paste</string>
 		</dict>
 	</array>
+	<key>AllowClipboardAccess</key>
+	<false/>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
 	<key>ApplePressAndHoldEnabled</key>
@@ -28,7 +30,7 @@
 	<key>Default Bookmark Guid</key>
 	<string>06A230B1-F077-4A84-BFFF-7B8DF5EEB626</string>
 	<key>DimBackgroundWindows</key>
-	<true/>
+	<false/>
 	<key>DimInactiveSplitPanes</key>
 	<true/>
 	<key>DimOnlyText</key>
@@ -40,11 +42,13 @@
 	<key>EnableAPIServer</key>
 	<false/>
 	<key>FocusFollowsMouse</key>
-	<true/>
+	<false/>
 	<key>GlobalTouchBarMap</key>
 	<dict/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
+	<key>HideMenuBarInFullscreen</key>
+	<true/>
 	<key>HideScrollbar</key>
 	<false/>
 	<key>HideTab</key>
@@ -113,7 +117,7 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>2538 13 700 622 2048 -610 3360 1867 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>224 609 665 488 0 0 1792 1120 </string>
+	<string>0 0 889 1097 0 0 1792 1120 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>18 212 665 473 0 0 1792 1120 </string>
 	<key>New Bookmarks</key>
@@ -1083,16 +1087,18 @@
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1792, 1120}}</string>
+		<string>{{2048, -610}, {3360, 1890}}</string>
 		<key>topLeft</key>
-		<string>{157, 1015}</string>
+		<string>{2956, 1042}</string>
 	</dict>
+	<key>NoSyncHaveUsedCopyMode</key>
+	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>5EA09623-47AB-4178-A865-17BCE69A0A32</string>
 	<key>NoSyncLastTipTime</key>
 	<real>608590138.18186998</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>63</integer>
+	<integer>72</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -1917,6 +1923,8 @@
 		<string>0051</string>
 		<string>0078</string>
 	</array>
+	<key>OptionClickMovesCursor</key>
+	<true/>
 	<key>PerPaneBackgroundImage</key>
 	<false/>
 	<key>PointerActions</key>
@@ -1961,7 +1969,7 @@
 	<key>QuitWhenAllWindowsClosed</key>
 	<true/>
 	<key>SUEnableAutomaticChecks</key>
-	<true/>
+	<false/>
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
@@ -1969,7 +1977,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-04-30T21:39:54Z</date>
+	<date>2020-05-24T00:32:19Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
@@ -1982,8 +1990,12 @@
 	<true/>
 	<key>ShowPaneTitles</key>
 	<false/>
+	<key>SmartPlacement</key>
+	<true/>
 	<key>SoundForEsc</key>
 	<false/>
+	<key>SplitPaneDimmingAmount</key>
+	<real>0.15643284574468086</real>
 	<key>StatusBarPosition</key>
 	<integer>0</integer>
 	<key>StretchTabsToFillBar</key>
@@ -2002,8 +2014,12 @@
 	<false/>
 	<key>UseLionStyleFullscreen</key>
 	<true/>
+	<key>UseMetal</key>
+	<false/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
+	<key>WindowNumber</key>
+	<true/>
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
