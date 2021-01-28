@@ -3,54 +3,68 @@
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-eval "$(hub alias -s)"
-alias g="hub"
 
 # Shortcuts
+alias c="code"
+alias ci="code-insiders"
+alias cls="clear"
 alias db="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias h="history"
 alias e="exit"
+alias h="history"
+alias md="cd Projects/MD"
+alias notify="tput bel & say done"
 alias p="cd ~/Projects"
-alias c="code"
-alias ci="code-insiders"
+alias reload="source ~/.zshrc"
 alias wifi-off='networksetup -setairportpower en0 off'
 alias wifi-on='networksetup -setairportpower en0 on'
 
-alias cls="clear"
+
+# Brew
 alias bi="brew install"
-alias bui="brew uninstall"
+alias bic="brew install --cask"
+alias bl="brew list"
+alias blc="brew list --cask"
 alias bs="brew search"
-alias bci="brew cask install"
-alias bcui="brew cask uninstall"
+alias bui="brew uninstall"
+alias buic="brew uninstall --cask"
+alias mdbrew="brew update && brew upgrade && brew cu -a && brew cleanup"
+alias vlc="/Applications/VLC.app/Contents/MacOS/VLC --extraintf=http --http-password=vlcdirect"
+
+# Hub: https://github.com/github/hub
+eval "$(hub alias -s)"
+alias g="hub"
 
 # Python
-alias py="python"
-alias py2="python2"
 alias bpy="bpython"
 alias ipy="ipython"
-alias ptpy="ptpython"
+alias par="pip-autoremove"
 alias pc="pip-chill"
 alias pcc="pc | grep -v 'autopep8' | grep -v 'pip-autoremove' | grep -v 'flake8' | grep -v 'pip-chill'"
 alias pf="python -m pip freeze"
 alias pi="python -m pip install"
 alias pui="python -m pip uninstall"
-alias par="pip-autoremove"
+alias ptpy="ptpython"
+alias py2="python2"
+alias py="python"
 
 # Docker
-alias d="docker"
-alias di="docker images"
-alias dc="docker-compose"
 alias d-reset="sh ~/dotfiles/code/docker_reset.sh"
+alias d="docker"
+alias dc="docker-compose"
+alias di="docker images"
 
 # DB
 alias pg-start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 alias pg-stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 
-alias mdbrew="brew update && brew upgrade && brew cu -a && brew cleanup"
-alias reload="source ~/.zshrc"
-alias vlc="/Applications/VLC.app/Contents/MacOS/VLC --extraintf=http --http-password=vlcdirect"
+# PHP
+alias pu="clear && vendor/bin/phpunit"
+alias pf="clear && vendor/bin/phpunit --filter "
+
+
+# LS
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -94,19 +108,16 @@ alias showdt="defaults write com.apple.finder CreateDesktop -bool true && killal
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
 # Get macOS Software Updates, and update Homebrew, npm, and their installed packages as well as Oh My Zsh
-alias update='sudo softwareupdate -i -a; mdbrew; upgrade_oh_my_zsh'
+alias update='sudo softwareupdate -i -a; mdbrew; omz update'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
-alias notify="tput bel & say done"
-
 # cat but for images - iterm
 alias imgcat=~/.iterm2/imgcat;alias imgls=~/.iterm2/imgls;alias it2attention=~/.iterm2/it2attention;alias it2check=~/.iterm2/it2check;alias it2copy=~/.iterm2/it2copy;alias it2dl=~/.iterm2/it2dl;alias it2getvar=~/.iterm2/it2getvar;alias it2setcolor=~/.iterm2/it2setcolor;alias it2setkeylabel=~/.iterm2/it2setkeylabel;alias it2ul=~/.iterm2/it2ul;alias it2universion=~/.iterm2/it2universion
 
+# mas CLI: https://github.com/mas-cli/mas
 alias mi="mas install"
 alias ms="mas search"
-
-alias md="cd Projects/MD"

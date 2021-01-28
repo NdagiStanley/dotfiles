@@ -77,11 +77,14 @@ Session.vim
 tags
 
 # My files
-MD.md
 MD.Dockerfile
-MD.dockerignore
+MD.csv
 MD.docker-compose.yml
+MD.dockerignore
+MD.env
 MD.html
+MD.js
+MD.md
+MD.php
 MD.py
 MD.sh
-MD.csv
