@@ -47,7 +47,11 @@ Then proceed.
 
 _Please note that, for Linux, where __mas__ is used (in the Brewfiles) utilized when running `sh setup.sh work` and `sh setup.sh pro` an error will occur. Ignore this._
 
-For a recurrent server or workstation (that's not personal), I just install oh-my-zsh by running `sh install zsh`. The bare minimum aliases are a time-saver!
+### Edge case - shared machine
+
+For a recurrent server or workstation (that's not personal), I just install oh-my-zsh by running `sh install.sh zsh`. The bare minimum aliases are a time-saver!
+
+Uncomment the last line `ZSH_DISABLE_COMPFIX="true"`
 
 ## Quick setup
 
