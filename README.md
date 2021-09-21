@@ -77,15 +77,9 @@ There's an option for running setup specific to python by running:
 sh setup.sh python
 ```
 
-## Work-mode
+### Work-mode
 
-```bash
-sh setup.sh basic
-```
-
-> You'll be prompted for your password
-
-then run:
+> Ensure you've run __`sh setup.sh basic`__ before you proceed
 
 ```bash
 sh setup.sh work
@@ -93,7 +87,7 @@ sh setup.sh work
 
 ## PRO-mode
 
-To have my setup (which has a bit more installs and configuration); install homebrew, oh-my-zsh, npm packages & pip packages by running:
+To have my setup (which has a bit more installs and configuration); install homebrew, oh-my-zsh, npm packages & pypi packages by running:
 
 ```bash
 sh install.sh --all
