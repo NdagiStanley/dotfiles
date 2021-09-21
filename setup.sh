@@ -93,13 +93,9 @@ function __work__() {
 
     # JS
     __javascript__
-
-    # Link `the rest`
-    sh link.sh zsh
-    sh link.sh functions
-    sh link.sh aliases
-    sh link.sh git
-    sh link.sh vim
+    
+    # Link zsh, functions, aliases, git, vim
+    __link__
 
     __finish__
 }
