@@ -51,7 +51,7 @@ _Please note that, for Linux, where __mas__ is used (in the Brewfiles) utilized 
 
 For a recurrent server or workstation (that's not personal), I just install oh-my-zsh by running `sh install.sh zsh`. The bare minimum aliases are a time-saver!
 
-Uncomment the last line `ZSH_DISABLE_COMPFIX="true"`
+Uncomment the last line of the `.zshrc` file: `ZSH_DISABLE_COMPFIX="true"`
 
 ## Quick setup
 
