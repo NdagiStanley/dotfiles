@@ -13,13 +13,12 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias e="exit"
 alias h="history"
-alias md="cd Projects/MD"
+alias md="cd ~/Projects/MD"
 alias notify="tput bel & say done"
 alias p="cd ~/Projects"
 alias reload="source ~/.zshrc"
 alias wifi-off='networksetup -setairportpower en0 off'
 alias wifi-on='networksetup -setairportpower en0 on'
-
 
 # Brew
 alias bi="brew install"
@@ -33,6 +32,7 @@ alias mdbrew="brew update && brew upgrade && brew cu -a && brew cleanup"
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC --extraintf=http --http-password=vlcdirect"
 
 # Hub: https://github.com/github/hub
+# GitHub's CLI: https://cli.github.com/ is an option but there is no alternative for hub compare/ hub compare_branch (see .functions)
 eval "$(hub alias -s)"
 alias g="hub"
 
@@ -63,9 +63,7 @@ alias pg-stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.
 alias pu="clear && vendor/bin/phpunit"
 alias pf="clear && vendor/bin/phpunit --filter "
 
-
 # LS
-
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
     colorflag="--color"
@@ -86,7 +84,7 @@ alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias week='date +%V'
 
 # Lock the screen (when going AFK - Away from Keyboard)
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+alias afk="pmset displaysleepnow"
 
 # Recursively delete `.DS_Store` files
 alias cleanup="sudo find . -type f -name '*.DS_Store' -ls -delete && emptytrash && docker system prune"
@@ -108,10 +106,10 @@ alias showdt="defaults write com.apple.finder CreateDesktop -bool true && killal
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
 # Get macOS Software Updates, and update Homebrew, npm, and their installed packages as well as Oh My Zsh
-alias update='sudo softwareupdate -i -a; mdbrew; omz update'
+alias update='sudo softwareupdate -i -a; mdbrew; npm install npm -g; npm update -g; omz update'
 
 # IP addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ip="curl ifconfig.me"
 alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
