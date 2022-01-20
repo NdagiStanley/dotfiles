@@ -20,7 +20,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="mm.dd.yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -29,19 +29,6 @@ HIST_STAMPS="mm.dd.yyyy"
 plugins=(git z zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
-
-# virtualenvwrapper configuration
-if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-    export WORKON_HOME=~/Envs
-    export PROJECT_HOME=~/Projects
-    export VIRTUALENVWRAPPER_PYTHON=`which python3`
-    source /usr/local/bin/virtualenvwrapper.sh
-fi
-
-# You may need to manually set your language environment
-export LANG=en_GB.UTF-8
-# (LC_ALL became necessary for pip-env)
-export LC_ALL=en_GB.UTF-8
 
 # Preferred editor all sessions
 export EDITOR='vim'
@@ -54,25 +41,6 @@ if [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; 
     source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
-# Go
-# Install gvm - https://github.com/moovweb/gvm plus the version(s) you want
-# gvm use go1.6.2
-# For Google App Engine
-# Install it - https://cloud.google.com/appengine/docs/standard/go/download
-# export PATH="$PATH:$HOME/go_appengine"
-# ensure you have a GO directory with src directory
-# export GOPATH="$GOPATH:$HOME/GO"
-
-export GOPATH="${HOME}/.go"
-export GOROOT="$(brew --prefix golang)/libexec"
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
-
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# GNU Command Line Tools
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
-
 if [ -f ~/.aliases ]; then
     source ~/.aliases
 fi
@@ -80,27 +48,21 @@ fi
 if [ -f ~/.functions ]; then
     source ~/.functions
 fi
+export PATH="/usr/local/sbin:$PATH"
 
-# heroku autocomplete setup
-HEROKU_AC_ZSH_SETUP_PATH=/Users/stanmd/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
-export PATH="/usr/local/opt/openssl/bin:$PATH"
-
-# Install nvm: brew install nvm
-# Then create folder: mkdir ~/.nvm
 export NVM_DIR="$HOME/.nvm"
-if [[ -s $NVM_DIR ]]; then
-    [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-    [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
-    # nvm install 8.9.0
-    # nvm use 8.9.0
-fi
-export RVM_DIR="$HOME/.rvm"
-if [[ -s $RVM_DIR ]]; then
-    source $HOME/.rvm/scripts/rvm
-    # rvm install "ruby-2.2.5"
-    # rvm use ruby-2.2.5
-fi
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-export YOUVERSION_VOTD_VERSION=8
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/stanmd/Projects/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/stanmd/Projects/google-cloud-sdk/path.zsh.inc'; fi
 
-export PATH="$PATH:$HOME/Projects/CTO/flutter/bin"
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/stanmd/Projects/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/stanmd/Projects/google-cloud-sdk/completion.zsh.inc'; fi
+
+setopt HIST_IGNORE_SPACE
+alias jrnl=" jrnl"
+alias jj=" jrnl jot"
+
+alias javalts='export JAVA_HOME=$(/usr/libexec/java_home)'
+alias java8='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home'

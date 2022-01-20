@@ -80,7 +80,7 @@ repo() {
 
 	echo "Calling $(type open) for $url"
 
-	# open "$url" &> /dev/null || (echo "Using $(type open) to open URL failed." && exit 1);
+	open "$url" &> /dev/null || (echo "Using $(type open) to open URL failed." && exit 1);
 }
 
 todo() {

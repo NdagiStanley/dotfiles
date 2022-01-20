@@ -1,5 +1,7 @@
 [user]
 	name = Ndagi Stanley
+	email = ndagis@gmail.com
+	signingkey = EB66A350B11E7B2B
 [core]
 	excludesfile = ~/.gitignore_global
 [alias]
