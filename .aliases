@@ -8,12 +8,13 @@
 alias c="code"
 alias ci="code-insiders"
 alias cls="clear"
-alias db="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias e="exit"
 alias h="history"
 alias md="cd ~/Projects/MD"
+alias mb="cd ~/Projects/MB"
+alias payo="cd ~/Projects/PAYO"
 alias notify="tput bel & say done"
 alias p="cd ~/Projects"
 alias reload="source ~/.zshrc"
@@ -31,10 +32,18 @@ alias buic="brew uninstall --cask"
 alias mdbrew="brew update && brew upgrade && brew cu -a && brew cleanup"
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC --extraintf=http --http-password=vlcdirect"
 
+# NPM
+alias ni="npm install"
+
 # Hub: https://github.com/github/hub
 # GitHub's CLI: https://cli.github.com/ is an option but there is no alternative for hub compare/ hub compare_branch (see .functions)
 eval "$(hub alias -s)"
 alias g="hub"
+
+# mas CLI: https://github.com/mas-cli/mas
+alias mi="mas install"
+alias ms="mas search"
+alias ml="mas list"
 
 # Python
 alias bpy="bpython"
@@ -42,12 +51,12 @@ alias ipy="ipython"
 alias par="pip-autoremove"
 alias pc="pip-chill"
 alias pcc="pc | grep -v 'autopep8' | grep -v 'pip-autoremove' | grep -v 'flake8' | grep -v 'pip-chill'"
-alias pf="python -m pip freeze"
-alias pi="python -m pip install"
-alias pui="python -m pip uninstall"
+alias pf="python3 -m pip freeze"
+alias pi="python3 -m pip install"
+alias pui="python3 -m pip uninstall"
 alias ptpy="ptpython"
 alias py2="python2"
-alias py="python"
+alias py="python3"
 
 # Docker
 alias d-reset="sh ~/dotfiles/code/docker_reset.sh"
@@ -58,10 +67,6 @@ alias di="docker images"
 # DB
 alias pg-start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 alias pg-stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-
-# PHP
-alias pu="clear && vendor/bin/phpunit"
-alias pf="clear && vendor/bin/phpunit --filter "
 
 # LS
 # Detect which `ls` flavor is in use
@@ -74,17 +79,19 @@ alias l="ls -lF ${colorflag}"
 
 # List all files colorized in long format, including dot files
 alias la="ls -laF ${colorflag}"
-
 export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
 
 # Simplify the command for opening a new Chrome tab
-alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias ch="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
 # Get week number
 alias week='date +%V'
 
 # Lock the screen (when going AFK - Away from Keyboard)
 alias afk="pmset displaysleepnow"
+
+# Remove duplicates in the “Open With” menu
+alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user"
 
 # Recursively delete `.DS_Store` files
 alias cleanup="sudo find . -type f -name '*.DS_Store' -ls -delete && emptytrash && docker system prune"
@@ -112,10 +119,3 @@ alias update='sudo softwareupdate -i -a; mdbrew; npm install npm -g; npm update 
 alias ip="curl ifconfig.me"
 alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
-
-# cat but for images - iterm
-alias imgcat=~/.iterm2/imgcat;alias imgls=~/.iterm2/imgls;alias it2attention=~/.iterm2/it2attention;alias it2check=~/.iterm2/it2check;alias it2copy=~/.iterm2/it2copy;alias it2dl=~/.iterm2/it2dl;alias it2getvar=~/.iterm2/it2getvar;alias it2setcolor=~/.iterm2/it2setcolor;alias it2setkeylabel=~/.iterm2/it2setkeylabel;alias it2ul=~/.iterm2/it2ul;alias it2universion=~/.iterm2/it2universion
-
-# mas CLI: https://github.com/mas-cli/mas
-alias mi="mas install"
-alias ms="mas search"

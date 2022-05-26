@@ -1,7 +1,6 @@
 [user]
 	name = Ndagi Stanley
 	email = ndagis@gmail.com
-	signingkey = EB66A350B11E7B2B
 [core]
 	excludesfile = ~/.gitignore_global
 [alias]
@@ -48,7 +47,7 @@
 	process = git-lfs filter-process
 	required = true
 [gpg]
-	program = gpg2
+	program = gpg
 [init]
 	defaultBranch = main
 [pull]
