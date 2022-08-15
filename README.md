@@ -4,27 +4,32 @@
 [![OS](https://img.shields.io/badge/OS-Linux-informational?style=flat-square&logo=linux&logoColor=white)](https://en.wikipedia.org/wiki/Linux)
 [![Editor](https://img.shields.io/badge/Editor-VSCode-blue?style=flat-square&logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/)
 
-First, install Xcode Command Line Tools from the App Store
+## Summary
 
-```bash
+1. Install GIT
+2. Clone this repo
+3. Use this repo's scripts to set up machine (In four modes: **Basic**, **Core**, **Work**, **Pro**)
+4. Et al (Others)
+
+> Please note that:
+
+- The steps below are for **macOS** and **Linux**. For **Windows**, follow the instructions [here](/windows_os).
+
+- After installing GIT, there will be very little difference between Unix and Linux setup, for steps 2 and 3, especially since I'm using HomeBrew which works for both.
+
+- For Linux, when running `sh setup.sh work` and `sh setup.sh pro` errors may be logged (where **mas** is used in the Brewfiles). Ignore this. - [**mas CLI**](https://github.com/mas-cli/mas) is only relevant for macOS.
+
+## 1. GIT
+
+### macOS
+
+First, install Xcode Command Line Tools from the App Store:
+
+```sh
 xcode-select --install
 ```
 
-Next, clone this repo
-
-```bash
-git clone https://github.com/NdagiStanley/dotfiles.git && cd dotfiles
-```
-
-## UNIX/ LINUX
-
-> Caveat
->
-> There is very little difference between Unix and Linux setup. Brew works for both.
-
-However for Linux, installation is different so just run:
-
-### Linux installation
+### Linux
 
 Run:
 
@@ -47,27 +52,36 @@ and finally:
 sudo apt-get install build-essential curl file git
 ```
 
-Then proceed.
+## 2. Clone repository
 
-_Please note that, for Linux, where __mas__ is used (in the Brewfiles) utilized when running `sh setup.sh work` and `sh setup.sh pro` an error will occur. Ignore this._
+```sh
+git clone https://github.com/NdagiStanley/dotfiles.git && cd dotfiles
+```
 
-### Edge case - shared machine
+## 3. Scripts
 
-For a recurrent server or workstation (that's not personal), I just install oh-my-zsh by running `sh install.sh zsh`. The bare minimum aliases are a time-saver!
+### Basic
 
-Uncomment the last line of the `.zshrc` file: `ZSH_DISABLE_COMPFIX="true"`
+Install homebrew, (basic brew packages) and oh-my-zsh.
 
-## Quick setup
-
-```bash
+```sh
 sh setup.sh basic
 ```
 
 > You'll be prompted for your password
 
-then run:
+To reload the shell, run:
 
-```bash
+```sh
+sh setup.sh finish
+```
+
+### Core
+
+> Ensure you've run **`sh setup.sh basic`** before you proceed
+
+```sh
+sh setup.sh core
 sh setup.sh finish
 ```
 
@@ -75,21 +89,35 @@ sh setup.sh finish
 
 There's an option for running setup specific to python by running:
 
-> Ensure you've run __`sh setup.sh basic`__ before you proceed
+> Ensure you've run **`sh setup.sh basic`** before you proceed
 
-```bash
+```sh
 sh setup.sh python
+sh setup.sh finish
 ```
 
-### Work-mode
+### JavaScript
 
-> Ensure you've run __`sh setup.sh basic`__ before you proceed
+There's an option for running setup specific to JavaScript by running:
 
-```bash
+> Ensure you've run **`sh setup.sh basic`** before you proceed
+
+```sh
+sh setup.sh javascript
+sh setup.sh finish
+```
+
+### Work
+
+> Ensure you've run **`sh setup.sh basic`** before you proceed
+
+`Work` mode includes the [Python](#python) and [JavaScript](#javascript) modes. I use mainly these two programming languages. Take a look at [my GitHub profile](https://github.com/NdagiStanley/NdagiStanley#--hello-world).
+
+```sh
 sh setup.sh work
 ```
 
-## PRO-mode
+### Pro
 
 To have my setup (which has a bit more installs and configuration); install homebrew, oh-my-zsh, npm packages & pypi packages by running:
 
@@ -105,11 +133,15 @@ then run:
 sh setup.sh pro
 ```
 
-## Windows OS
+### Edge case - shared machine
 
-Follow the instructions [here](/windows_os).
+For a recurrent server or workstation (that's not personal), I just install `zsh` then install `oh-my-zsh` (See command at [**install.sh**](install.sh#L14)). The aliases are a time-saver!
 
-## Et al
+## 4. Et al
+
+### macOS settings
+
+Run `sh mac_os/setup.sh` for specific my custom _System Preferences_ setup. Edit it as you may please.
 
 ### Maintenance
 
@@ -117,7 +149,7 @@ Once in a while I run:
 
 - `sh sync.sh --complete`
 
-    _to sync up the dotfiles and push to Github. This applies to you if you forked this repo or have your own dotfiles hosted online_
+    _to sync up the `dotfiles` and push to GitHub. This applies to you if you forked this repo_
 
 - `update`
 
@@ -125,15 +157,29 @@ Once in a while I run:
 
 - `cleanup`
 
-    _to clean **.Trashes**, *__.DS_Store__ among others plus **docker system prune**_
+    _to clean **.Trashes**, **.DS_Store** among others, plus **docker system prune**_
 
-### CODE
+### iTerm
+
+To sync iTerm settings, open iTerm's **Preferences/General/Preferences**:
+
+1. select the checkbox,
+2. navigate to the local repo,
+3. then, after _Save Changes_, select **Manually** and exit.
+4. Open iTerm once again to see the preferences loaded.
+
+![iTerm preferences](iterm.png)
+
+To save any updates to your preferences, open iTerm's **Preferences/General/Preferences** and after _Save Changes_, select **When Quitting**.
+
+
+![Saving iTerm preferences](iterm2.png)
+
+Now your changes are tracked in the `com.googlecode.iterm2.plist` file at the root folder.
+
+### Code
 
 For code-specific dotfiles checkout the [code folder](/code)
-
-### MAC
-
-Run `sh mac_os/setup.sh` for specific my custom *System Preferences* setup. Edit it as you may please.
 
 ### GIT
 

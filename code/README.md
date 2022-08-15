@@ -1,5 +1,11 @@
 # dotfiles/code
 
+## Overview
+
+The contents herein are specific for configuring my developer environment. More on this can be found in my [**repo-boiler-plate**](https://github.com/NdagiStanley/repo-boiler-plate#repo-boiler-plate) repository.
+
+## Tools
+
 > Editorconfig
 
 There's a `.editorconfig` file to use for repos that you create. For more details check out the [EditorConfig website](http://editorconfig.org/).
@@ -24,7 +30,7 @@ Run `sh docker_reset.sh` to hard reset docker. Meanwhile for simple pruning you 
 
 For Jupyter notebook: `sh jupyter.sh`
 
-`jupyter notebook` (at the root directory of choice)
+Run `jupyter notebook` (at the root directory of choice) to open a Jupyter notebook
 
 > Python VirtualEnv
 

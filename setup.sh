@@ -5,8 +5,13 @@ function __finish__() {
     echo "We're done. Your MAC is now setup!"
 }
 
-function __link__() {
-    sh link.sh --main
+function __basic__() {
+    # Install homebrew & basic apps
+    sh install.sh homebrew
+    sh brew.sh
+
+    # Install oh-my-zsh
+    sh install.sh zsh
 }
 
 function __core__() {
@@ -27,53 +32,14 @@ function __core__() {
     # Copy functions, aliases, zshrc
     cp .functions ~/.functions
     cp .aliases ~/.aliases
-    cp .zshrc ~/.zshrc
+    sudo cp .zshrc ~/.zshrc
 
     # Link zsh, functions, aliases, git, vim
     __link__
 }
 
-function __pro__() {
-    echo "Running Pro setup..."
-
-    # Vim
-    # Copy functions, aliases, zshrc
-    # Zsh Autosuggestions
-    # Rafiki zsh theme
-    __core__
-
-    # Brew install everything
-    sh install.sh probrew
-
-    # Python
-    __python__
-
-    # JS
-    __javascript__
-
-    # Postgres
-    brew services start postgresql
-    createdb `whoami`
-
-    # CircleCI CLI
-    curl -o /usr/local/bin/circleci https://circle-downloads.s3.amazonaws.com/releases/build_agent_wrapper/circleci && chmod +x /usr/local/bin/circleci
-
-    # tmux
-    cp .tmux.conf ~/.tmux.conf
-
-    # Link tmux
-    sh link.sh tmux
-
-    __finish__
-}
-
-function __basic__() {
-    # Install homebrew & basic apps
-    sh install.sh homebrew
-    sh brew.sh
-
-    # Install oh-my-zsh
-    sh install.sh zsh
+function __link__() {
+    sh link.sh --main
 }
 
 function __work__() {
@@ -121,6 +87,40 @@ function __javascript__() {
     npm i -g httpster
 }
 
+function __pro__() {
+    echo "Running Pro setup..."
+
+    # Vim
+    # Copy functions, aliases, zshrc
+    # Zsh Autosuggestions
+    # Rafiki zsh theme
+    __core__
+
+    # Brew install everything
+    sh install.sh probrew
+
+    # Python
+    __python__
+
+    # JS
+    __javascript__
+
+    # Postgres
+    brew services start postgresql
+    createdb `whoami`
+
+    # CircleCI CLI
+    curl -o /usr/local/bin/circleci https://circle-downloads.s3.amazonaws.com/releases/build_agent_wrapper/circleci && chmod +x /usr/local/bin/circleci
+
+    # tmux
+    cp .tmux.conf ~/.tmux.conf
+
+    # Link tmux
+    sh link.sh tmux
+
+    __finish__
+}
+
 function __windows__() {
     echo "Running Windows setup..."
     sh install.sh choco
@@ -131,5 +131,5 @@ function __windows__() {
 if [ "$1" != "" ] && type "__$1__" &> /dev/null; then
     eval "__$1__"
 else
-    echo "Usage: ./setup.sh (basic/ finish/ python/ javascript/ work/ pro/ windows)"
+    echo "Usage: ./setup.sh (basic/ finish/ core/ python/ javascript/ work/ pro/ windows)"
 fi
