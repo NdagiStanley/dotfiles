@@ -6,14 +6,22 @@
 
 ## Summary
 
-1. Install GIT
-2. Clone this repo
-3. Use this repo's scripts to set up machine (In four modes: **Basic**, **Core**, **Work**, **Pro**)
-4. Et al (Others)
+1. [Install GIT](#1-git)
+2. [Clone this repo](#2-clone-repository)
+3. [Scripts](#3-scripts)
+
+    Use this repo's scripts to set up machine (In four modes: **Basic**, **Core**, **Work**, **Pro**)
+
+4. [Et al (Others)](#4-et-al)
+
+    - [macOS settings](#macos-settings)
+    - [Code](#code)
+    - [Maintenance](#maintenance)
+    - [Git](#git)
 
 > Please note that:
 
-- The steps below are for **macOS** and **Linux**. For **Windows**, follow the instructions [here](/windows_os).
+- The steps below are for **macOS** and **Linux**. For **Windows**, follow the instructions in [windows_os](/windows_os).
 
 - After installing GIT, there will be very little difference between Unix and Linux setup, for steps 2 and 3, especially since I'm using HomeBrew which works for both.
 
@@ -139,7 +147,11 @@ For a recurrent server or workstation (that's not personal), I just install `zsh
 
 ### macOS settings
 
-Find macOS settings and app settings in [mac_os folder](/mac_os/).
+Find macOS settings and app settings in [mac_os](/mac_os/).
+
+### Code
+
+Find code-specific dotfiles in [code](/code).
 
 ### Maintenance
 
@@ -156,10 +168,6 @@ Once in a while I run:
 - `cleanup`
 
     _to clean **.Trashes**, **.DS_Store** among others, plus **docker system prune**_
-
-### Code
-
-For code-specific dotfiles checkout the [code folder](/code).
 
 ### GIT
 
