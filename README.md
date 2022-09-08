@@ -17,8 +17,6 @@
 
 - After installing GIT, there will be very little difference between Unix and Linux setup, for steps 2 and 3, especially since I'm using HomeBrew which works for both.
 
-- For Linux, when running `sh setup.sh work` and `sh setup.sh pro` errors may be logged (where **mas** is used in the Brewfiles). Ignore this. - [**mas CLI**](https://github.com/mas-cli/mas) is only relevant for macOS.
-
 ## 1. GIT
 
 ### macOS
@@ -141,7 +139,7 @@ For a recurrent server or workstation (that's not personal), I just install `zsh
 
 ### macOS settings
 
-Find macOS settings and app settings in [mac_os](/mac_os/).
+Find macOS settings and app settings in [mac_os folder](/mac_os/).
 
 ### Maintenance
 
