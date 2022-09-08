@@ -22,6 +22,7 @@ alias wifi-off='networksetup -setairportpower en0 off'
 alias wifi-on='networksetup -setairportpower en0 on'
 
 # Brew
+alias binfo="brew info"
 alias bi="brew install"
 alias bic="brew install --cask"
 alias bl="brew list"
@@ -34,6 +35,8 @@ alias vlc="/Applications/VLC.app/Contents/MacOS/VLC --extraintf=http --http-pass
 
 # NPM
 alias ni="npm install"
+alias nig="npm install --global"
+alias kill="npx kill-port"
 
 # Hub: https://github.com/github/hub
 # GitHub's CLI: https://cli.github.com/ is an option but there is no alternative for hub compare/ hub compare_branch (see .functions)

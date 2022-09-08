@@ -44,6 +44,3 @@ cask "slack"
 cask "spectacle"
 cask "spotify"
 cask "visual-studio-code"
-mas "LastPass", id: 926036361
-mas "Taurine", id: 960276676
-mas "Trello", id: 1278508951

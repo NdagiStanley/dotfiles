@@ -141,7 +141,7 @@ For a recurrent server or workstation (that's not personal), I just install `zsh
 
 ### macOS settings
 
-Run `sh mac_os/setup.sh` for specific my custom _System Preferences_ setup. Edit it as you may please.
+Find macOS settings and app settings in [mac_os](/mac_os/).
 
 ### Maintenance
 
@@ -159,27 +159,9 @@ Once in a while I run:
 
     _to clean **.Trashes**, **.DS_Store** among others, plus **docker system prune**_
 
-### iTerm
-
-To sync iTerm settings, open iTerm's **Preferences/General/Preferences**:
-
-1. select the checkbox,
-2. navigate to the local repo,
-3. then, after _Save Changes_, select **Manually** and exit.
-4. Open iTerm once again to see the preferences loaded.
-
-![iTerm preferences](iterm.png)
-
-To save any updates to your preferences, open iTerm's **Preferences/General/Preferences** and after _Save Changes_, select **When Quitting**.
-
-
-![Saving iTerm preferences](iterm2.png)
-
-Now your changes are tracked in the `com.googlecode.iterm2.plist` file at the root folder.
-
 ### Code
 
-For code-specific dotfiles checkout the [code folder](/code)
+For code-specific dotfiles checkout the [code folder](/code).
 
 ### GIT
 
