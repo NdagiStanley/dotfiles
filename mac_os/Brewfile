@@ -5,6 +5,8 @@ tap "homebrew/cask-fonts"
 tap "homebrew/core"
 brew "gnupg"
 brew "hub"
+brew "jq"
+brew "python@3.10"
 brew "jrnl"
 brew "macvim"
 brew "mas"
@@ -29,12 +31,12 @@ cask "grammarly"
 cask "iterm2"
 cask "microsoft-edge"
 cask "notion"
+cask "numi"
 cask "pomodone"
 cask "postman"
 cask "protonvpn"
 cask "rectangle"
 cask "rescuetime"
-cask "slack"
 cask "spotify"
 cask "tableplus"
 cask "telegram"
@@ -43,3 +45,10 @@ cask "visual-studio-code"
 cask "whatsapp"
 cask "wpsoffice"
 cask "zoom"
+mas "Bandwidth+", id: 490461369
+mas "Bitwarden", id: 1352778147
+mas "Microsoft OneNote", id: 784801555
+mas "OneDrive", id: 823766827
+mas "Slack", id: 803453959
+mas "Taurine", id: 960276676
+mas "Trello", id: 1278508951

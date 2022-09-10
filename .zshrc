@@ -82,6 +82,13 @@ if nvm --version &> /dev/null; then
   load-nvmrc
 fi
 
+if virtualenv --help &> /dev/null; then
+  export WORKON_HOME=$HOME/.envs
+  export PROJECT_HOME=$HOME/Projects/MD
+  export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+  source /usr/local/bin/virtualenvwrapper.sh
+fi
+
 ## GCLOUD
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/stanmd/Projects/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/stanmd/Projects/google-cloud-sdk/path.zsh.inc'; fi

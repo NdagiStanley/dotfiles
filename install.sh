@@ -3,7 +3,7 @@
 function __homebrew__() {
     if ! brew --version &> /dev/null; then
         echo "Installing Homebrew..."
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
     echo "Homebrew is already installed"
 }
@@ -44,11 +44,9 @@ function __choco__() {
 
 function __pip__() {
     echo "Installing PIP global packages..."
-    brew install python@2
-    pip2 install --upgrade pip
     brew install python
-    pip install --upgrade pip
-    pip install --upgrade -r pip.txt
+    pip3 install --upgrade pip
+    pip3 install --upgrade -r pip.txt
 }
 
 if [ "$1" != "" ] && type "__$1__" &> /dev/null; then

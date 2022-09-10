@@ -1,11 +1,13 @@
 pip3 install virtualenvwrapper
 # Sometimes this on sierra may fail so confirm `brew install python` runs and try `sudo pip install --ignore-installed virtualenvwrapper`
+
 # .zshrc contains WORKON_HOME and PROJECT_HOME
 
 export VIRTUALENVWRAPPER_PYTHON=`which python3`
+export WORKON_HOME=$HOME/.envs
 source /usr/local/bin/virtualenvwrapper.sh
 
-# postactivate
+# postactivate (at the root of $WORKON_HOME)
 # (Uncomment the lines below)
 # NEWLINE='
 # 👉 '
@@ -21,7 +23,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 # (Uncomment till here)
 
 
-# postmkvirtualenv
+# postmkvirtualenv (at the root of $WORKON_HOME)
 # (Uncomment the lines below)
 # pip3 --no-cache-dir install autopep8
 # pip3 --no-cache-dir install flake8
@@ -35,5 +37,3 @@ source /usr/local/bin/virtualenvwrapper.sh
 pip3 --no-cache-dir install pydocstyle
 pip3 --no-cache-dir install bpython
 pip3 --no-cache-dir install ipdb
-pip3 --no-cache-dir install pip-chill
-pip2 --no-cache-dir install pip-chill

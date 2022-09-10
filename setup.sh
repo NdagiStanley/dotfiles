@@ -81,8 +81,7 @@ function __javascript__() {
     sh install.sh npm
 
     # npm install
-    npm i -g npm
-    npm i -g node
+    npm i -g npm@latest
     npm i -g ijavascript
     npm i -g httpster
 }

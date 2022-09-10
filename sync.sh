@@ -4,7 +4,7 @@ function __brew__() {
     # Brewfile
     echo "Dumping all things brew to Brewfile"
     brew bundle dump --force
-    echo "Move the Brewfile to `mac_os` or `mac_os/work`"
+    echo "Move the Brewfile to 'mac_os' or 'mac_os/work'"
 }
 
 function __npm__() {
@@ -17,7 +17,13 @@ function __pip__() {
     # PIP packages
     echo "Dumping PIP packages to pip.txt"
     pip3 install --upgrade pip
+
+    # pip-chill is not globally installed so that
+    # it doesn't clash with the package installed in virtual environments
+    pip3 install pip-chill
     pip-chill --no-version > pip.txt
+    pip3 uninstall pip-chill -y
+
     echo "Done!"
 }
 
