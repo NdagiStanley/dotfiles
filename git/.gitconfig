@@ -1,6 +1,5 @@
 [user]
 	name = Ndagi Stanley
-	email = ndagis@gmail.com
 [core]
 	excludesfile = ~/.gitignore_global
 [alias]

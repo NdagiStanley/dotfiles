@@ -21,7 +21,7 @@
 
 > Please note that:
 
-- The steps below are for **macOS** and **Linux**. For **Windows**, follow the instructions in [windows_os](/windows_os).
+- The steps below are for **macOS** (Unix) and **Linux** (*nix). For **Windows**, follow the instructions in [windows_os](/windows_os).
 
 - After installing GIT, there will be very little difference between Unix and Linux setup, for steps 2 and 3, especially since I'm using HomeBrew which works for both.
 
@@ -183,3 +183,28 @@ pbcopy < ~/.ssh/id_rsa.pub
 > The last command is different in [Linux](/linux_os#git) and [Windows](/windows_os#git) ([Reference](https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account))
 
 The SSH Public Key is now in your clipboard. Navigate to [this page](https://github.com/settings/keys), click on **New SSH key**, enter a _title_, paste the _Public Key_ and click on **Add SSH key**.
+
+> Configuration
+
+To set the email (globally or locally respectively), run:
+
+```sh
+git config --global user.email <email> # global
+git config user.email <email> # per repo
+```
+
+> GPG
+
+Have `gpg` installed. For *nix (**macOS** (Unix) and **Linux**), use Homebrew. The [default Brewfile](/mac_os/Brewfile) has it.
+
+```sh
+gpg --version # version 2+
+gpg --full-gen-key
+gpg --list-secret-keys --keyid-format LONG <email>
+gpg --armor --export <KEY>
+```
+
+```sh
+git config --global user.signingkey <KEY> # global
+git config user.signingkey <KEY> # per repo
+```
