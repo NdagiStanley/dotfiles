@@ -48,6 +48,7 @@ alias g="hub"
 
 # mas CLI: https://github.com/mas-cli/mas
 alias mi="mas install"
+alias mui="echo 'Uninstall in App Store'"
 alias ms="mas search"
 alias ml="mas list"
 

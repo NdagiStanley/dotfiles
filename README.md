@@ -10,7 +10,9 @@
 2. [Clone this repo](#2-clone-repository)
 3. [Scripts](#3-scripts)
 
-    Use this repo's scripts to set up machine (In four modes: **Basic**, **Core**, **Work**, **Pro**)
+    Use this repo's scripts to set up machine (In six modes: [**Basic**](#basic), [**Core**](#core), [**Python**](#python), [**JavaScript**](#javascript), [**Work**](#work), and [**Pro**](#pro))
+
+    For a recurrent server or workstation (that's not personal), I sometimes just install `zsh` then [install oh-my-zsh](/install.sh#L14). The aliases are a time-saver!
 
 4. [Et al (Others)](#4-et-al)
 
@@ -21,7 +23,7 @@
 
 > Please note that:
 
-- The steps below are for **macOS** (Unix) and **Linux** (*nix). For **Windows**, follow the instructions in [windows_os](/windows_os).
+- The steps below are for **macOS** (Unix) and **Linux** (*nix). For **Windows**, follow the instructions in [windows_os](/windows_os). Find more specific notes on macOS and Linux in [mac_os](/mac_os) and [linux_os](/linux_os/).
 
 - After installing GIT, there will be very little difference between Unix and Linux setup, for steps 2 and 3, especially since I'm using HomeBrew which works for both.
 
@@ -39,13 +41,13 @@ xcode-select --install
 
 Run:
 
-```bash
+```sh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 ```
 
 then:
 
-```bash
+```sh
 test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
 test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
@@ -127,7 +129,7 @@ sh setup.sh work
 
 To have my setup (which has a bit more installs and configuration); install homebrew, oh-my-zsh, npm packages & pypi packages by running:
 
-```bash
+```sh
 sh install.sh --all
 ```
 
@@ -135,19 +137,15 @@ sh install.sh --all
 
 then run:
 
-```bash
+```sh
 sh setup.sh pro
 ```
-
-### Edge case - shared machine
-
-For a recurrent server or workstation (that's not personal), I just install `zsh` then install `oh-my-zsh` (See command at [**install.sh**](install.sh#L14)). The aliases are a time-saver!
 
 ## 4. Et al
 
 ### macOS settings
 
-Find macOS settings and app settings in [mac_os](/mac_os/).
+Find macOS settings and app settings in [mac_os](/mac_os).
 
 ### Code
 
@@ -171,7 +169,7 @@ Once in a while I run:
 
 ### GIT
 
-> SSH keys
+#### SSH keys
 
 ```bash
 ssh-keygen -t rsa -b 4096 -C ".."
@@ -184,16 +182,28 @@ pbcopy < ~/.ssh/id_rsa.pub
 
 The SSH Public Key is now in your clipboard. Navigate to [this page](https://github.com/settings/keys), click on **New SSH key**, enter a _title_, paste the _Public Key_ and click on **Add SSH key**.
 
-> Configuration
+#### Configuration
 
 To set the email (globally or locally respectively), run:
 
 ```sh
-git config --global user.email <email> # global
-git config user.email <email> # per repo
+git config --global user.email <email>  # global
+git config user.email <email>           # per repo
 ```
 
-> GPG
+#### Commitizen
+
+To use Conventional Commits, use [commitizen CLI](https://commitizen-tools.github.io/commitizen). For *nix (**macOS** (Unix) and **Linux**), use Homebrew to install `commitizen`. The [default Brewfile](/mac_os/Brewfile) has it.
+
+Common commands below. Find more [here](https://commitizen-tools.github.io/commitizen/#usage).
+
+```sh
+cz c # OR cz commit               - commit
+cz ch # OR cz changelog           - Changelog
+cz changelog 0.0.1                # Changelog for specific version
+```
+
+#### GPG
 
 Have `gpg` installed. For *nix (**macOS** (Unix) and **Linux**), use Homebrew. The [default Brewfile](/mac_os/Brewfile) has it.
 
@@ -204,7 +214,16 @@ gpg --list-secret-keys --keyid-format LONG <email>
 gpg --armor --export <KEY>
 ```
 
+> Making commits
+
+```sh
+git commit -S -m "commit message"       # Signed commit
+cz commit -s # OR cz commit --signoff   - Signed commit using commitizen
+```
+
+> Automatic signed commits
+
 ```sh
 git config --global user.signingkey <KEY> # global
-git config user.signingkey <KEY> # per repo
+git config user.signingkey <KEY>          # per repo
 ```
