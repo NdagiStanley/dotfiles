@@ -1,0 +1,102 @@
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+
+alias cls='clear'
+
+alias d='docker'
+alias dc='docker-compose'
+alias di='docker images'
+
+alias g='git'
+alias ga='git add'
+alias gaa='git add --all'
+alias gb='git branch'
+alias gcd='git checkout develop'
+alias gcl='git clone'
+alias gcm='git checkout main'
+alias gcmsg='git commit -m'
+alias gco='git checkout'
+alias gcl='git clone'
+alias ggpull='git pull origin "$(gb --show-current)"'
+alias ggpush='git push origin "$(gb --show-current)"'
+alias gloga='git log --oneline --decorate --graph --all'
+alias gr='git remote'
+alias gra='git remote add'
+alias grv='git remote -v'
+alias grmv='git remote rename'
+alias grrm='git remote remove'
+alias grb='git rebase'
+alias grba='git rebase --abort'
+alias grbc='git rebase --continue'
+alias gss='git status -s'
+
+alias h="history"
+
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -alF'
+alias ls='ls --color=auto'
+
+alias notify='tput bel'
+
+alias ip='curl ifconfig.me'
+
+mkd() {
+    mkdir -p "$@"
+    cd "$@" || exit
+}
+
+
+# Call from a local repo to echo the repository URL on github/bitbucket
+# Modified version of https://github.com/zeke/ghwd
+repo() {
+    # Figure out github repo base URL
+    local base_url
+    base_url=$(git config --get remote.origin.url)
+    base_url=${base_url%\.git} # remove .git from end of string
+
+    # Fix git@github.com: URLs
+    base_url=${base_url//git@github\.com:/https:\/\/github\.com\/}
+
+    # Fix git://github.com URLS
+    base_url=${base_url//git:\/\/github\.com/https:\/\/github\.com\/}
+
+    # Fix git@bitbucket.org: URLs
+    base_url=${base_url//git@bitbucket.org:/https:\/\/bitbucket\.org\/}
+
+    # Fix git@gitlab.com: URLs
+    base_url=${base_url//git@gitlab\.com:/https:\/\/gitlab\.com\/}
+
+    echo $base_url
+
+    # Validate that this folder is a git folder
+    if ! git branch 2>/dev/null 1>&2 ; then
+        echo "Not a git repo!"
+    fi
+
+    # Find current directory relative to .git parent
+    full_path=$(pwd)
+    git_base_path=$(cd "./$(git rev-parse --show-cdup)" || exit 1; pwd)
+    relative_path=${full_path#$git_base_path} # remove leading git_base_path from working directory
+
+    # If filename argument is present, append it
+    if [ "$1" ]; then
+        relative_path="$relative_path/$1"
+    fi
+
+    echo $relative_path
+    # Figure out current git branch
+    branch=$(git branch --show-current)
+
+    [[ $base_url == *bitbucket* ]] && tree="src" || tree="tree"
+    url="$base_url/$tree/$branch$relative_path"
+
+    echo "GO TO $url"
+}

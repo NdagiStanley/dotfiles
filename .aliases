@@ -43,8 +43,12 @@ alias kill="npx kill-port"
 
 # Hub: https://github.com/github/hub
 # GitHub's CLI: https://cli.github.com/ is an option but there is no alternative for hub compare/ hub compare_branch (see .functions)
-eval "$(hub alias -s)"
-alias g="hub"
+if hub -v 2>/dev/null 1>&2 ; then
+  eval "$(hub alias -s)"
+  alias g="hub"
+else
+  alias g="git"
+fi
 
 # mas CLI: https://github.com/mas-cli/mas
 alias mi="mas install"

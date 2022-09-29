@@ -12,7 +12,9 @@
 
     Use this repo's scripts to set up machine (In six modes: [**Basic**](#basic), [**Core**](#core), [**Python**](#python), [**JavaScript**](#javascript), [**Work**](#work), and [**Pro**](#pro))
 
-    For a recurrent server or workstation (that's not personal), I sometimes just install `zsh` then [install oh-my-zsh](/install.sh#L14). The aliases are a time-saver!
+    For a recurrent server or workstation (that's not personal), there are two options: (The aliases are a time-saver!)
+    - (Easy) Copy [.aliases-basic](/.aliases-basic) to `.aliases` and run `source .aliases` for every new shell session
+    - Install `zsh`, [install oh-my-zsh](/install.sh#L14), copy [.zshrc-basic](/.zshrc-basic) to `.zshrc` and run `source .zshrc`
 
 4. [Et al (Others)](#4-et-al)
 
