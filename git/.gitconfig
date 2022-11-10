@@ -51,3 +51,7 @@
 	defaultBranch = main
 [pull]
 	rebase = false
+[hub]
+	protocol = ssh
+[safe]
+	directory = /Users/stanmd/.oh-my-zsh

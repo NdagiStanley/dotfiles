@@ -14,6 +14,12 @@
 
     For a recurrent server or workstation (that's not personal), there are two options: (The aliases are a time-saver!)
     - (Easy) Copy [.aliases-basic](/.aliases-basic) to `.aliases` and run `source .aliases` for every new shell session
+
+      ```sh
+      curl https://raw.githubusercontent.com/NdagiStanley/dotfiles/main/.aliases-basic > .aliases
+      source .aliases
+      ```
+
     - Install `zsh`, [install oh-my-zsh](/install.sh#L14), copy [.zshrc-basic](/.zshrc-basic) to `.zshrc` and run `source .zshrc`
 
 4. [Et al (Others)](#4-et-al)
