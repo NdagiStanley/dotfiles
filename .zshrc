@@ -51,13 +51,16 @@ if [ -f ~/.functions ]; then
     source ~/.functions
 fi
 export PATH="/usr/local/sbin:$PATH"
+export PATH="/Applications/MacPorts/Emacs.app/Contents/MacOS:$PATH"
+export PATH="~/.emacs.d/bin:$PATH"
 
 # NVM
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 if nvm --version &> /dev/null; then
-  export NVM_DIR="$HOME/.nvm"
-    [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-    [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
   # place this after nvm initialization!
   autoload -U add-zsh-hook
@@ -107,3 +110,4 @@ alias java8='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk
 
 # GPG
 export GPG_TTY=$(tty)
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

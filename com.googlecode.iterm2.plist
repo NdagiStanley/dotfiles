@@ -218,9 +218,9 @@
 				<real>0.0</real>
 			</dict>
 			<key>Background Image Location</key>
-			<string>/Users/stanmd/Dropbox/life copy.jpg</string>
+			<string>/Users/stanmd/Documents/abacus/life.jpg</string>
 			<key>Background Image Mode</key>
-			<integer>0</integer>
+			<integer>3</integer>
 			<key>Blend</key>
 			<real>0.29712165753865982</real>
 			<key>Blinking Cursor</key>
@@ -985,7 +985,7 @@
 			<key>Title Components</key>
 			<integer>513</integer>
 			<key>Transparency</key>
-			<real>0.1484950031725889</real>
+			<real>0.0</real>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
