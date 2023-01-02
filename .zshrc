@@ -88,8 +88,8 @@ fi
 if virtualenv --help &> /dev/null; then
   export WORKON_HOME=$HOME/.envs
   export PROJECT_HOME=$HOME/Projects/MD
-  export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-  source /usr/local/bin/virtualenvwrapper.sh
+  export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+  source /opt/homebrew/bin/virtualenvwrapper.sh
 fi
 
 ## GCLOUD
@@ -111,3 +111,6 @@ alias java8='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk
 # GPG
 export GPG_TTY=$(tty)
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Brew
+export HOMEBREW_GITHUB_API_TOKEN=

@@ -2,43 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Actions</key>
-	<array>
-		<dict>
-			<key>action</key>
-			<integer>41</integer>
-			<key>parameter</key>
-			<string>{"ConvertUnicodePunctuation":true,"WaitForPrompts":false,"Substitution":"","EscapeForShell":false,"Base64":false,"TabStopSize":4,"Delay":0.01,"RemoveNewlines":false,"Regex":"","ConvertNewlines":true,"TabTransform":1,"BracketAllowed":true,"UseRegexSubstitution":false,"ChunkSize":1024,"RemoveControls":true}</string>
-			<key>title</key>
-			<string>Paste</string>
-		</dict>
-	</array>
-	<key>AllowClipboardAccess</key>
-	<false/>
-	<key>AlternateMouseScroll</key>
-	<true/>
 	<key>Default Bookmark Guid</key>
-	<string>06A230B1-F077-4A84-BFFF-7B8DF5EEB626</string>
+	<string>08251B1A-32C0-473D-B318-8759FAC6E417</string>
 	<key>DimBackgroundWindows</key>
 	<false/>
-	<key>DimInactiveSplitPanes</key>
-	<true/>
 	<key>DimOnlyText</key>
 	<false/>
 	<key>DisableFullscreenTransparency</key>
 	<true/>
 	<key>DoubleClickPerformsSmartSelection</key>
 	<true/>
-	<key>EnableAPIServer</key>
-	<false/>
 	<key>FocusFollowsMouse</key>
-	<false/>
-	<key>GlobalTouchBarMap</key>
-	<dict/>
+	<true/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
-	<key>HideMenuBarInFullscreen</key>
-	<true/>
 	<key>HideScrollbar</key>
 	<true/>
 	<key>HideTab</key>
@@ -222,13 +199,13 @@
 			<key>Background Image Mode</key>
 			<integer>3</integer>
 			<key>Blend</key>
-			<real>0.29712165753865982</real>
+			<real>0.3000000000000001</real>
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
 			<false/>
 			<key>Blur Radius</key>
-			<real>3.415791560913704</real>
+			<real>3</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -279,7 +256,7 @@
 			<key>Draw Powerline Glyphs</key>
 			<true/>
 			<key>Flashing Bell</key>
-			<false/>
+			<true/>
 			<key>Foreground Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -290,15 +267,11 @@
 				<real>0.73333334922790527</real>
 			</dict>
 			<key>Guid</key>
-			<string>06A230B1-F077-4A84-BFFF-7B8DF5EEB626</string>
+			<string>08251B1A-32C0-473D-B318-8759FAC6E417</string>
 			<key>Horizontal Spacing</key>
 			<real>1</real>
-			<key>Icon</key>
-			<integer>0</integer>
 			<key>Idle Code</key>
 			<integer>0</integer>
-			<key>Initial Use Transparency</key>
-			<true/>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -599,12 +572,8 @@
 			<true/>
 			<key>Normal Font</key>
 			<string>FantasqueSansMono-Regular 16</string>
-			<key>Only The Default BG Color Uses Transparency</key>
-			<true/>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
-			<key>Place Prompt at First Column</key>
-			<true/>
 			<key>Prompt Before Closing 2</key>
 			<false/>
 			<key>Right Option Key Sends</key>
@@ -615,8 +584,6 @@
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
 			<integer>0</integer>
-			<key>Scrollback With Status Bar</key>
-			<true/>
 			<key>Selected Text Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -649,21 +616,12 @@
 				<dict>
 					<key>algorithm</key>
 					<integer>0</integer>
+					<key>auto-rainbow style</key>
+					<integer>2</integer>
 					<key>font</key>
 					<string>.AppleSystemUIFont 12</string>
-					<key>separator color 2</key>
-					<dict>
-						<key>Alpha Component</key>
-						<real>1</real>
-						<key>Blue Component</key>
-						<real>0.40000000596046448</real>
-						<key>Color Space</key>
-						<string>sRGB</string>
-						<key>Green Component</key>
-						<real>0.40000000596046448</real>
-						<key>Red Component</key>
-						<real>0.40000000596046448</real>
-					</dict>
+					<key>remove empty components</key>
+					<false/>
 				</dict>
 				<key>components</key>
 				<array>
@@ -675,33 +633,39 @@
 							<key>knobs</key>
 							<dict>
 								<key>base: compression resistance</key>
-								<real>0.5</real>
+								<integer>1</integer>
 								<key>base: priority</key>
 								<real>5</real>
 								<key>maxwidth</key>
 								<real>+infinity</real>
 								<key>minwidth</key>
-								<real>0.0</real>
+								<integer>0</integer>
+								<key>path</key>
+								<string>path</string>
+								<key>shared text color</key>
+								<dict>
+									<key>Alpha Component</key>
+									<real>1</real>
+									<key>Blue Component</key>
+									<real>0.25</real>
+									<key>Color Space</key>
+									<string>sRGB</string>
+									<key>Green Component</key>
+									<real>0.25</real>
+									<key>Red Component</key>
+									<real>0.5</real>
+								</dict>
 							</dict>
 							<key>layout advanced configuration dictionary value</key>
 							<dict>
 								<key>algorithm</key>
 								<integer>0</integer>
+								<key>auto-rainbow style</key>
+								<integer>2</integer>
 								<key>font</key>
 								<string>.AppleSystemUIFont 12</string>
-								<key>separator color 2</key>
-								<dict>
-									<key>Alpha Component</key>
-									<real>1</real>
-									<key>Blue Component</key>
-									<real>0.40000000596046448</real>
-									<key>Color Space</key>
-									<string>sRGB</string>
-									<key>Green Component</key>
-									<real>0.40000000596046448</real>
-									<key>Red Component</key>
-									<real>0.40000000596046448</real>
-								</dict>
+								<key>remove empty components</key>
+								<false/>
 							</dict>
 						</dict>
 					</dict>
@@ -712,6 +676,8 @@
 						<dict>
 							<key>knobs</key>
 							<dict>
+								<key>base: compression resistance</key>
+								<integer>1</integer>
 								<key>base: priority</key>
 								<real>5</real>
 								<key>shared text color</key>
@@ -719,34 +685,25 @@
 									<key>Alpha Component</key>
 									<real>1</real>
 									<key>Blue Component</key>
-									<real>0.89999997615814209</real>
+									<real>0.25</real>
 									<key>Color Space</key>
 									<string>sRGB</string>
 									<key>Green Component</key>
-									<real>0.89999997615814209</real>
+									<real>0.5</real>
 									<key>Red Component</key>
-									<real>0.62999999523162842</real>
+									<real>0.47699999999999998</real>
 								</dict>
 							</dict>
 							<key>layout advanced configuration dictionary value</key>
 							<dict>
 								<key>algorithm</key>
 								<integer>0</integer>
+								<key>auto-rainbow style</key>
+								<integer>2</integer>
 								<key>font</key>
 								<string>.AppleSystemUIFont 12</string>
-								<key>separator color 2</key>
-								<dict>
-									<key>Alpha Component</key>
-									<real>1</real>
-									<key>Blue Component</key>
-									<real>0.40000000596046448</real>
-									<key>Color Space</key>
-									<string>sRGB</string>
-									<key>Green Component</key>
-									<real>0.40000000596046448</real>
-									<key>Red Component</key>
-									<real>0.40000000596046448</real>
-								</dict>
+								<key>remove empty components</key>
+								<false/>
 							</dict>
 						</dict>
 					</dict>
@@ -757,6 +714,8 @@
 						<dict>
 							<key>knobs</key>
 							<dict>
+								<key>base: compression resistance</key>
+								<integer>1</integer>
 								<key>base: priority</key>
 								<real>5</real>
 								<key>shared text color</key>
@@ -764,68 +723,25 @@
 									<key>Alpha Component</key>
 									<real>1</real>
 									<key>Blue Component</key>
-									<real>0.89999997615814209</real>
+									<real>0.29600000000000004</real>
 									<key>Color Space</key>
 									<string>sRGB</string>
 									<key>Green Component</key>
-									<real>0.62999999523162842</real>
+									<real>0.5</real>
 									<key>Red Component</key>
-									<real>0.62999999523162842</real>
+									<real>0.25</real>
 								</dict>
 							</dict>
 							<key>layout advanced configuration dictionary value</key>
 							<dict>
 								<key>algorithm</key>
 								<integer>0</integer>
+								<key>auto-rainbow style</key>
+								<integer>2</integer>
 								<key>font</key>
 								<string>.AppleSystemUIFont 12</string>
-								<key>separator color 2</key>
-								<dict>
-									<key>Alpha Component</key>
-									<real>1</real>
-									<key>Blue Component</key>
-									<real>0.40000000596046448</real>
-									<key>Color Space</key>
-									<string>sRGB</string>
-									<key>Green Component</key>
-									<real>0.40000000596046448</real>
-									<key>Red Component</key>
-									<real>0.40000000596046448</real>
-								</dict>
-							</dict>
-						</dict>
-					</dict>
-					<dict>
-						<key>class</key>
-						<string>iTermStatusBarComposerComponent</string>
-						<key>configuration</key>
-						<dict>
-							<key>knobs</key>
-							<dict>
-								<key>base: compression resistance</key>
-								<integer>1</integer>
-								<key>base: priority</key>
-								<real>5</real>
-							</dict>
-							<key>layout advanced configuration dictionary value</key>
-							<dict>
-								<key>algorithm</key>
-								<integer>0</integer>
-								<key>font</key>
-								<string>.AppleSystemUIFont 12</string>
-								<key>separator color 2</key>
-								<dict>
-									<key>Alpha Component</key>
-									<real>1</real>
-									<key>Blue Component</key>
-									<real>0.40000000596046448</real>
-									<key>Color Space</key>
-									<string>sRGB</string>
-									<key>Green Component</key>
-									<real>0.40000000596046448</real>
-									<key>Red Component</key>
-									<real>0.40000000596046448</real>
-								</dict>
+								<key>remove empty components</key>
+								<false/>
 							</dict>
 						</dict>
 					</dict>
@@ -836,6 +752,8 @@
 						<dict>
 							<key>knobs</key>
 							<dict>
+								<key>base: compression resistance</key>
+								<integer>1</integer>
 								<key>base: priority</key>
 								<real>5</real>
 								<key>shared text color</key>
@@ -843,34 +761,25 @@
 									<key>Alpha Component</key>
 									<real>1</real>
 									<key>Blue Component</key>
-									<real>0.89999997615814209</real>
+									<real>0.5</real>
 									<key>Color Space</key>
 									<string>sRGB</string>
 									<key>Green Component</key>
-									<real>0.62999999523162842</real>
+									<real>0.43099999999999994</real>
 									<key>Red Component</key>
-									<real>0.89999997615814209</real>
+									<real>0.25</real>
 								</dict>
 							</dict>
 							<key>layout advanced configuration dictionary value</key>
 							<dict>
 								<key>algorithm</key>
 								<integer>0</integer>
+								<key>auto-rainbow style</key>
+								<integer>2</integer>
 								<key>font</key>
 								<string>.AppleSystemUIFont 12</string>
-								<key>separator color 2</key>
-								<dict>
-									<key>Alpha Component</key>
-									<real>1</real>
-									<key>Blue Component</key>
-									<real>0.40000000596046448</real>
-									<key>Color Space</key>
-									<string>sRGB</string>
-									<key>Green Component</key>
-									<real>0.40000000596046448</real>
-									<key>Red Component</key>
-									<real>0.40000000596046448</real>
-								</dict>
+								<key>remove empty components</key>
+								<false/>
 							</dict>
 						</dict>
 					</dict>
@@ -881,9 +790,7 @@
 						<dict>
 							<key>knobs</key>
 							<dict>
-								<key>ShowPercentage</key>
-								<integer>1</integer>
-								<key>ShowTime</key>
+								<key>base: compression resistance</key>
 								<integer>1</integer>
 								<key>base: priority</key>
 								<real>5</real>
@@ -892,34 +799,25 @@
 									<key>Alpha Component</key>
 									<real>1</real>
 									<key>Blue Component</key>
-									<real>0.62999999523162842</real>
+									<real>0.5</real>
 									<key>Color Space</key>
 									<string>sRGB</string>
 									<key>Green Component</key>
-									<real>0.62999999523162842</real>
+									<real>0.25</real>
 									<key>Red Component</key>
-									<real>0.89999997615814209</real>
+									<real>0.34200000000000008</real>
 								</dict>
 							</dict>
 							<key>layout advanced configuration dictionary value</key>
 							<dict>
 								<key>algorithm</key>
 								<integer>0</integer>
+								<key>auto-rainbow style</key>
+								<integer>2</integer>
 								<key>font</key>
 								<string>.AppleSystemUIFont 12</string>
-								<key>separator color 2</key>
-								<dict>
-									<key>Alpha Component</key>
-									<real>1</real>
-									<key>Blue Component</key>
-									<real>0.40000000596046448</real>
-									<key>Color Space</key>
-									<string>sRGB</string>
-									<key>Green Component</key>
-									<real>0.40000000596046448</real>
-									<key>Red Component</key>
-									<real>0.40000000596046448</real>
-								</dict>
+								<key>remove empty components</key>
+								<false/>
 							</dict>
 						</dict>
 					</dict>
@@ -931,46 +829,35 @@
 							<key>knobs</key>
 							<dict>
 								<key>base: compression resistance</key>
-								<real>0.5</real>
+								<integer>1</integer>
 								<key>base: priority</key>
 								<real>5</real>
 								<key>format</key>
 								<string>M/dd h:mm</string>
-								<key>localize</key>
-								<integer>1</integer>
 								<key>shared text color</key>
 								<dict>
 									<key>Alpha Component</key>
 									<real>1</real>
 									<key>Blue Component</key>
-									<real>0.62999999523162842</real>
+									<real>0.38500000000000023</real>
 									<key>Color Space</key>
 									<string>sRGB</string>
 									<key>Green Component</key>
-									<real>0.89999997615814209</real>
+									<real>0.25</real>
 									<key>Red Component</key>
-									<real>0.89999997615814209</real>
+									<real>0.5</real>
 								</dict>
 							</dict>
 							<key>layout advanced configuration dictionary value</key>
 							<dict>
 								<key>algorithm</key>
 								<integer>0</integer>
+								<key>auto-rainbow style</key>
+								<integer>2</integer>
 								<key>font</key>
 								<string>.AppleSystemUIFont 12</string>
-								<key>separator color 2</key>
-								<dict>
-									<key>Alpha Component</key>
-									<real>1</real>
-									<key>Blue Component</key>
-									<real>0.40000000596046448</real>
-									<key>Color Space</key>
-									<string>sRGB</string>
-									<key>Green Component</key>
-									<real>0.40000000596046448</real>
-									<key>Red Component</key>
-									<real>0.40000000596046448</real>
-								</dict>
+								<key>remove empty components</key>
+								<false/>
 							</dict>
 						</dict>
 					</dict>
@@ -983,7 +870,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Title Components</key>
-			<integer>513</integer>
+			<integer>512</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Unlimited Scrollback</key>
@@ -993,7 +880,7 @@
 			<key>Use Bright Bold</key>
 			<true/>
 			<key>Use Italic Font</key>
-			<false/>
+			<true/>
 			<key>Use Non-ASCII Font</key>
 			<false/>
 			<key>Vertical Spacing</key>
@@ -1006,10 +893,6 @@
 			<string>/Users/stanmd</string>
 		</dict>
 	</array>
-	<key>OpenBookmark</key>
-	<false/>
-	<key>OptionClickMovesCursor</key>
-	<true/>
 	<key>PerPaneBackgroundImage</key>
 	<false/>
 	<key>PointerActions</key>
@@ -1047,15 +930,7 @@
 	</dict>
 	<key>PromptOnQuit</key>
 	<false/>
-	<key>PromptOnQuitEvenIfThereAreNoWindows</key>
-	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
-	<true/>
-	<key>SeparateStatusBarsPerPane</key>
-	<false/>
-	<key>SeparateWindowTitlePerTab</key>
-	<true/>
-	<key>ShowFullScreenTabBar</key>
 	<true/>
 	<key>ShowPaneTitles</key>
 	<false/>
@@ -1064,36 +939,16 @@
 	<key>SoundForEsc</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.15643284574468086</real>
-	<key>StatusBarPosition</key>
-	<integer>0</integer>
-	<key>StretchTabsToFillBar</key>
-	<true/>
+	<real>0.15708605127427186</real>
+	<key>SwitchPaneModifier</key>
+	<integer>5</integer>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
 	<key>TabViewType</key>
 	<integer>1</integer>
-	<key>ThreeFingerEmulates</key>
-	<false/>
-	<key>ToolbeltTools</key>
-	<array>
-		<string>Actions</string>
-	</array>
-	<key>UseBorder</key>
-	<false/>
-	<key>UseLionStyleFullscreen</key>
-	<true/>
-	<key>UseMetal</key>
-	<false/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
-	<key>WindowNumber</key>
-	<true/>
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
-	<key>kCPKSelectionViewPreferredModeKey</key>
-	<integer>0</integer>
-	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
-	<false/>
 </dict>
 </plist>

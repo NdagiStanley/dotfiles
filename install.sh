@@ -4,6 +4,12 @@ function __homebrew__() {
     if ! brew --version &> /dev/null; then
         echo "Installing Homebrew..."
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        if ! brew --version &> /dev/null; then
+            echo "Adding brew to PATH"
+            echo '# Set PATH, MANPATH, etc., for Homebrew.' >> ~/.zprofile
+            echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+            eval "$(/opt/homebrew/bin/brew shellenv)"
+        fi
     fi
     echo "Homebrew is already installed"
 }
