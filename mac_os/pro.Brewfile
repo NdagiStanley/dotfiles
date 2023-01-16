@@ -25,7 +25,6 @@ brew "xz"
 brew "jrnl"
 brew "ruby"
 brew "macvim"
-brew "mas"
 brew "node", link: false
 brew "nvm"
 brew "pipenv"

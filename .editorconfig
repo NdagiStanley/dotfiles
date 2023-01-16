@@ -3,7 +3,7 @@
 # working on the same project across various editors and IDEs
 # See how to download a plugin for your editor/ IDE: https://editorconfig.org/#download
 
-# Reference: https://github.com/NdagiStanley/dotfiles/blob/master/code/.editorconfig
+# Reference: https://github.com/NdagiStanley/dotfiles/blob/main/code/.editorconfig
 
 # top-most EditorConfig file
 root = true

@@ -13,14 +13,14 @@
     Use this repo's scripts to set up machine (In six modes: [**Basic**](#basic), [**Core**](#core), [**Python**](#python), [**JavaScript**](#javascript), [**Work**](#work), and [**Pro**](#pro))
 
     For a recurrent server or workstation (that's not personal), there are two options: (The aliases are a time-saver!)
-    - (Easy) Copy [.aliases-basic](/.aliases-basic) to `.aliases` and run `source .aliases` for every new shell session
+    - (Easy and quick) Copy [.aliases-basic](/.aliases-basic) to `.aliases` and run `source .aliases` for every new shell session
 
       ```sh
       curl https://raw.githubusercontent.com/NdagiStanley/dotfiles/main/.aliases-basic > .aliases
       source .aliases
       ```
 
-    - Install `zsh`, [install oh-my-zsh](/install.sh#L14), copy [.zshrc-basic](/.zshrc-basic) to `.zshrc` and run `source .zshrc`
+    - Install `zsh`, [install oh-my-zsh](/install.sh#L20), copy [.zshrc-basic](/.zshrc-basic) to `.zshrc` and run `source .zshrc`
 
 4. [Et al (Others)](#4-et-al)
 
@@ -44,6 +44,8 @@ First, install Xcode Command Line Tools from the App Store:
 ```sh
 xcode-select --install
 ```
+
+**HINT**: <i>Since this app is huge, you can transfer Xcode from a similar macOS machine via AirPlay to fast track this.</i>
 
 ### Linux
 
@@ -180,10 +182,10 @@ Once in a while I run:
 #### SSH keys
 
 ```bash
-ssh-keygen -t rsa -b 4096 -C ".."
+ssh-keygen -t ed25519 -C ".."
 eval $(ssh-agent -s)
-ssh-add ~/.ssh/id_rsa
-pbcopy < ~/.ssh/id_rsa.pub
+ssh-add ~/.ssh/id_ed25519
+pbcopy < ~/.ssh/id_ed25519.pub
 ```
 
 > The last command is different in [Linux](/linux_os#git) and [Windows](/windows_os#git) ([Reference](https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account))

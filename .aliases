@@ -51,12 +51,6 @@ else
   alias g="git"
 fi
 
-# mas CLI: https://github.com/mas-cli/mas
-alias mi="mas install"
-alias mui="echo 'Uninstall in App Store'"
-alias ms="mas search"
-alias ml="mas list"
-
 # Python
 alias bpy="bpython"
 alias ipy="ipython"
