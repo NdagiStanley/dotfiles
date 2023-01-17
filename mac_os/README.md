@@ -20,6 +20,9 @@ I have 3 Brewfiles in the `./mac_os` folder, in order of how elaborate the list 
 
 ## Specific apps
 
+- [Rectangle](https://rectangleapp.com/) - An app for moving and resizing windows in macOS using keyboard shortcuts or snap areas
+- [iTerm](https://iterm2.com/) - A replacement for Terminal
+
 ### Rectangle
 
 Once, rectangle is installed, import settings in [`/mac_os/RectangleConfig.json`](/mac_os/RectangleConfig.json).
