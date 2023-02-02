@@ -49,3 +49,7 @@ To save any updates to your preferences, open iTerm's **Preferences/General/Pref
 ![Saving iTerm preferences](../img/iterm2.png)
 
 Now your changes are tracked in the `com.googlecode.iterm2.plist` file at the root folder.
+
+I prefer having a background image, transparency and blur:
+
+![iTerm extra preferences](../img/iterm3.png)

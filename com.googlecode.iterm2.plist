@@ -195,7 +195,7 @@
 				<real>0.0</real>
 			</dict>
 			<key>Background Image Location</key>
-			<string>/Users/stanmd/Documents/abacus/life.jpg</string>
+			<string>/Users/stanmd/Library/Mobile Documents/com~apple~CloudDocs/Documents/abacus/life.jpg</string>
 			<key>Background Image Mode</key>
 			<integer>3</integer>
 			<key>Blend</key>
@@ -203,9 +203,9 @@
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
-			<false/>
+			<true/>
 			<key>Blur Radius</key>
-			<real>3</real>
+			<real>10</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -571,7 +571,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>FantasqueSansMono-Regular 16</string>
+			<string>FantasqueSansMono-Regular 15</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -872,7 +872,7 @@
 			<key>Title Components</key>
 			<integer>512</integer>
 			<key>Transparency</key>
-			<real>0.0</real>
+			<real>0.70242852393617028</real>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
