@@ -110,10 +110,6 @@ sh setup.sh core
 sh setup.sh finish
 ```
 
-### macOS settings (Optional)
-
-Find macOS settings and app settings in [mac_os](/mac_os).
-
 ### Advanced setup (Optional)
 
 <details><summary>Collapse this to see CLI scripts for my <b>Python</b>, <b>JavaScript</b>, <b>Work</b>, and <b>Pro</b> setups</summary>
@@ -168,13 +164,18 @@ sh setup.sh pro
 
 </details>
 
-## Et al
+## 4. Et al
+
+### macOS settings
+
+Find macOS settings and app settings in [mac_os](/mac_os).
 
 ### Code
 
 Find code-specific dotfiles in [code](/code).
 
 ### Maintenance
+<!-- Move this to the last part of the README -->
 
 Once in a while I run:
 
@@ -191,6 +192,8 @@ Once in a while I run:
     _to clean **.Trashes**, **.DS_Store** among others, plus **docker system prune**_
 
 ### GIT
+
+<details><summary>Collapse this to see GIT setup steps including <b>SSH keys</b>, <b>commitizen</b>, and <b>GPG</b>.</summary>
 
 #### SSH keys
 
@@ -225,6 +228,9 @@ cz c # OR cz commit               - commit
 cz ch # OR cz changelog           - Changelog
 cz changelog 0.0.1                # Changelog for specific version
 ```
+
+</details>
+<!-- TODO: Move to the last line of GPG -->
 
 #### GPG
 
