@@ -8,7 +8,13 @@ function __homebrew__() {
             echo "Adding brew to PATH"
             echo '# Set PATH, MANPATH, etc., for Homebrew.' >> ~/.zprofile
             echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-            eval "$(/opt/homebrew/bin/brew shellenv)"
+            
+            # Either of the following two commands below can be used to add brew to PATH (for bash, zshrc is covered)
+	        # However they don't run well (within this script), so for now advise to be run after, by user directly on the terminal
+            # TODO: Figure out why `eval` and `source` are not giving the expected results when run within a script
+
+            # eval "$(/opt/homebrew/bin/brew shellenv)"
+	        # source ~/.zprofile
         fi
     fi
     echo "Homebrew is already installed"
