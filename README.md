@@ -80,7 +80,14 @@ git clone https://github.com/NdagiStanley/dotfiles.git && cd dotfiles
 
 ### Basic
 
-Install homebrew, (basic brew packages) and oh-my-zsh.
+Install homebrew and add 'brew' to PATH
+
+```sh
+sh install.sh homebrew
+source ~/.zprofile
+```
+
+Install basic brew packages and oh-my-zsh.
 
 ```sh
 sh setup.sh basic
@@ -102,6 +109,14 @@ sh setup.sh finish
 sh setup.sh core
 sh setup.sh finish
 ```
+
+### macOS settings (Optional)
+
+Find macOS settings and app settings in [mac_os](/mac_os).
+
+### Advanced setup (Optional)
+
+<details><summary>Collapse this to see CLI scripts for my <b>Python</b>, <b>JavaScript</b>, <b>Work</b>, and <b>Pro</b> setups</summary>
 
 ### Python
 
@@ -151,11 +166,9 @@ then run:
 sh setup.sh pro
 ```
 
-## 4. Et al
+</details>
 
-### macOS settings
-
-Find macOS settings and app settings in [mac_os](/mac_os).
+## Et al
 
 ### Code
 
