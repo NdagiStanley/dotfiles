@@ -6,8 +6,7 @@ function __finish__() {
 }
 
 function __basic__() {
-    # Install homebrew & basic apps
-    sh install.sh homebrew
+    # Install basic apps
     sh brew.sh
 
     # Install oh-my-zsh
