@@ -82,6 +82,8 @@ git clone https://github.com/NdagiStanley/dotfiles.git && cd dotfiles
 
 Install homebrew and add 'brew' to PATH
 
+> You'll be prompted for your password
+
 ```sh
 sh install.sh homebrew
 source ~/.zprofile
@@ -89,16 +91,16 @@ source ~/.zprofile
 
 Install basic brew packages and oh-my-zsh.
 
+> You'll be prompted for your password
+
 ```sh
 sh setup.sh basic
 ```
 
-> You'll be prompted for your password
-
-To reload the shell, run:
+To use the new shell, open a new terminal window/ tab and navigate to `dotfiles` to continue.
 
 ```sh
-sh setup.sh finish
+cd dotfiles
 ```
 
 ### Core
