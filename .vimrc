@@ -222,9 +222,12 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-nnoremap <C-R> <C-W><C-R>
-nnoremap <C-o> <C-W><C-o>
+""" I don't use the above mappings as much since I've enabled the mouse,
+" I'm keeping them here in case I'm in a system that doesn't have a mouse
 nnoremap <C-Q> <C-W><C-Q>
+nnoremap <C-o> <C-W><C-o>
+" S for switching windows (L-R, T-B)
+nnoremap <C-S> <C-W><C-R>
 
 """ More Mappings code goes here.
 
