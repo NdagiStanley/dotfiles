@@ -3,9 +3,10 @@
 function __homebrew__() {
     if ! brew --version &> /dev/null; then
         echo "Installing Homebrew..."
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	    sudo -v
+        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         if ! brew --version &> /dev/null; then
-            echo "Adding brew to PATH"
+            echo "Setting brew to added to PATH in every shell session"
             echo '# Set PATH, MANPATH, etc., for Homebrew.' >> ~/.zprofile
             echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
             

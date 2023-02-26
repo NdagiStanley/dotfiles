@@ -80,7 +80,7 @@ git clone https://github.com/NdagiStanley/dotfiles.git && cd dotfiles
 
 ### Basic
 
-Install homebrew and add 'brew' to PATH
+Install homebrew and add 'brew' to PATH.
 
 > You'll be prompted for your password
 
@@ -90,8 +90,6 @@ source ~/.zprofile
 ```
 
 Install basic brew packages and oh-my-zsh.
-
-> You'll be prompted for your password
 
 ```sh
 sh setup.sh basic
@@ -105,6 +103,7 @@ cd dotfiles
 
 ### Core
 
+> You'll be prompted for your password
 > Ensure you've run **`sh setup.sh basic`** before you proceed
 
 ```sh
@@ -231,9 +230,6 @@ cz ch # OR cz changelog           - Changelog
 cz changelog 0.0.1                # Changelog for specific version
 ```
 
-</details>
-<!-- TODO: Move to the last line of GPG -->
-
 #### GPG
 
 Have `gpg` installed. For *nix (**macOS** (Unix) and **Linux**), use Homebrew. The [default Brewfile](/mac_os/Brewfile) has it.
@@ -258,3 +254,4 @@ cz commit -s # OR cz commit --signoff   - Signed commit using commitizen
 git config --global user.signingkey <KEY> # global
 git config user.signingkey <KEY>          # per repo
 ```
+</details>

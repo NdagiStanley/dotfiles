@@ -16,9 +16,9 @@ function __basic__() {
 function __core__() {
     # Vim
     cp .vimrc ~/.vimrc
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall
 
+    sudo -v
     # Zsh Autosuggestions
     ZSH_AUTOSUGGESTIONS_DIR="$ZSH_CUSTOM/plugins/zsh-autosuggestions"
     if [ ! -d "$ZSH_AUTOSUGGESTIONS_DIR" ]; then
