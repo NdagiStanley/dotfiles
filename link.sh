@@ -26,7 +26,7 @@ function __vim__() {
 }
 
 function __windows__() {
-    cd windows_os && sh link.sh
+    cd windows_os && source link.sh
 }
 
 if [ "$1" != "" ] && type "__$1__" &> /dev/null; then

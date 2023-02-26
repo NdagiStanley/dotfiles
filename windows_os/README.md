@@ -23,7 +23,7 @@ WMIC useraccount where name='<$(whoami)>' rename stanmd
 
 _Install Chocolatey, install apps and link files_ (While still on the root of the repo)
 ```
-sh setup.sh windows
+./setup.sh windows
 ```
 
 ### Git

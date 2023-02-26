@@ -80,35 +80,32 @@ git clone https://github.com/NdagiStanley/dotfiles.git && cd dotfiles
 
 ### Basic
 
+**Note**: <i>Using `./script.sh` (alias for `source script.sh`) loads and executes a shell script into the current shell process.<br>
+Using `sh script.sh` you initiate a fork (sub-process or child) that runs a new session of /bin/sh (which is often a symbolic link to bash).<br>
+In these dotfiles, `sh` is only used with `link.sh`!</i>
+
 Install homebrew and add 'brew' to PATH.
 
 > You'll be prompted for your password
 
 ```sh
-sh install.sh homebrew
-source ~/.zprofile
+./install.sh homebrew
 ```
 
 Install basic brew packages and oh-my-zsh.
 
 ```sh
-sh setup.sh basic
-```
-
-To use the new shell, open a new terminal window/ tab and navigate to `dotfiles` to continue.
-
-```sh
-cd dotfiles
+./setup.sh basic
 ```
 
 ### Core
 
 > You'll be prompted for your password
-> Ensure you've run **`sh setup.sh basic`** before you proceed
+> Ensure you've run **`./setup.sh basic`** before you proceed
 
 ```sh
-sh setup.sh core
-sh setup.sh finish
+./setup.sh core
+./setup.sh finish
 ```
 
 ### Advanced setup (Optional)
@@ -119,32 +116,32 @@ sh setup.sh finish
 
 There's an option for running setup specific to python by running:
 
-> Ensure you've run **`sh setup.sh basic`** before you proceed
+> Ensure you've run **`./setup.sh basic`** before you proceed
 
 ```sh
-sh setup.sh python
-sh setup.sh finish
+./setup.sh python
+./setup.sh finish
 ```
 
 ### JavaScript
 
 There's an option for running setup specific to JavaScript by running:
 
-> Ensure you've run **`sh setup.sh basic`** before you proceed
+> Ensure you've run **`./setup.sh basic`** before you proceed
 
 ```sh
-sh setup.sh javascript
-sh setup.sh finish
+./setup.sh javascript
+./setup.sh finish
 ```
 
 ### Work
 
-> Ensure you've run **`sh setup.sh basic`** before you proceed
+> Ensure you've run **`./setup.sh basic`** before you proceed
 
 `Work` mode includes the [Python](#python) and [JavaScript](#javascript) modes. I use mainly these two programming languages. Take a look at [my GitHub profile](https://github.com/NdagiStanley/NdagiStanley#--hello-world).
 
 ```sh
-sh setup.sh work
+./setup.sh work
 ```
 
 ### Pro
@@ -152,7 +149,7 @@ sh setup.sh work
 To have my setup (which has a bit more installs and configuration); install homebrew, oh-my-zsh, npm packages & pypi packages by running:
 
 ```sh
-sh install.sh --all
+./install.sh --all
 ```
 
 > You'll be prompted for your password
@@ -160,7 +157,7 @@ sh install.sh --all
 then run:
 
 ```sh
-sh setup.sh pro
+./setup.sh pro
 ```
 
 </details>
@@ -174,23 +171,6 @@ Find macOS settings and app settings in [mac_os](/mac_os).
 ### Code
 
 Find code-specific dotfiles in [code](/code).
-
-### Maintenance
-<!-- Move this to the last part of the README -->
-
-Once in a while I run:
-
-- `sh sync.sh --complete`
-
-    _to sync up the `dotfiles` and push to GitHub. This applies to you if you forked this repo_
-
-- `update`
-
-    _to run a system-wide update (I do it almost daily)_ 🙂
-
-- `cleanup`
-
-    _to clean **.Trashes**, **.DS_Store** among others, plus **docker system prune**_
 
 ### GIT
 
@@ -245,7 +225,7 @@ gpg --armor --export <KEY>
 
 ```sh
 git commit -S -m "commit message"       # Signed commit
-cz commit -s # OR cz commit --signoff   - Signed commit using commitizen
+cz commit -s # OR cz commit --signoff   # Signed commit using commitizen
 ```
 
 > Automatic signed commits
@@ -255,3 +235,19 @@ git config --global user.signingkey <KEY> # global
 git config user.signingkey <KEY>          # per repo
 ```
 </details>
+
+### Maintenance
+
+Once in a while I run:
+
+- `sh sync.sh --complete`
+
+    _to sync up the `dotfiles` and push to GitHub. This applies to you if you forked this repo_
+
+- `update`
+
+    _to run a system-wide update (I do it almost daily)_ 🙂
+
+- `cleanup`
+
+    _to clean **.Trashes**, **.DS_Store** among others, plus **docker system prune**_

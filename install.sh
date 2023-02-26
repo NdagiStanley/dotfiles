@@ -6,16 +6,10 @@ function __homebrew__() {
 	    sudo -v
         NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         if ! brew --version &> /dev/null; then
-            echo "Setting brew to added to PATH in every shell session"
+            echo "Adding brew to PATH"
             echo '# Set PATH, MANPATH, etc., for Homebrew.' >> ~/.zprofile
             echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-            
-            # Either of the following two commands below can be used to add brew to PATH (for bash, zshrc is covered)
-	        # However they don't run well (within this script), so for now advise to be run after, by user directly on the terminal
-            # TODO: Figure out why `eval` and `source` are not giving the expected results when run within a script
-
-            # eval "$(/opt/homebrew/bin/brew shellenv)"
-	        # source ~/.zprofile
+            eval "$(/opt/homebrew/bin/brew shellenv)"
         fi
     fi
     echo "Homebrew is already installed"
@@ -52,7 +46,7 @@ function __probrew__() {
 
 function __choco__() {
     echo "Installing Windows OS apps..."
-    sh windows_os/install.sh
+    source windows_os/install.sh
 }
 
 function __pip__() {

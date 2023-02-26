@@ -7,10 +7,10 @@ function __finish__() {
 
 function __basic__() {
     # Install basic apps
-    sh brew.sh
+    source brew.sh
 
     # Install oh-my-zsh
-    sh install.sh zsh
+    source install.sh zsh
 }
 
 function __core__() {
@@ -51,7 +51,7 @@ function __work__() {
     __core__
 
     # Brew install only a few work-critical apps
-    sh install.sh workbrew
+    source install.sh workbrew
 
     # Python
     __python__
@@ -67,8 +67,8 @@ function __work__() {
 
 function __python__() {
     echo "Running Python setup..."
-    sh install.sh pip
-    sh code/virtualenvwrapper.sh
+    source install.sh pip
+    source code/virtualenvwrapper.sh
 
     # functions, aliases, zshrc
     cp .functions ~/.functions
@@ -77,7 +77,7 @@ function __python__() {
 }
 
 function __javascript__() {
-    sh install.sh npm
+    source install.sh npm
 
     # npm install
     npm i -g npm@latest
@@ -95,7 +95,7 @@ function __pro__() {
     __core__
 
     # Brew install everything
-    sh install.sh probrew
+    source install.sh probrew
 
     # Python
     __python__
@@ -121,8 +121,8 @@ function __pro__() {
 
 function __windows__() {
     echo "Running Windows setup..."
-    sh install.sh choco
-    cd windows_os && sh setup.sh
+    source install.sh choco
+    cd windows_os && source setup.sh
     cd ..
 }
 
