@@ -1,6 +1,17 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"               ██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
+"               ██║   ██║██║████╗ ████║██╔══██╗██╔════╝
+"               ██║   ██║██║██╔████╔██║██████╔╝██║
+"               ╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║
+"                ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
+"                 ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Commands ------------------------------------------------------------ {{{
 
-" Remember Vim is a modal editor - command, visual, normal, insert, replace modes
+" Remember Vim is a modal editor - normal, command, insert, replace, visual modes
 
 """ Modes
 " Vim is in normal mode by default.
@@ -10,8 +21,8 @@
 " (Esc) OR (Ctrl+]) to get to Normal mode
 
 """ Command mode
-" '/<search term>' to search 
-" ':e <filename + ext' to edit another file 
+" '/<search term>' to search
+" ':e <filename + ext' to edit another file
 " ':e (Tab)' to list other files in that dir that you can go edit directly (wildmenu)
 
 " ':%s/foo/bar/g' to replace all 'foo' with 'bar'
@@ -34,8 +45,8 @@
 """ Visual mode - 3 subtypes: visual, block-visual and linewise-visual
 " Navigate the cursor to the point of interest
 " (v) to get into -- VISUAL -- mode                                 (select)
-" (Ctrl+v) to get into -- VISUAL BLOCK -- (OR block-visual) mode    (select any rectangular region)
 " (Shift+v) to get into -- VISUAL LINE -- (OR linewise-visual) mode (select lines)
+" (Ctrl+v) to get into -- VISUAL BLOCK -- (OR block-visual) mode    (select any rectangular region)
 
 " Use [h,j,k,l] or arrow-keys to highlight
 " [d,u,y,p] to [delete(OR cut),undo,yank(OR copy),put(OR paste)]
@@ -61,7 +72,7 @@
 " (Shift+K) to get Man page of a command. Press while the cursor is at the word
 
 
-""" Folds 
+""" Folds
 " 'zo' to open a single fold under the cursor
 " 'zc' to close the fold under the cursor
 " 'zR' to open all folds
@@ -88,7 +99,11 @@
 " }}}
 
 """ If you edit this file, reload by running ':source ~/.vimrc
-" Reminder: 'zR' to open all folds in this file
+" Reminder:
+" 'zR' to open all folds in this file
+" '\ss' to remove all trailing whitespace
+" (u) to undo
+" (Ctrl+r) to redo
 
 " Disable compatibility with vi which can cause unexpected issues.
 set nocompatible
@@ -111,6 +126,8 @@ filetype indent on
 
 """ Editor
 
+" Use dark background
+set background=dark
 " Turn syntax highlighting on.
 syntax on
 " Add numbers to each line on the left-hand side.
@@ -127,6 +144,13 @@ set expandtab
 set scrolloff=10
 " Show partial command you type in the last line of the screen.
 set showcmd
+" Show 'invisible' characters
+set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set list
+" Enable mouse in all modes
+set mouse=a
+" Allow backspace in insert mode
+set backspace=indent,eol,start
 
 
 """ splitscreen
@@ -135,6 +159,7 @@ set showcmd
 set splitright
 " When you create a horizontally split window, it will open to the bottom (instead of the default top)
 set splitbelow
+
 
 """ wildmenu
 
@@ -164,7 +189,7 @@ set showmatch
 set hlsearch
 
 
-" PLUGINS ---------------------------------------------------------------- {{{
+" PLUGINS ------------------------------------------------------------- {{{
 
 call plug#begin('~/.vim/plugged')
 
@@ -174,11 +199,11 @@ Plug 'wakatime/vim-wakatime'
 "       brew install cmake
 "       :source ~/.vimrc
 "       vim +PluginInstall +qall
-"       
+"
 "       To compile YCM with semantic support for C-family languages through clangd
 "       cd ~/.vim/plugged/YouCompleteMe
 "       ./install.py --clangd-completer
-" Plug 'ycm-core/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe'
 
 """ More plugins go here
 
@@ -187,7 +212,7 @@ call plug#end()
 " }}}
 
 
-" MAPPINGS --------------------------------------------------------------- {{{
+" MAPPINGS ------------------------------------------------------------ {{{
 
 " Split screen (see splitscreen in Commands at the top for context)
 " Instead of pressing 'Ctrl + w' and then pressing h,j,k,l keys,
@@ -206,7 +231,7 @@ nnoremap <C-Q> <C-W><C-Q>
 " }}}
 
 
-" VIMSCRIPT -------------------------------------------------------------- {{{
+" VIMSCRIPT ----------------------------------------------------------- {{{
 
 " This will enable code folding.
 " Use the marker method of folding.
@@ -215,12 +240,32 @@ augroup filetype_vim
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
+" Automatic commands
+if has("autocmd")
+	" Enable file type detection
+	filetype on
+	" Treat .json files as .js
+	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+	" Treat .md files as Markdown
+	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+endif
+
+" Strip trailing whitespace (\ss)
+function! StripWhitespace()
+	let save_cursor = getpos(".")
+	let old_query = getreg('/')
+	:%s/\s\+$//e
+	call setpos('.', save_cursor)
+	call setreg('/', old_query)
+endfunction
+noremap <leader>ss :call StripWhitespace()<CR>
+
 """ More Vimscripts code goes here.
 
 " }}}
 
 
-" STATUS LINE ------------------------------------------------------------ {{{
+" STATUS LINE --------------------------------------------------------- {{{
 
 " Clear status line when vimrc is reloaded.
 set statusline=
@@ -242,7 +287,7 @@ set statusline+=%=
 " 0x%B - Shows the hexadecimal character under cursor
 " %l   - Display the row number
 " %p%% - Shows the cursor percentage from the top of the file
-set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ \|\ row:\ %l\ col:\ %c\ \|\ %p%%\ \ 
+set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ \|\ row:\ %l\ col:\ %c\ \|\ %p%%\ \
 
 " Show the status on the second to last line.
 set laststatus=2
