@@ -54,8 +54,9 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/Applications/MacPorts/Emacs.app/Contents/MacOS:$PATH"
 export PATH="~/.emacs.d/bin:$PATH"
 
-# NVM
 
+# JAVASCRIPT
+## NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -85,12 +86,50 @@ if nvm --version &> /dev/null; then
   load-nvmrc
 fi
 
+
+# PYTHON
+## PYENV
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init -)"
+fi
+
+## Virtualenv
 if virtualenv --help &> /dev/null; then
   export WORKON_HOME=$HOME/.envs
   export PROJECT_HOME=$HOME/Projects/MD
   export VIRTUALENVWRAPPER_PYTHON=$(which python3)
   source /opt/homebrew/bin/virtualenvwrapper.sh
 fi
+
+
+# RUBY
+# Sets the Homebrew-installed Ruby to a higher priority than the system Ruby and adds the directory used for Ruby gems
+if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
+  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH=`gem environment gemdir`/bin:$PATH
+fi
+
+## RBENV
+if [ -d "/opt/homebrew/opt/rbenv/bin" ]; then
+  eval "$(rbenv init - zsh)"
+fi
+
+
+# JAVA
+# alias javalts='export JAVA_HOME=$(/usr/libexec/java_home)'
+# alias java8='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home'
+
+
+# GOLANG
+if command -v go &> /dev/null; then
+    export GOPATH="${HOME}/.go"
+    export GOROOT="$(brew --prefix golang)/libexec"
+    export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+fi
+
 
 ## GCLOUD
 # The next line updates PATH for the Google Cloud SDK.
@@ -99,18 +138,15 @@ if [ -f '/Users/stanmd/Projects/google-cloud-sdk/path.zsh.inc' ]; then . '/Users
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/stanmd/Projects/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/stanmd/Projects/google-cloud-sdk/completion.zsh.inc'; fi
 
+
 ## JRNL
 setopt HIST_IGNORE_SPACE
 alias jrnl=" jrnl"
 alias jj=" jrnl jot"
 
-## JAVA
-alias javalts='export JAVA_HOME=$(/usr/libexec/java_home)'
-alias java8='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home'
-
-# GPG
+## GPG
 export GPG_TTY=$(tty)
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Brew
+## Brew
 export HOMEBREW_GITHUB_API_TOKEN=
