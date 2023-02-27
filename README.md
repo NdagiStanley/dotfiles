@@ -80,8 +80,8 @@ git clone https://github.com/NdagiStanley/dotfiles.git && cd dotfiles
 
 ### Basic
 
-**Note**: <i>Using `./script.sh` (alias for `source script.sh`) loads and executes a shell script into the current shell process.<br>
-Using `sh script.sh` you initiate a fork (sub-process or child) that runs a new session of /bin/sh (which is often a symbolic link to bash).<br>
+**Note**: <i>Using `source script.sh` (OR its alias `./script.sh` [script needs to be made executable with command **chmod +x < fileName >**]) loads and executes a shell script into the current shell process.<br>
+Using `sh script.sh` you initiate a fork (sub-process or child) that runs a new session of /bin/sh (which is often a symbolic link to bash).<br><br>
 In these dotfiles, `sh` is only used with `link.sh`!</i>
 
 Install homebrew and add 'brew' to PATH.
@@ -89,23 +89,36 @@ Install homebrew and add 'brew' to PATH.
 > You'll be prompted for your password
 
 ```sh
-./install.sh homebrew
+source install.sh homebrew
 ```
 
 Install basic brew packages and oh-my-zsh.
 
 ```sh
-./setup.sh basic
+source setup.sh basic
+```
+
+Press **Enter** when prompted to change your default shell.
+
+```sh
+...
+Do you want to change your default shell to zsh? [Y/n] 
+```
+
+To use the new shell, open a new terminal window/ tab and navigate to `dotfiles` to continue.
+
+```sh
+cd dotfiles
 ```
 
 ### Core
 
 > You'll be prompted for your password
-> Ensure you've run **`./setup.sh basic`** before you proceed
+> Ensure you've run **`source setup.sh basic`** before you proceed
 
 ```sh
-./setup.sh core
-./setup.sh finish
+source setup.sh core
+source setup.sh finish
 ```
 
 ### Advanced setup (Optional)
@@ -116,32 +129,32 @@ Install basic brew packages and oh-my-zsh.
 
 There's an option for running setup specific to python by running:
 
-> Ensure you've run **`./setup.sh basic`** before you proceed
+> Ensure you've run **`source setup.sh basic`** before you proceed
 
 ```sh
-./setup.sh python
-./setup.sh finish
+source setup.sh python
+source setup.sh finish
 ```
 
 ### JavaScript
 
 There's an option for running setup specific to JavaScript by running:
 
-> Ensure you've run **`./setup.sh basic`** before you proceed
+> Ensure you've run **`source setup.sh basic`** before you proceed
 
 ```sh
-./setup.sh javascript
-./setup.sh finish
+source setup.sh javascript
+source setup.sh finish
 ```
 
 ### Work
 
-> Ensure you've run **`./setup.sh basic`** before you proceed
+> Ensure you've run **`source setup.sh basic`** before you proceed
 
 `Work` mode includes the [Python](#python) and [JavaScript](#javascript) modes. I use mainly these two programming languages. Take a look at [my GitHub profile](https://github.com/NdagiStanley/NdagiStanley#--hello-world).
 
 ```sh
-./setup.sh work
+source setup.sh work
 ```
 
 ### Pro
@@ -149,7 +162,7 @@ There's an option for running setup specific to JavaScript by running:
 To have my setup (which has a bit more installs and configuration); install homebrew, oh-my-zsh, npm packages & pypi packages by running:
 
 ```sh
-./install.sh --all
+source install.sh --all
 ```
 
 > You'll be prompted for your password
@@ -157,7 +170,7 @@ To have my setup (which has a bit more installs and configuration); install home
 then run:
 
 ```sh
-./setup.sh pro
+source setup.sh pro
 ```
 
 </details>
