@@ -97,12 +97,13 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 ## Virtualenv
-if virtualenv --help &> /dev/null; then
-  export WORKON_HOME=$HOME/.envs
-  export PROJECT_HOME=$HOME/Projects/MD
-  export VIRTUALENVWRAPPER_PYTHON=$(which python3)
-  source /opt/homebrew/bin/virtualenvwrapper.sh
-fi
+## Commented out if using pipenv
+# if virtualenv --help &> /dev/null; then
+#   export WORKON_HOME=$HOME/.envs
+#   export PROJECT_HOME=$HOME/Projects/MD
+#   export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+#   source /opt/homebrew/bin/virtualenvwrapper.sh
+# fi
 
 
 # RUBY
@@ -150,3 +151,14 @@ export GPG_TTY=$(tty)
 
 ## Brew
 export HOMEBREW_GITHUB_API_TOKEN=
+
+# pnpm
+export PNPM_HOME="/Users/stanmd/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
