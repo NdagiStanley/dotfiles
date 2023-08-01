@@ -31,6 +31,10 @@ For context, I've only added these:
 
 ![RectangleConfig](../img/rectangle.png)
 
+I also set it to _Launch at login_ and _Hide menu button_. Also noted the setting under _Repeated commands_.
+
+![RectangleSettings](../img/rectangle2.png)
+
 **HINT**: <i>Repeatedly using the keyboard shortcuts cycles through the options. For example clicking through `^⌥F` **five** times gets you to **Bottom Center Sixth**.</i>
 
 ### iTerm
