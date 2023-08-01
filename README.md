@@ -10,7 +10,7 @@
 2. [Clone this repo](#2-clone-repository)
 3. [Scripts](#3-scripts)
 
-    Use this repo's scripts to set up machine (In six modes: [**Basic**](#basic), [**Core**](#core), [**Python**](#python), [**JavaScript**](#javascript), [**Work**](#work), and [**Pro**](#pro))
+    Use this repo's scripts to set up machine (In six modes: [**Basic**](#basic), [**Core**](#core), and the following four under [_Advanced Setup_](#advanced-setup-optional): Python, JavaScript, Work, and Pro.
 
     For a recurrent server or workstation (that's not personal), there are two options: (The aliases are a time-saver!)
     - (Easy and quick) Copy [.aliases-basic](/.aliases-basic) to `.aliases` and run `source .aliases` for every new shell session
@@ -102,7 +102,7 @@ Press **Enter** when prompted to change your default shell.
 
 ```sh
 ...
-Do you want to change your default shell to zsh? [Y/n] 
+Do you want to change your default shell to zsh? [Y/n]
 ```
 
 To use the new shell, open a new terminal window/ tab and navigate to `dotfiles` to continue.
@@ -200,7 +200,7 @@ pbcopy < ~/.ssh/id_ed25519.pub
 
 > The last command is different in [Linux](/linux_os#git) and [Windows](/windows_os#git) ([Reference](https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account))
 
-The SSH Public Key is now in your clipboard. Navigate to [this page](https://github.com/settings/keys), click on **New SSH key**, enter a _title_, paste the _Public Key_ and click on **Add SSH key**.
+The SSH Public Key is now in your clipboard. Navigate to [this page](https://github.com/settings/keys), click on **New SSH key**, enter a _title_, paste the _Public Key_ and click on **Add SSH key**. (Use the default selection - _Authentication Key_)
 
 #### Configuration
 
@@ -247,6 +247,7 @@ cz commit -s # OR cz commit --signoff   # Signed commit using commitizen
 git config --global user.signingkey <KEY> # global
 git config user.signingkey <KEY>          # per repo
 ```
+
 </details>
 
 ### Maintenance
@@ -259,7 +260,7 @@ Once in a while I run:
 
 - `update`
 
-    _to run a system-wide update (I do it almost daily)_ 🙂
+    _to run a system-wide update (I do it almost weekly)_ 🙂
 
 - `cleanup`
 
