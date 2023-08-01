@@ -5,7 +5,7 @@ pip3 install virtualenvwrapper
 
 export VIRTUALENVWRAPPER_PYTHON=`which python3`
 export WORKON_HOME=$HOME/.envs
-source /usr/local/bin/virtualenvwrapper.sh
+source /opt/homebrew/bin/virtualenvwrapper.sh
 
 # postactivate (at the root of $WORKON_HOME)
 # (Uncomment the lines below)

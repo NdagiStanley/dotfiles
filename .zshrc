@@ -97,13 +97,13 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 ## Virtualenv
-## Commented out if using pipenv
-# if virtualenv --help &> /dev/null; then
-#   export WORKON_HOME=$HOME/.envs
-#   export PROJECT_HOME=$HOME/Projects/MD
-#   export VIRTUALENVWRAPPER_PYTHON=$(which python3)
-#   source /opt/homebrew/bin/virtualenvwrapper.sh
-# fi
+## Comment the next 6 lines if using pipenv
+if virtualenv --help &> /dev/null; then
+  export WORKON_HOME=$HOME/.envs
+  export PROJECT_HOME=$HOME/Projects/MD
+  export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+  source /opt/homebrew/bin/virtualenvwrapper.sh
+fi
 
 
 # RUBY
