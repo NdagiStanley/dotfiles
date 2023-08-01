@@ -13,6 +13,8 @@ alias cls="clear"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias e="exit"
+alias .editorconfig="curl https://raw.githubusercontent.com/NdagiStanley/repo-boiler-plate/main/.editorconfig > .editorconfig"
+alias glogat="git log --graph --all --pretty='format:%C(auto)%h %d %s (%ah)'" # at for --all & time (format:%ah)
 alias gpo="git push origin"
 alias grao="git remote add origin"
 alias h="history"

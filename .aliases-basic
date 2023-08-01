@@ -5,6 +5,8 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
 alias cls='clear'
+alias .cci='mkdir .circleci && touch .circleci/config.yml'
+alias .editorconfig='curl https://raw.githubusercontent.com/NdagiStanley/repo-boiler-plate/main/.editorconfig > .editorconfig'
 
 alias d='docker'
 alias dc='docker-compose'
@@ -22,7 +24,8 @@ alias gco='git checkout'
 alias gcl='git clone'
 alias ggpull='git pull origin "$(gb --show-current)"'
 alias ggpush='git push origin "$(gb --show-current)"'
-alias gloga='git log --oneline --decorate --graph --all'
+alias gloga='git log --oneline --decorate --graph --all' # a for --all
+alias glogat="git log --graph --all --pretty='format:%C(auto)%h %d %s (%ah)'" # at for --all & time (format:%ah)
 alias gpo="git push origin"
 alias gr='git remote'
 alias gra='git remote add'
