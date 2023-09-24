@@ -12,7 +12,7 @@
 
     Use this repo's scripts to set up machine (In six modes: [**Basic**](#basic), [**Core**](#core), and the following four under [_Advanced Setup_](#advanced-setup-optional): Python, JavaScript, Work, and Pro.
 
-    For a recurrent server or workstation (that's not personal), there are two options: (The aliases are a time-saver!)
+    For a recurrent server or workstation (that's not personal), there are two options: (The aliases are a time-saver)
     - (Easy and quick) Copy [.aliases-basic](/.aliases-basic) to `.aliases` and run `source .aliases` for every new shell session
 
       ```sh
