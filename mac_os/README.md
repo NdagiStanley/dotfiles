@@ -25,15 +25,21 @@ I have 3 Brewfiles in the `./mac_os` folder, in order of how elaborate the list 
 
 ### Rectangle
 
-Once, rectangle is installed, import settings in [`/mac_os/RectangleConfig.json`](/mac_os/RectangleConfig.json).
+Once, rectangle is installed,
 
-For context, I've only added these:
+1. Select **Rectangle** to use its default shortcuts.
 
-![RectangleConfig](../img/rectangle.png)
+    ![RectangleConfig](../img/rectangle.png)
 
-I also set it to _Launch at login_ and _Hide menu button_. Also noted the setting under _Repeated commands_.
+2. Import settings in [`/mac_os/RectangleConfig.json`](/mac_os/RectangleConfig.json).
 
-![RectangleSettings](../img/rectangle2.png)
+    For context, I've only edited these shortcuts from the default Rectangle shortcuts:
+
+    ![RectangleShortcuts](../img/rectangle1.png)
+
+    And I set it to _Launch at login_, _Hide menu button_, and updated the setting under _Repeated commands_.
+
+    ![RectangleSettings](../img/rectangle2.png)
 
 **HINT**: <i>Repeatedly using the keyboard shortcuts cycles through the options. For example clicking through `^⌥F` **five** times gets you to **Bottom Center Sixth**.</i>
 
@@ -50,10 +56,10 @@ To sync iTerm settings, open iTerm's **Preferences/General/Preferences**:
 
 To save any updates to your preferences, open iTerm's **Preferences/General/Preferences** and after _Save Changes_, select **When Quitting**.
 
-![Saving iTerm preferences](../img/iterm2.png)
+![Saving iTerm preferences](../img/iterm1.png)
 
 Now your changes are tracked in the `com.googlecode.iterm2.plist` file at the root folder.
 
 I prefer having a background image, transparency and blur:
 
-![iTerm extra preferences](../img/iterm3.png)
+![iTerm extra preferences](../img/iterm2.png)

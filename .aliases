@@ -21,11 +21,14 @@ alias h="history"
 alias hs="python3 -m http.server"
 alias md="cd ~/Projects/MD"
 alias notify="tput bel & say done"
+alias .netlify="curl https://raw.githubusercontent.com/NdagiStanley/repo-boiler-plate/main/netlify.toml > netlify.toml"
 alias p="cd ~/Projects"
-alias pty="cd ~/Projects/PTY"
 alias reload="source ~/.zshrc"
 alias wifi-off='networksetup -setairportpower en0 off'
 alias wifi-on='networksetup -setairportpower en0 on'
+
+# More Directories (TODO: add specific workstation directories in this format)
+alias cito="cd ~/Projects/Work/CITO"
 
 # Brew
 alias binfo="brew info"
