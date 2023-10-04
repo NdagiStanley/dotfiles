@@ -120,7 +120,9 @@ fi
 
 
 # JAVA
-# alias javalts='export JAVA_HOME=$(/usr/libexec/java_home)'
+# https://docs.oracle.com/en/java/javase/20/install/installation-jdk-macos.html
+alias javalts='export JAVA_HOME=$(/usr/libexec/java_home)'
+alias java17='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home'
 # alias java8='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home'
 
 
@@ -133,11 +135,6 @@ fi
 
 
 ## GCLOUD
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/stanmd/Projects/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/stanmd/Projects/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/stanmd/Projects/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/stanmd/Projects/google-cloud-sdk/completion.zsh.inc'; fi
 
 
 ## JRNL
@@ -162,3 +159,19 @@ esac
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/stanmd/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/stanmd/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/stanmd/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/stanmd/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# add fastlane
+PATH=$PATH:$HOME/.fastlane/bin
+
+# bun completions
+[ -s "/Users/stanmd/.bun/_bun" ] && source "/Users/stanmd/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

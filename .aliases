@@ -7,13 +7,14 @@
 # Shortcuts
 alias .cci="mkdir .circleci && touch .circleci/config.yml"
 alias c="code"
-alias cci="cd ~/Projects/CCI"
 alias ci="code-insiders"
 alias cls="clear"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias e="exit"
 alias .editorconfig="curl https://raw.githubusercontent.com/NdagiStanley/repo-boiler-plate/main/.editorconfig > .editorconfig"
+alias g="git"
+alias gcs="git checkout staging"
 alias glogat="git log --graph --all --pretty='format:%C(auto)%h %d %s (%ah)'" # at for --all & time (format:%ah)
 alias gpo="git push origin"
 alias grao="git remote add origin"
@@ -26,9 +27,20 @@ alias p="cd ~/Projects"
 alias reload="source ~/.zshrc"
 alias wifi-off='networksetup -setairportpower en0 off'
 alias wifi-on='networksetup -setairportpower en0 on'
+alias bt-off='blueutil -p off'
+alias bt-on='blueutil -p on'
+alias offline='wifi-off & bt-off'
+alias online='wifi-on & bt-on'
 
 # More Directories (TODO: add specific workstation directories in this format)
 alias cito="cd ~/Projects/Work/CITO"
+alias ks="cd ~/Projects/Work/KS"
+alias nm="cd ~/Projects/Work/NM"
+alias nt="cd ~/Projects/Work/NT"
+alias or="cd ~/Projects/Work/OR"
+alias tk="cd ~/Projects/Work/TK"
+alias tm="cd ~/Projects/Work/TM"
+alias cci="cd ~/Projects/Work/cci"
 
 # Brew
 alias binfo="brew info"
@@ -48,15 +60,6 @@ alias nui="npm uninstall"
 alias nig="npm install --global"
 alias nuig="npm uninstall --global"
 alias kill="npx kill-port"
-
-# Hub: https://github.com/github/hub
-# GitHub's CLI: https://cli.github.com/ is an option but there is no alternative for hub compare/ hub compare_branch (see .functions)
-if hub -v 2>/dev/null 1>&2 ; then
-  eval "$(hub alias -s)"
-  alias g="hub"
-else
-  alias g="git"
-fi
 
 # Python
 alias bpy="bpython"

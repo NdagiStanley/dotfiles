@@ -18,17 +18,19 @@ source /opt/homebrew/bin/virtualenvwrapper.sh
 
 
 # PROMPT="$PROMPT%{${fg_bold[yellow]}%}pyEnv:%{${fg_bold[white]}%}(%{${fg[green]}%}`basename \"$VIRTUAL_ENV\"`%{${fg_bold[white]}%}) %{${reset_color}%} $NEWLINE "
-# pip-chill
+# pip3 install --upgrade pip
+# pip3 --no-cache-dir install pip-chill && pip-chill
 
 # (Uncomment till here)
 
 
 # postmkvirtualenv (at the root of $WORKON_HOME)
 # (Uncomment the lines below)
+# pip3 install --upgrade pip
 # pip3 --no-cache-dir install autopep8
 # pip3 --no-cache-dir install flake8
 # pip3 --no-cache-dir install pip-autoremove
-# pip3 --no-cache-dir install pip-chill
+# pip3 --no-cache-dir install pip-chill && pip-chill
 
 # (Uncomment till here)
 
