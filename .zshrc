@@ -58,8 +58,8 @@ export PATH="~/.emacs.d/bin:$PATH"
 # JAVASCRIPT
 ## NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 if nvm --version &> /dev/null; then
 
@@ -90,9 +90,8 @@ fi
 # PYTHON
 ## PYENV
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init --path)"
   eval "$(pyenv init -)"
 fi
 
@@ -158,7 +157,7 @@ esac
 # pnpm end
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+# source <(ng completion script)
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/stanmd/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/stanmd/Downloads/google-cloud-sdk/path.zsh.inc'; fi
