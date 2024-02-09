@@ -45,7 +45,13 @@ First, install Xcode Command Line Tools from the App Store:
 xcode-select --install
 ```
 
-**HINT**: <i>Since this app is huge, you can transfer Xcode from a similar macOS machine via AirPlay to fast track this.</i>
+, and agree to the license by opening Xcode.app or running:
+
+```sh
+sudo xcodebuild -license
+```
+
+**HINT**: <i>Since this app is huge, you can transfer Xcode from a similar macOS machine via AirPlay to fast track this OR downloading Xcode from <http://developer.apple.com/download/all/></i>
 
 ### Linux
 
@@ -91,6 +97,12 @@ Install homebrew and add 'brew' to PATH.
 ```sh
 source install.sh homebrew
 ```
+
+**Note**: <i>You might get an error "error: RPC failed; curl ...". If you do, here are the options for fix this:<br>
+
+- change the network to a faster one
+- Configure your network settings to use the IP addresses `8.8.8.8` and `8.8.4.4` as your DNS servers. This is Google's Public DNS.
+- There are other prescribed solutions [here](https://gist.github.com/daopk/0a95772d582cafb202142ff7871da2fc).</i>
 
 Install basic brew packages and oh-my-zsh.
 
