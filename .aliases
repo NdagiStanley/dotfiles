@@ -6,6 +6,8 @@
 
 # Shortcuts
 alias .cci="mkdir .circleci && touch .circleci/config.yml"
+alias .nvm="curl https://raw.githubusercontent.com/NdagiStanley/repo-boiler-plate/main/.nvmrc > .nvmrc"
+alias .mdlint="curl https://raw.githubusercontent.com/NdagiStanley/repo-boiler-plate/main/.markdownlint.json > .markdownlint.json"
 alias c="code"
 alias ci="code-insiders"
 alias cls="clear"
