@@ -137,3 +137,7 @@ alias update='sudo softwareupdate -i -a; mdbrew; npm install npm -g; npm update 
 alias ip="curl ifconfig.me"
 alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# CZ
+alias czc="cz -n cz_gitmoji c"
+alias czcc="cz c && ggpush && notify"
