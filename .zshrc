@@ -61,8 +61,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-if nvm --version &> /dev/null; then
-
+if nvm --version &>/dev/null; then
   # place this after nvm initialization!
   autoload -U add-zsh-hook
   load-nvmrc() {
@@ -82,48 +81,82 @@ if nvm --version &> /dev/null; then
       nvm use default
     fi
   }
+  echo "Node version: $(node -v)"
+  echo "\tCMDs: nvm (ls|ls-remote) | nvm install (<version>|--lts) | nvm use (node|--lts|--lts=<LTS name>) | node -v"
   add-zsh-hook chpwd load-nvmrc
   load-nvmrc
 fi
 
+## YARN
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # PYTHON
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
 ## PYENV
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
+  echo "Python version: $(pyenv version)"
+  echo "\tCMDs: pyenv install (-l) | pyenv version(s) | pyenv (global|local) <version> | python --version"
 fi
 
 ## Virtualenv
+## Precursor: brew install virtualenvwrapper
 ## Comment the next 6 lines if using pipenv
-if virtualenv --help &> /dev/null; then
+if virtualenv --help &>/dev/null; then
   export WORKON_HOME=$HOME/.envs
   export PROJECT_HOME=$HOME/Projects/MD
   export VIRTUALENVWRAPPER_PYTHON=$(which python3)
   source /opt/homebrew/bin/virtualenvwrapper.sh
+  echo "\tvirtualenvwrapper is available - mkvirtualenv|workon|deactivate"
 fi
 
+## PIPX
+## To activate completions in zsh, first make sure compinit is marked for
+## autoload and run autoload then enable completions for pipx
+if pipx --help &>/dev/null; then
+  autoload -U compinit && compinit
+  eval "$(register-python-argcomplete pipx)"
+  echo "\tpipx is available"
+  export PATH="$PATH:/Users/stanmd/.local/bin"
+fi
 
 # RUBY
-# Sets the Homebrew-installed Ruby to a higher priority than the system Ruby and adds the directory used for Ruby gems
-if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
-  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
-  export PATH=`gem environment gemdir`/bin:$PATH
-fi
-
 ## RBENV
+## Precursor: brew install rbenv ruby-build
 if [ -d "/opt/homebrew/opt/rbenv/bin" ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init - zsh)"
+  echo "Ruby version: $(rbenv global)"
+  echo "\tCMDs: rbenv install (-l|<version>) | rbenv global <version>"
 fi
 
+## Rust
+. "$HOME/.cargo/env"
 
 # JAVA
-# https://docs.oracle.com/en/java/javase/20/install/installation-jdk-macos.html
+# Context: https://docs.oracle.com/en/java/javase/20/install/installation-jdk-macos.html
+# Download link: https://www.oracle.com/java/technologies/downloads/ - Get the ARM64 DMG Installer
 alias javalts='export JAVA_HOME=$(/usr/libexec/java_home)'
+alias java23='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-23.jdk/Contents/Home'
+alias java21='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home'
 alias java17='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home'
 # alias java8='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home'
+# java8 only works for x86_64 architecture
 
+# GROOVY
+export GROOVY_HOME=/opt/homebrew/opt/groovy/libexec
+export PATH="/opt/homebrew/opt/groovy/bin:$PATH"
+
+# KOTLIN
+export PATH="/opt/homebrew/opt/kotlin/bin:$PATH"
+
+# ANDROID
+export ANDROID_SDK_ROOT="$HOME/Library/Android/Sdk"
+export ANDROID_HOME="$HOME/Library/Android/Sdk"
+PATH=$PATH:$ANDROID_SDK_ROOT/tools; PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
 # GOLANG
 if command -v go &> /dev/null; then
