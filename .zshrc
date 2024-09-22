@@ -38,28 +38,27 @@ export SSH_KEY_PATH="~/.ssh/"
 
 # zsh-syntax-highlighting
 if [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # .aliases
 if [ -f ~/.aliases ]; then
-    source ~/.aliases
+  source ~/.aliases
 fi
 
 # .functions
 if [ -f ~/.functions ]; then
-    source ~/.functions
+  source ~/.functions
 fi
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/Applications/MacPorts/Emacs.app/Contents/MacOS:$PATH"
 export PATH="~/.emacs.d/bin:$PATH"
 
-
 # JAVASCRIPT
 ## NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                                       # This loads nvm
+[ -s "$NVM_DIR/etc/bash_completion.d/nvm" ] && \. "$NVM_DIR/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 
 if nvm --version &>/dev/null; then
   # place this after nvm initialization!
@@ -156,18 +155,18 @@ export PATH="/opt/homebrew/opt/kotlin/bin:$PATH"
 # ANDROID
 export ANDROID_SDK_ROOT="$HOME/Library/Android/Sdk"
 export ANDROID_HOME="$HOME/Library/Android/Sdk"
-PATH=$PATH:$ANDROID_SDK_ROOT/tools; PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+PATH=$PATH:$ANDROID_SDK_ROOT/tools
+PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
 # GOLANG
-if command -v go &> /dev/null; then
-    export GOPATH="${HOME}/.go"
-    export GOROOT="$(brew --prefix golang)/libexec"
-    export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+# Typically, this is not necessary because Homebrew sets it up correctly
+# Uncomment the lines below to set up the GOROOT environment variable if needed
+if command -v go &>/dev/null; then
+  export GOROOT=$(brew --prefix go)/libexec
+  export PATH=$PATH:$GOROOT/bin
 fi
 
-
 ## GCLOUD
-
 
 ## JRNL
 setopt HIST_IGNORE_SPACE
@@ -176,7 +175,7 @@ alias jj=" jrnl jot"
 
 ## GPG
 export GPG_TTY=$(tty)
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 ## Brew
 export HOMEBREW_GITHUB_API_TOKEN=
@@ -184,8 +183,8 @@ export HOMEBREW_GITHUB_API_TOKEN=
 # pnpm
 export PNPM_HOME="/Users/stanmd/Library/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
