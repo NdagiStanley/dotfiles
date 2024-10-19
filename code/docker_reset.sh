@@ -1,62 +1,60 @@
 #!/bin/bash
-# Copyright 2017 Théo Chamley
-# Permission is hereby granted, free of charge, to any person obtaining a copy of
-# this software and associated documentation files (the "Software"), to deal in the Software
-# without restriction, including without limitation the rights to use, copy, modify, merge,
-# publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons
-# to whom the Software is furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in all copies or
-# substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
-# BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-# DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-IMAGES=( "$@" )
-echo "This will remove all your current containers and images except for:"
-echo "${IMAGES}"
-read -p "Are you sure? [yes/NO] " -n 1 -r
-echo    # (optional) move to a new line
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
+
+# Function to reset Docker for macOS
+reset_docker_macos() {
+    echo "Stopping Docker Desktop for macOS..."
+    osascript -e 'quit app "Docker"'
+
+    echo "Clearing all containers, images, volumes, and networks..."
+<<<<<<< Tabnine <<<<<<<
+    docker container stop $(docker container ls -aq) || true#-
+    docker container stop "$(docker container ls -aq)" || true#+
+>>>>>>> Tabnine >>>>>>># {"conversationId":"ebe20e1d-51ef-4d18-9718-0e53ec570691","source":"instruct"}
+    docker container rm $(docker container ls -aq) || true
+    docker image rm $(docker image ls -aq) || true
+    docker volume rm $(docker volume ls -q) || true
+    docker network prune -f || true
+
+    echo "Starting Docker Desktop for macOS..."
+    open --background -a Docker
+
+    echo "Waiting for Docker to start..."
+    while ! docker system info > /dev/null 2>&1; do
+        sleep 1
+    done
+
+    echo "Docker Desktop for macOS has been reset."
+}
+
+# Function to reset Docker for Linux
+reset_docker_linux() {
+    echo "Stopping Docker service..."
+    sudo systemctl stop docker
+
+    echo "Clearing all containers, images, volumes, and networks..."
+    docker container stop $(docker container ls -aq) || true
+    docker container rm $(docker container ls -aq) || true
+    docker image rm $(docker image ls -aq) || true
+    docker volume rm $(docker volume ls -q) || true
+    docker network prune -f || true
+
+    echo "Starting Docker service..."
+    sudo systemctl start docker
+
+    echo "Waiting for Docker to start..."
+    while ! docker system info > /dev/null 2>&1; do
+        sleep 1
+    done
+
+    echo "Docker for Linux has been reset."
+}
+
+# Determine the OS and execute the appropriate function
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    reset_docker_macos
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    reset_docker_linux
+else
+    echo "Unsupported OS. This script only supports macOS and Linux."
     exit 1
 fi
-TMP_DIR=$(mktemp -d)
-pushd "$TMP_DIR" >/dev/null || exit
-open -a Docker
-echo "=> Saving the specified images"
-for image in ${IMAGES}; do
-    echo "==> Saving ${image}"
-    tar=$(echo -n ${image} | base64)
-    docker save -o ${tar}.tar ${image}
-    echo "==> Done."
-done
-echo "=> Cleaning up"
-echo -n "==> Quiting Docker"
-osascript -e 'quit app "Docker"'
-while docker info >/dev/null 2>&1; do
-    echo -n "."
-    sleep 1
-done;
-echo ""
-echo "==> Removing Docker.qcow2 file"
-rm ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
-echo "==> Launching Docker"
-open -a Docker
-echo -n "==> Waiting for Docker to start"
-until docker info >/dev/null 2>&1; do
-    echo -n "."
-    sleep 1
-done;
-echo ""
-echo "=> Done."
-echo "=> Loading saved images"
-for image in ${IMAGES}; do
-    echo "==> Loading ${image}"
-    tar=$(echo -n "${image}" | base64)
-    docker load -q -i ${tar}.tar || exit 1
-    echo "==> Done."
-done
-popd > /dev/null || exit
-rm -r "${TMP_DIR}"
