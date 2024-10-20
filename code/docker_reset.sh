@@ -6,13 +6,10 @@ reset_docker_macos() {
     osascript -e 'quit app "Docker"'
 
     echo "Clearing all containers, images, volumes, and networks..."
-<<<<<<< Tabnine <<<<<<<
-    docker container stop $(docker container ls -aq) || true#-
-    docker container stop "$(docker container ls -aq)" || true#+
->>>>>>> Tabnine >>>>>>># {"conversationId":"ebe20e1d-51ef-4d18-9718-0e53ec570691","source":"instruct"}
-    docker container rm $(docker container ls -aq) || true
-    docker image rm $(docker image ls -aq) || true
-    docker volume rm $(docker volume ls -q) || true
+    docker container stop "$(docker container ls -aq)" || true
+    docker container rm "$(docker container ls -aq)" || true
+    docker image rm "$(docker image ls -aq)" || true
+    docker volume rm "$(docker volume ls -q)" || true
     docker network prune -f || true
 
     echo "Starting Docker Desktop for macOS..."
@@ -32,10 +29,10 @@ reset_docker_linux() {
     sudo systemctl stop docker
 
     echo "Clearing all containers, images, volumes, and networks..."
-    docker container stop $(docker container ls -aq) || true
-    docker container rm $(docker container ls -aq) || true
-    docker image rm $(docker image ls -aq) || true
-    docker volume rm $(docker volume ls -q) || true
+    docker container stop "$(docker container ls -aq)" || true
+    docker container rm "$(docker container ls -aq)" || true
+    docker image rm "$(docker image ls -aq)" || true
+    docker volume rm "$(docker volume ls -q)" || true
     docker network prune -f || true
 
     echo "Starting Docker service..."
