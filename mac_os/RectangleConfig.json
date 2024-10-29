@@ -1,6 +1,9 @@
 {
   "bundleId" : "com.knollsoft.Rectangle",
   "defaults" : {
+    "SUEnableAutomaticChecks" : {
+      "bool" : true
+    },
     "allowAnyShortcut" : {
       "bool" : false
     },
@@ -10,10 +13,13 @@
     "almostMaximizeWidth" : {
       "float" : 0
     },
+    "altThirdCycle" : {
+      "int" : 0
+    },
     "alternateDefaultShortcuts" : {
       "bool" : true
     },
-    "altThirdCycle" : {
+    "alwaysAccountForStage" : {
       "int" : 0
     },
     "applyGapsToMaximize" : {
@@ -31,10 +37,10 @@
     "cascadeAllDeltaSize" : {
       "float" : 30
     },
-    "centeredDirectionalMove" : {
+    "centerHalfCycles" : {
       "int" : 0
     },
-    "centerHalfCycles" : {
+    "centeredDirectionalMove" : {
       "int" : 0
     },
     "cornerSnapAreaSize" : {
@@ -43,11 +49,32 @@
     "curtainChangeSize" : {
       "int" : 0
     },
+    "cycleSizesIsChanged" : {
+      "bool" : false
+    },
     "disabledApps" : {
 
     },
+    "doubleClickTitleBar" : {
+      "int" : 0
+    },
+    "doubleClickTitleBarIgnoredApps" : {
+
+    },
+    "doubleClickTitleBarRestore" : {
+      "int" : 0
+    },
+    "dragFromStage" : {
+      "int" : 0
+    },
+    "enhancedUI" : {
+      "int" : 1
+    },
     "footprintAlpha" : {
-      "float" : 0.30000001192092896
+      "float" : 0.3
+    },
+    "footprintAnimationDurationMultiplier" : {
+      "float" : 0.75
     },
     "footprintBorderWidth" : {
       "float" : 2
@@ -64,8 +91,14 @@
     "gapSize" : {
       "float" : 0
     },
+    "hapticFeedbackOnSnap" : {
+      "int" : 2
+    },
     "hideMenubarIcon" : {
-      "bool" : false
+      "bool" : true
+    },
+    "ignoreDragSnapToo" : {
+      "int" : 0
     },
     "ignoredSnapAreas" : {
       "int" : 0
@@ -84,6 +117,12 @@
     },
     "missionControlDragging" : {
       "int" : 0
+    },
+    "missionControlDraggingAllowedOffscreenDistance" : {
+      "float" : 25
+    },
+    "missionControlDraggingDisallowedDuration" : {
+      "int" : 250
     },
     "moveCursor" : {
       "int" : 0
@@ -115,11 +154,17 @@
     "screenEdgeGapRight" : {
       "float" : 0
     },
+    "screenEdgeGapTop" : {
+      "float" : 0
+    },
+    "screenEdgeGapTopNotch" : {
+      "float" : 0
+    },
     "screenEdgeGapsOnMainScreenOnly" : {
       "bool" : false
     },
-    "screenEdgeGapTop" : {
-      "float" : 0
+    "selectedCycleSizes" : {
+      "int" : 0
     },
     "shortEdgeSnapAreaSize" : {
       "float" : 145
@@ -158,10 +203,13 @@
       "float" : 190
     },
     "subsequentExecutionMode" : {
-      "int" : 1
+      "int" : 3
     },
-    "SUEnableAutomaticChecks" : {
-      "bool" : false
+    "systemWideMouseDown" : {
+      "int" : 0
+    },
+    "systemWideMouseDownApps" : {
+
     },
     "todo" : {
       "int" : 0
@@ -171,6 +219,9 @@
     },
     "todoMode" : {
       "bool" : false
+    },
+    "todoSidebarSide" : {
+      "int" : 1
     },
     "todoSidebarWidth" : {
       "float" : 400
@@ -202,12 +253,12 @@
       "keyCode" : 8,
       "modifierFlags" : 786432
     },
-    "centerThird" : {
-      "keyCode" : 3,
-      "modifierFlags" : 786432
-    },
     "firstThird" : {
       "keyCode" : 2,
+      "modifierFlags" : 786432
+    },
+    "firstThreeFourths" : {
+      "keyCode" : 5,
       "modifierFlags" : 786432
     },
     "firstTwoThirds" : {
@@ -216,14 +267,6 @@
     },
     "larger" : {
       "keyCode" : 24,
-      "modifierFlags" : 786432
-    },
-    "lastThird" : {
-      "keyCode" : 5,
-      "modifierFlags" : 786432
-    },
-    "lastTwoThirds" : {
-      "keyCode" : 17,
       "modifierFlags" : 786432
     },
     "leftHalf" : {
@@ -246,6 +289,10 @@
       "keyCode" : 123,
       "modifierFlags" : 1835008
     },
+    "reflowTodo" : {
+      "keyCode" : 45,
+      "modifierFlags" : 786432
+    },
     "restore" : {
       "keyCode" : 51,
       "modifierFlags" : 786432
@@ -258,6 +305,10 @@
       "keyCode" : 27,
       "modifierFlags" : 786432
     },
+    "toggleTodo" : {
+      "keyCode" : 11,
+      "modifierFlags" : 786432
+    },
     "topHalf" : {
       "keyCode" : 126,
       "modifierFlags" : 786432
@@ -266,10 +317,14 @@
       "keyCode" : 32,
       "modifierFlags" : 786432
     },
+    "topLeftSixth" : {
+      "keyCode" : 3,
+      "modifierFlags" : 786432
+    },
     "topRight" : {
       "keyCode" : 34,
       "modifierFlags" : 786432
     }
   },
-  "version" : "65"
+  "version" : "90"
 }
