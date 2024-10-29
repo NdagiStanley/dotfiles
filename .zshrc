@@ -56,6 +56,7 @@ export PATH="~/.emacs.d/bin:$PATH"
 
 # JAVASCRIPT
 ## NVM
+## https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                                       # This loads nvm
 [ -s "$NVM_DIR/etc/bash_completion.d/nvm" ] && \. "$NVM_DIR/etc/bash_completion.d/nvm" # This loads nvm bash_completion
@@ -140,8 +141,7 @@ fi
 # Download link: https://www.oracle.com/java/technologies/downloads/ - Get the ARM64 DMG Installer
 alias javalts='export JAVA_HOME=$(/usr/libexec/java_home)'
 alias java23='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-23.jdk/Contents/Home'
-alias java21='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home'
-alias java17='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home'
+alias java21='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home' # 21 is now the latest LTS of Java SE
 # alias java8='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home'
 # java8 only works for x86_64 architecture
 
@@ -159,12 +159,13 @@ PATH=$PATH:$ANDROID_SDK_ROOT/tools
 PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
 # GOLANG
-# Typically, this is not necessary because Homebrew sets it up correctly
-# Uncomment the lines below to set up the GOROOT environment variable if needed
-if command -v go &>/dev/null; then
-  export GOROOT=$(brew --prefix go)/libexec
-  export PATH=$PATH:$GOROOT/bin
-fi
+# https://go.dev/doc/install OR via brew
+# Typically, this is not necessary because Installer and Homebrew sets it up correctly
+# If brew and when needed uncomment the lines below to set up the GOROOT environment variable
+# if command -v go &>/dev/null; then
+#   export GOROOT=$(brew --prefix go)/libexec
+#   export PATH=$PATH:$GOROOT/bin
+# fi
 
 ## GCLOUD
 
@@ -183,8 +184,8 @@ export HOMEBREW_GITHUB_API_TOKEN=
 # pnpm
 export PNPM_HOME="/Users/stanmd/Library/pnpm"
 case ":$PATH:" in
-*":$PNPM_HOME:"*) ;;
-*) export PATH="$PNPM_HOME:$PATH" ;;
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
