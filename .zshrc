@@ -225,9 +225,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 [ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.
 
-# Added by Windsurf
-export PATH="/Users/stanmd/.codeium/windsurf/bin:$PATH"
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/stanmd/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/stanmd/google-cloud-sdk/path.zsh.inc'; fi
 
