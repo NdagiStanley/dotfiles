@@ -26,7 +26,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z zsh-autosuggestions)
+plugins=(git z zsh-autosuggestions globalias)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -81,14 +81,27 @@ if nvm --version &>/dev/null; then
       nvm use default
     fi
   }
-  echo "Node version: $(node -v)"
-  echo "\tCMDs: nvm (ls|ls-remote) | nvm install (<version>|--lts) | nvm use (node|--lts|--lts=<LTS name>) | node -v"
+  corepack enable ## for yarn
+  echo "Node version: $(node -v) <- node -v"
+  echo "\tCMDs: nvm (ls|ls-remote) | nvm install (<version>|--lts)"
+  echo "\t      nvm use (node|--lts|--lts=<LTS name>)"
   add-zsh-hook chpwd load-nvmrc
   load-nvmrc
 fi
 
 ## YARN
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+## PNPM
+if pnpm -h &>/dev/null; then
+  alias pn=pnpm
+  echo "\t\tpnpm is available - pn add | pn install | pn -v"
+fi
+
+## NUXT
+if nuxi info &>/dev/null; then
+  echo "\t\tnuxi is available"
+fi
 
 # PYTHON
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
@@ -98,8 +111,8 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
-  echo "Python version: $(pyenv version)"
-  echo "\tCMDs: pyenv install (-l) | pyenv version(s) | pyenv (global|local) <version> | python --version"
+  echo "Python ver.n: $(pyenv version) <- python --version"
+  echo "\tCMDs: pyenv install (-l) | pyenv version(s) | pyenv (global|local) <version>"
 fi
 
 ## Virtualenv
@@ -110,16 +123,16 @@ if virtualenv --help &>/dev/null; then
   export PROJECT_HOME=$HOME/Projects/MD
   export VIRTUALENVWRAPPER_PYTHON=$(which python3)
   source /opt/homebrew/bin/virtualenvwrapper.sh
-  echo "\tvirtualenvwrapper is available - mkvirtualenv|workon|deactivate"
+  echo "\t\tvirtualenvwrapper is available - mkvirtualenv | workon | deactivate"
 fi
 
 ## PIPX
+## Precursor: brew install pipx
 ## To activate completions in zsh, first make sure compinit is marked for
 ## autoload and run autoload then enable completions for pipx
 if pipx --help &>/dev/null; then
   autoload -U compinit && compinit
-  eval "$(register-python-argcomplete pipx)"
-  echo "\tpipx is available"
+  echo "\t\tpipx is available"
   export PATH="$PATH:/Users/stanmd/.local/bin"
 fi
 
@@ -135,11 +148,17 @@ fi
 
 ## Rust
 . "$HOME/.cargo/env"
+if cargo --help &>/dev/null; then
+  echo "Rust version: $(cargo --version)"
+  echo "\tCMDs: cargo -h | rustup update | rustup doc --book"
+fi
 
 # JAVA
-# Context: https://docs.oracle.com/en/java/javase/20/install/installation-jdk-macos.html
-# Download link: https://www.oracle.com/java/technologies/downloads/ - Get the ARM64 DMG Installer
+# Context: https://docs.oracle.com/en/java/javase/24/install/installation-jdk-macos.html
+# Download link: https://www.oracle.com/java/technologies/downloads/#jdk24-mac - Get the ARM64 DMG Installer
+# Refer to tauri-ref for more when developing w/ tauri
 alias javalts='export JAVA_HOME=$(/usr/libexec/java_home)'
+alias java24='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-24.jdk/Contents/Home'
 alias java23='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-23.jdk/Contents/Home'
 alias java21='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home' # 21 is now the latest LTS of Java SE
 # alias java8='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home'
@@ -153,19 +172,21 @@ export PATH="/opt/homebrew/opt/groovy/bin:$PATH"
 export PATH="/opt/homebrew/opt/kotlin/bin:$PATH"
 
 # ANDROID
-export ANDROID_SDK_ROOT="$HOME/Library/Android/Sdk"
-export ANDROID_HOME="$HOME/Library/Android/Sdk"
-PATH=$PATH:$ANDROID_SDK_ROOT/tools
-PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+PATH=$PATH:$ANDROID_HOME/tools
+PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # GOLANG
 # https://go.dev/doc/install OR via brew
 # Typically, this is not necessary because Installer and Homebrew sets it up correctly
 # If brew and when needed uncomment the lines below to set up the GOROOT environment variable
-# if command -v go &>/dev/null; then
-#   export GOROOT=$(brew --prefix go)/libexec
-#   export PATH=$PATH:$GOROOT/bin
-# fi
+if command -v go &>/dev/null; then
+  export GOPATH=$HOME/go
+  export PATH=$PATH:$GOPATH/bin
+  echo "Golang ver.n: $(go version)"
+  echo "\tCMDs: go help"
+fi
 
 ## GCLOUD
 
@@ -192,12 +213,6 @@ esac
 # Load Angular CLI autocompletion.
 # source <(ng completion script)
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/stanmd/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/stanmd/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/stanmd/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/stanmd/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
 # add fastlane
 PATH=$PATH:$HOME/.fastlane/bin
 
@@ -209,3 +224,14 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 [ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.
+
+# Added by Windsurf
+export PATH="/Users/stanmd/.codeium/windsurf/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/stanmd/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/stanmd/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/stanmd/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/stanmd/google-cloud-sdk/completion.zsh.inc'; fi
+
+CLOUDSDK_PYTHON=/Users/stanmd/.pyenv/shims/python3
