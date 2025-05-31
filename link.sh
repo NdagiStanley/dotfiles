@@ -25,6 +25,10 @@ function __vim__() {
     ln -sfv "$(pwd)/.vimrc" "$HOME/.vimrc"
 }
 
+function __cz__() {
+    ln -sfv "$(pwd)/.czrc" "$HOME/.czrc"
+}
+
 function __windows__() {
     cd windows_os && source link.sh
 }
@@ -38,5 +42,5 @@ elif [ "$1" == "--main" ]; then
     __git__
     __vim__
 else
-    echo "Usage: ./link.sh (zsh/ functions/ aliases/ tmux/ git/ vim/ windows (for Windows OS) | --main)"
+    echo "Usage: ./link.sh (zsh/ functions/ aliases/ tmux/ git/ vim/ cz/ windows (for Windows OS) | --main)"
 fi
