@@ -147,7 +147,9 @@ if [ -d "/opt/homebrew/opt/rbenv/bin" ]; then
 fi
 
 ## Rust
-. "$HOME/.cargo/env"
+if [ -f "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi
 if cargo --help &>/dev/null; then
   echo "Rust version: $(cargo --version)"
   echo "\tCMDs: cargo -h | rustup update | rustup doc --book"
