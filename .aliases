@@ -11,6 +11,8 @@ alias .editorconfig="curl https://raw.githubusercontent.com/NdagiStanley/repo-bo
 alias .mdlint="curl https://raw.githubusercontent.com/NdagiStanley/repo-boiler-plate/main/.markdownlint.json > .markdownlint.json"
 alias .netlify="curl https://raw.githubusercontent.com/NdagiStanley/repo-boiler-plate/main/netlify.toml > netlify.toml"
 alias .nvm="curl https://raw.githubusercontent.com/NdagiStanley/repo-boiler-plate/main/.nvmrc > .nvmrc"
+alias bt-off='blueutil -p off'
+alias bt-on='blueutil -p on'
 alias c="code" # x-cmd "cd" conflicts with this command therefore when x-cmd is enabled, use `code` instead
 alias ci="code-insiders"
 alias cls="clear"
@@ -24,24 +26,25 @@ alias gpo="git push origin"
 alias grao="git remote add origin"
 alias h="history"
 alias hs="python3 -m http.server"
-alias md="cd ~/Projects/MD"
+alias miniresetcss="curl https://raw.githubusercontent.com/jgthms/minireset.css/master/minireset.css > minireset.css"
+alias miniresetmincss="curl https://raw.githubusercontent.com/jgthms/minireset.css/master/minireset.min.css > minireset.min.css"
 alias notify="tput bel & say done"
-alias p="cd ~/Projects"
-alias reload="source ~/.zshrc"
-alias wifi-off='networksetup -setairportpower en0 off'
-alias wifi-on='networksetup -setairportpower en0 on'
-alias bt-off='blueutil -p off'
-alias bt-on='blueutil -p on'
 alias offline='wifi-off & bt-off'
 alias online='wifi-on & bt-on'
+alias reload="source ~/.zshrc"
+alias today="date -I | pbcopy"
+alias wifi-off='networksetup -setairportpower en0 off'
+alias wifi-on='networksetup -setairportpower en0 on'
 
 # More Directories (To add more specific workstation directories, do so in this format)
 alias cci="cd ~/Projects/Work/cci"
 alias cito="cd ~/Projects/Work/CITO"
 alias ks="cd ~/Projects/Work/KS"
+alias md="cd ~/Projects/MD"
 alias nm="cd ~/Projects/Work/NM"
 alias nt="cd ~/Projects/Work/NT"
 alias or="cd ~/Projects/Work/OR"
+alias p="cd ~/Projects"
 alias tk="cd ~/Projects/Work/TK"
 alias tm="cd ~/Projects/Work/TM"
 
@@ -63,6 +66,12 @@ alias nui="npm uninstall"
 alias nig="npm install --global"
 alias nuig="npm uninstall --global"
 alias kill="npx kill-port"
+
+# PNPM
+alias pnpm="corepack pnpm"
+alias pnpx="corepack pnpx"
+alias pni="pnpm install"
+alias pnui="pnpm uninstall"
 
 # Python
 alias bpy="bpython"

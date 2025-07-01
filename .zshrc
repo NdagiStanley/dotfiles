@@ -94,8 +94,8 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 ## PNPM
 if pnpm -h &>/dev/null; then
-  alias pn=pnpm
-  echo "\t\tpnpm is available - pn add | pn install | pn -v"
+  alias pn="corepack pnpm"
+  echo "\t\tpnpm is available - pn add | pnpx | pni - pnpm i - pnpm install | pn -v"
 fi
 
 ## NUXT
