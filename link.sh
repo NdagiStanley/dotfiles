@@ -41,6 +41,7 @@ elif [ "$1" == "--main" ]; then
     __aliases__
     __git__
     __vim__
+    __cz__
 else
     echo "Usage: ./link.sh (zsh/ functions/ aliases/ tmux/ git/ vim/ cz/ windows (for Windows OS) | --main)"
 fi
