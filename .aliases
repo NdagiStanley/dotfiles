@@ -89,7 +89,7 @@ alias py="python3"
 # Docker
 alias d-reset="sh ~/dotfiles/code/docker_reset.sh"
 alias d="docker"
-alias dc="docker compose"
+alias dc="docker-compose"
 alias di="docker images"
 
 # DB
