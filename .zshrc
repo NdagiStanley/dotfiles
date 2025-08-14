@@ -56,13 +56,13 @@ export PATH="~/.emacs.d/bin:$PATH"
 
 # JAVASCRIPT
 ## NVM
-## https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
+## Install: https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                                       # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/etc/bash_completion.d/nvm" ] && \. "$NVM_DIR/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 
 if nvm --version &>/dev/null; then
-  # place this after nvm initialization!
+  # placed after nvm initialization!
   autoload -U add-zsh-hook
   load-nvmrc() {
     local node_version="$(nvm version)"
@@ -82,9 +82,9 @@ if nvm --version &>/dev/null; then
     fi
   }
   corepack enable ## for yarn
-  echo "Node version: $(node -v) <- node -v"
-  echo "\tCMDs: nvm (ls|ls-remote) | nvm install (<version>|--lts)"
-  echo "\t      nvm use (node|--lts|--lts=<LTS name>)"
+  echo "JS/TS | Node version - $(node -v) <- node -v | npm, npx, yarn are available"
+  echo "    nvm is available - nvm (ls|ls-remote) | nvm install (<version>|--lts) |"
+  echo "\tnvm use (node|--lts|--lts=<LTS name>)"
   add-zsh-hook chpwd load-nvmrc
   load-nvmrc
 fi
@@ -95,36 +95,41 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 ## PNPM
 if pnpm -h &>/dev/null; then
   alias pn="corepack pnpm"
-  echo "\t\tpnpm is available - pn add | pnpx | pni - pnpm i - pnpm install | pn -v"
+  echo "    pnpm is available - pn add | pnpx | pni - pnpm i - pnpm install | pn -v"
 fi
 
 ## NUXT
 if nuxi info &>/dev/null; then
-  echo "\t\tnuxi is available"
+  echo "    nuxi is available - (nuxi|nuxt) init (''|--template|--offline)"
+  echo "\tMore: https://nuxt.com/docs/4.x/api/commands/dev"
 fi
 
 # PYTHON
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 ## PYENV
+# Install: brew install pyenv
+# Install Python build dependencies - brew install openssl readline sqlite3 xz zlib tcl-tk@8 libb2
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-  echo "Python ver.n: $(pyenv version) <- python --version"
-  echo "\tCMDs: pyenv install (-l) | pyenv version(s) | pyenv (global|local) <version>"
+  eval "$(pyenv init - zsh)"
+  alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+  echo "Python version - $(pyenv version --bare | tr '\n' ' ') <- (python3|python2) -V"
+  echo "    pyenv is available - pyenv install (-l) | pyenv version(s) |"
+  echo "\tpyenv (global|local) (<version>|<version> <version>|2 3)"
 fi
 
 ## Virtualenv
 ## Precursor: brew install virtualenvwrapper
 ## Comment the next 6 lines if using pipenv
-if virtualenv --help &>/dev/null; then
-  export WORKON_HOME=$HOME/.envs
-  export PROJECT_HOME=$HOME/Projects/MD
-  export VIRTUALENVWRAPPER_PYTHON=$(which python3)
-  source /opt/homebrew/bin/virtualenvwrapper.sh
-  echo "\t\tvirtualenvwrapper is available - mkvirtualenv | workon | deactivate"
-fi
+# if virtualenv --help &>/dev/null; then
+#   export WORKON_HOME=$HOME/.envs
+#   export PROJECT_HOME=$HOME/Projects/MD
+#   export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+#   source /opt/homebrew/bin/virtualenvwrapper.sh
+#   echo "\t\tvirtualenvwrapper is available - mkvirtualenv | workon | deactivate"
+# fi
 
 ## PIPX
 ## Precursor: brew install pipx
@@ -132,7 +137,7 @@ fi
 ## autoload and run autoload then enable completions for pipx
 if pipx --help &>/dev/null; then
   autoload -U compinit && compinit
-  echo "\t\tpipx is available"
+  echo "    pipx is available"
   export PATH="$PATH:/Users/stanmd/.local/bin"
 fi
 
