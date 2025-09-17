@@ -57,7 +57,7 @@ alias blc="brew list --cask"
 alias bs="brew search"
 alias bui="brew uninstall"
 alias buic="brew uninstall --cask"
-alias mdbrew="brew update && brew upgrade && brew cu -a && brew cleanup"
+alias mdbrew="brew update && brew upgrade && brew cu -a --include-mas && brew cleanup"
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC --extraintf=http --http-password=vlcdirect"
 
 # NPM

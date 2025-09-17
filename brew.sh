@@ -8,6 +8,8 @@ brew upgrade
 
 brew install tree 2> /dev/null
 brew install wget 2> /dev/null
+brew install mas 2> /dev/null
+brew tap buo/cask-upgrade 2> /dev/null
 
 # Remove outdated versions from the cellar.
 brew cleanup
