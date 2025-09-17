@@ -395,7 +395,7 @@
   "upperCaseSubject": false,
   "markBreakingChangeMode": false,
   "allowBreakingChanges": ["feat", "fix"],
-  "breaklineNumber": 100,
+  "breaklineNumber": 72,
   "breaklineChar": "|",
   "skipQuestions": [],
   "issuePrefixes":
@@ -407,7 +407,7 @@
   "allowEmptyIssuePrefix": true,
   "confirmColorize": true,
   "minSubjectLength": 0,
-  "maxHeaderLength": 72,
+  "maxHeaderLength": 50,
   "defaultBody": "",
   "defaultIssues": "",
   "defaultScope": "",
