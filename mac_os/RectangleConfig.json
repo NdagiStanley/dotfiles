@@ -1,9 +1,6 @@
 {
   "bundleId" : "com.knollsoft.Rectangle",
   "defaults" : {
-    "SUEnableAutomaticChecks" : {
-      "bool" : true
-    },
     "allowAnyShortcut" : {
       "bool" : false
     },
@@ -13,11 +10,11 @@
     "almostMaximizeWidth" : {
       "float" : 0
     },
-    "altThirdCycle" : {
-      "int" : 0
-    },
     "alternateDefaultShortcuts" : {
       "bool" : true
+    },
+    "altThirdCycle" : {
+      "int" : 0
     },
     "alwaysAccountForStage" : {
       "int" : 0
@@ -37,10 +34,10 @@
     "cascadeAllDeltaSize" : {
       "float" : 30
     },
-    "centerHalfCycles" : {
+    "centeredDirectionalMove" : {
       "int" : 0
     },
-    "centeredDirectionalMove" : {
+    "centerHalfCycles" : {
       "int" : 0
     },
     "cornerSnapAreaSize" : {
@@ -71,7 +68,7 @@
       "int" : 1
     },
     "footprintAlpha" : {
-      "float" : 0.3
+      "float" : 0.30000001192092896
     },
     "footprintAnimationDurationMultiplier" : {
       "float" : 0.75
@@ -104,7 +101,7 @@
       "int" : 0
     },
     "landscapeSnapAreas" : {
-
+      "string" : "null"
     },
     "launchOnLogin" : {
       "bool" : true
@@ -137,7 +134,7 @@
       "int" : 0
     },
     "portraitSnapAreas" : {
-
+      "string" : "null"
     },
     "relaunchOpensMenu" : {
       "bool" : false
@@ -154,14 +151,17 @@
     "screenEdgeGapRight" : {
       "float" : 0
     },
+    "screenEdgeGapsOnMainScreenOnly" : {
+      "bool" : false
+    },
     "screenEdgeGapTop" : {
       "float" : 0
     },
     "screenEdgeGapTopNotch" : {
       "float" : 0
     },
-    "screenEdgeGapsOnMainScreenOnly" : {
-      "bool" : false
+    "screensOrderedByX" : {
+      "int" : 0
     },
     "selectedCycleSizes" : {
       "int" : 0
@@ -205,6 +205,9 @@
     "subsequentExecutionMode" : {
       "int" : 3
     },
+    "SUEnableAutomaticChecks" : {
+      "bool" : true
+    },
     "systemWideMouseDown" : {
       "int" : 0
     },
@@ -237,6 +240,10 @@
     }
   },
   "shortcuts" : {
+    "almostMaximize" : {
+      "keyCode" : 37,
+      "modifierFlags" : 786432
+    },
     "bottomHalf" : {
       "keyCode" : 125,
       "modifierFlags" : 786432
@@ -326,5 +333,5 @@
       "modifierFlags" : 786432
     }
   },
-  "version" : "90"
+  "version" : "96"
 }

@@ -1,6 +1,5 @@
 [user]
 	name = Stanley M Ndagi
-  email = ndagis@gmail.com
 [core]
 	excludesfile = ~/.gitignore_global
 [alias]
@@ -56,3 +55,4 @@
 	protocol = ssh
 [safe]
 	directory = /Users/stanmd/.oh-my-zsh
+	directory = /Users/stan/.oh-my-zsh

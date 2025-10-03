@@ -90,7 +90,7 @@ if nvm --version &>/dev/null; then
 fi
 
 ## YARN
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 ## PNPM
 if pnpm -h &>/dev/null; then
@@ -105,7 +105,7 @@ if nuxi info &>/dev/null; then
 fi
 
 # PYTHON
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+# export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 ## PYENV
 # Install: brew install pyenv
@@ -132,7 +132,7 @@ fi
 # fi
 
 ## PIPX
-## Precursor: brew install pipx
+## Precursor: brew install pipx | pipx ensurepath
 ## To activate completions in zsh, first make sure compinit is marked for
 ## autoload and run autoload then enable completions for pipx
 if pipx --help &>/dev/null; then
@@ -152,12 +152,13 @@ if [ -d "/opt/homebrew/opt/rbenv/bin" ]; then
 fi
 
 ## Rust
+# Install: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 if [ -f "$HOME/.cargo/env" ]; then
   . "$HOME/.cargo/env"
 fi
 if cargo --help &>/dev/null; then
-  echo "Rust version: $(cargo --version)"
-  echo "\tCMDs: cargo -h | rustup update | rustup doc --book"
+  echo "Rust version - $(cargo --version) <- cargo --version"
+  echo "    CMDs: cargo -h | rustup update | rustup doc --book"
 fi
 
 # JAVA
@@ -185,19 +186,20 @@ PATH=$PATH:$ANDROID_HOME/tools
 PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # GOLANG
-# https://go.dev/doc/install OR via brew
+# https://go.dev/doc/install OR via brew (brew install go)
 # Typically, this is not necessary because Installer and Homebrew sets it up correctly
 # If brew and when needed uncomment the lines below to set up the GOROOT environment variable
 if command -v go &>/dev/null; then
   export GOPATH=$HOME/go
   export PATH=$PATH:$GOPATH/bin
-  echo "Golang ver.n: $(go version)"
-  echo "\tCMDs: go help"
+  echo "Golang version - $(go version) <- go version"
+  echo "    CMDs: go help"
 fi
 
 ## GCLOUD
 
 ## JRNL
+# pipx install jrnl
 setopt HIST_IGNORE_SPACE
 alias jrnl=" jrnl"
 alias jj=" jrnl jot"
@@ -230,7 +232,9 @@ PATH=$PATH:$HOME/.fastlane/bin
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-[ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.
+## x-cmd.com
+## eval "$(curl https://get.x-cmd.com)"
+# [ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/stanmd/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/stanmd/google-cloud-sdk/path.zsh.inc'; fi

@@ -13,7 +13,7 @@ alias .netlify="curl https://raw.githubusercontent.com/NdagiStanley/repo-boiler-
 alias .nvm="curl https://raw.githubusercontent.com/NdagiStanley/repo-boiler-plate/main/.nvmrc > .nvmrc"
 alias bt-off='blueutil -p off'
 alias bt-on='blueutil -p on'
-alias c="code" # x-cmd "cd" conflicts with this command therefore when x-cmd is enabled, use `code` instead
+alias c="codium" # x-cmd "cd" conflicts with this command therefore when x-cmd is enabled, use `code` instead
 alias ci="code-insiders"
 alias cls="clear"
 alias dl="cd ~/Downloads"
@@ -88,6 +88,7 @@ alias pui="uv pip uninstall"
 alias ptpy="ptpython"
 alias py2="python2"
 alias py="python3"
+alias uvv="python -m venv .venv; source .venv/bin/activate"
 
 # Docker
 alias d-reset="sh ~/dotfiles/code/docker_reset.sh"
