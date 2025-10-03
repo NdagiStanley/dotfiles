@@ -40,9 +40,6 @@ Thumbs.db
 # JS Dependency directories
 node_modules/
 
-# Bower dependency directory (https://bower.io/)
-bower_components
-
 # Python #
 ##########
 # Python Byte-compiled / optimized / DLL files

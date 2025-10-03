@@ -54,5 +54,4 @@
 [hub]
 	protocol = ssh
 [safe]
-	directory = /Users/stanmd/.oh-my-zsh
 	directory = /Users/stan/.oh-my-zsh

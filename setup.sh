@@ -58,7 +58,7 @@ function __work__() {
 
     # JS
     __javascript__
-    
+
     # Link zsh, functions, aliases, git, vim
     __link__
 

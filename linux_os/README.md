@@ -1,9 +1,10 @@
 # Linux OS
 
-### Git
+## Git
 
-_SSH keys_
-```
+### SSH keys
+
+```sh
 ssh-keygen -t rsa -b 4096 -C ".."
 eval $(ssh-agent -s)
 ssh-add ~/.ssh/id_rsa
