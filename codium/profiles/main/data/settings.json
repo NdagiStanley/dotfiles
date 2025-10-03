@@ -1,0 +1,52 @@
+{
+    "editor.fontFamily": "JetBrains Mono",
+    "window.zoomLevel": 1.7,
+    "workbench.sideBar.location": "right",
+    "workbench.colorTheme": "Solarized Dark",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.renderWhitespace": "boundary",
+    "explorer.confirmDelete": false,
+    "application.shellEnvironmentResolutionTimeout": 20,
+    "redhat.telemetry.enabled": false,
+    "tabnine.experimentalAutoImports": true,
+    "[markdown]": {
+        "diffEditor.ignoreTrimWhitespace": false,
+        // save files after a delay automatically
+        "files.autoSave": "afterDelay",
+        "files.autoSaveDelay": 1000,
+    },
+    "geminicodeassist.project": "digitax-375913",
+    "workbench.editor.revealIfOpen": true,
+    "diffEditor.codeLens": true,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.wordWrap": "wordWrapColumn",
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "geminicodeassist.displayInlineContextHint": false,
+    "[vue]": {
+        "editor.defaultFormatter": "Vue.volar"
+    },
+    "tailwindCSS.includeLanguages": {
+        "plaintext": "html",
+        "vue-html": "html",
+        "vue-css": "css"
+    },
+    "files.associations": {
+        "*.css": "tailwindcss"
+    },
+    "editor.quickSuggestions": {
+        "strings": true
+    }
+}

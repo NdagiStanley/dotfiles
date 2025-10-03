@@ -1,0 +1,98 @@
+disabled:
+  - id: asciidoctor.asciidoctor-vscode
+    uuid: c1309cc2-f420-46a3-b2be-ca04f4d9e51b
+  - id: biomejs.biome
+    uuid: 2c992d35-3965-4369-856e-fdfbb0af2ce2
+  - id: Postman.postman-for-vscode
+    uuid: 00000000-0000-0000-0000-000000000000
+  - id: TabNine.tabnine-vscode
+    uuid: 75da638c-c45a-44ea-aa3b-8570a3559810
+enabled:
+  - id: aaron-bond.better-comments
+    uuid: 7a0110bb-231a-4598-aa1b-0769ea46d28b
+  - id: Arjun.swagger-viewer
+    uuid: cb9cc98b-7140-4f13-b993-1e26c4a7bd42
+  - id: bierner.color-info
+    uuid: 0f8bd812-5d52-4fff-bd1c-6b0a7ee9cad9
+  - id: bierner.emojisense
+    uuid: 081cd2e9-bc51-4ea3-977e-544bed2e33a8
+  - id: bierner.markdown-image-size
+    uuid: a41ef446-bc82-4194-b848-9b3d6f60e18d
+  - id: bierner.markdown-mermaid
+    uuid: f8d0ffc4-66bb-4a9c-8149-ef8f043691a1
+  - id: bierner.markdown-preview-github-styles
+    uuid: 5cbdf58a-694a-4aba-af08-61d00842eb03
+  - id: bmewburn.vscode-intelephense-client
+    uuid: ffda6552-0ad5-431b-a4fa-0905a7e4f3f0
+  - id: bradlc.vscode-tailwindcss
+    uuid: 4db62a7c-7d70-419c-96d2-6c3a4dc77ea5
+  - id: bruno-api-client.bruno
+    uuid: d9d9d9f5-a013-42bb-bc1d-a22090e5d31c
+  - id: charliermarsh.ruff
+    uuid: c2ca9b43-fa38-44fc-928e-5125970b9c00
+  - id: chouzz.vscode-better-align
+    uuid: f5a6ecde-96ce-4fde-8744-ab88c7727069
+  - id: codezombiech.gitignore
+    uuid: 3e891cf9-53cb-49a3-8d01-8f0b1f0afb29
+  - id: DavidAnson.vscode-markdownlint
+    uuid: daf8b44d-8aae-4da2-80c5-1f770219f643
+  - id: eamodio.gitlens
+    uuid: 4de763bd-505d-4978-9575-2b7696ecf94e
+  - id: EditorConfig.EditorConfig
+    uuid: f60a60a6-95ba-42d4-b41c-3d24c1b89588
+  - id: esbenp.prettier-vscode
+    uuid: 96fa4707-6983-4489-b7c5-d5ffdfdcce90
+  - id: formulahendry.auto-rename-tag
+    uuid: 6e440e71-8ed9-4f25-bb78-4b13096b8a03
+  - id: golang.go
+    uuid: d6f6cfea-4b6f-41f4-b571-6ad2ab7918da
+  - id: google.gemini-cli-vscode-ide-companion
+    uuid: 3f22f99d-2695-4d6c-9a37-0450025dc16b
+  - id: google.geminicodeassist
+    uuid: 51643712-2cb2-4384-b7cc-d55b01b8274b
+  - id: Gruntfuggly.todo-tree
+    uuid: 261cac81-cd7b-4555-bb41-0c2d2bcd3e70
+  - id: kamikillerto.vscode-colorize
+    uuid: 445ba381-f232-4150-9056-d790bd76d698
+  - id: kortina.vscode-markdown-notes
+    uuid: dde258e9-793b-4377-a4fe-9d54cbd28ea2
+  - id: mechatroner.rainbow-csv
+    uuid: 3792588c-3d35-442d-91ea-fe6a755e8155
+  - id: mhutchie.git-graph
+    uuid: 438221f8-1107-4ccd-a6fe-f3b7fe0856b7
+  - id: ms-python.python
+    uuid: f1f59ae4-9318-4f3c-a9b5-81b2eaa5f8a5
+  - id: oxc.oxc-vscode
+    uuid: 1303f9b3-746c-42de-869c-5f72364302f5
+  - id: peterj.proto
+    uuid: 30bcbe00-bac0-497a-838a-eda8e45d1864
+  - id: PKief.markdown-checkbox
+    uuid: f0b7de7d-8e14-44df-998a-630ffdb32cf8
+  - id: PKief.material-icon-theme
+    uuid: 5db78037-f674-459f-a236-db622c427c5b
+  - id: Posit.shiny
+    uuid: 7ffa9a66-85ab-44de-ab80-2eecce45b0fe
+  - id: quarto.quarto
+    uuid: a1be81fc-0f3a-4f2e-92ee-3fdc7ab96c73
+  - id: redhat.vscode-yaml
+    uuid: 2061917f-f76a-458a-8da9-f162de22b97e
+  - id: ritwickdey.LiveServer
+    uuid: 46cc5bbd-b098-4568-9b87-f91e07d26f2d
+  - id: RoweWilsonFrederiskHolme.wikitext
+    uuid: 2f257e55-e083-4d22-9a83-2b320853fa17
+  - id: rust-lang.rust-analyzer
+    uuid: 06574cb4-e5dc-4631-8174-a543a4533621
+  - id: streetsidesoftware.code-spell-checker
+    uuid: f6dbd813-b0a0-42c1-90ea-10dde9d925a7
+  - id: timonwong.shellcheck
+    uuid: f95d8fff-f70a-4ae5-bb06-5c47ddbc8fc6
+  - id: usernamehw.errorlens
+    uuid: 9d8c32ab-354c-4daf-a9bf-20b633734435
+  - id: Vue.volar
+    uuid: a95ee795-1576-4ffa-acda-8d6e6a95c584
+  - id: WakaTime.vscode-wakatime
+    uuid: f2fd462f-f1bd-4c62-b54f-59a4e5ffc6a3
+  - id: yzhang.markdown-all-in-one
+    uuid: 98790d67-10fa-497c-9113-f6c7489207b2
+  - id: zokugun.cron-tasks
+    uuid: b7bbbbd5-7a39-4312-87aa-ef6a41de67fb
