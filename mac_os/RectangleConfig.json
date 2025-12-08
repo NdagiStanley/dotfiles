@@ -50,7 +50,7 @@
       "int" : 0
     },
     "cycleSizesIsChanged" : {
-      "bool" : false
+      "bool" : true
     },
     "disabledApps" : {
 
@@ -167,7 +167,7 @@
       "int" : 0
     },
     "selectedCycleSizes" : {
-      "int" : 0
+      "int" : 7
     },
     "shortEdgeSnapAreaSize" : {
       "float" : 145
@@ -236,7 +236,7 @@
       "int" : 0
     },
     "windowSnapping" : {
-      "int" : 0
+      "int" : 2
     }
   },
   "shortcuts" : {

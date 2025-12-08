@@ -243,3 +243,6 @@ if [ -f '/Users/stanmd/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/stanmd/g
 if [ -f '/Users/stanmd/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/stanmd/google-cloud-sdk/completion.zsh.inc'; fi
 
 CLOUDSDK_PYTHON=/Users/stanmd/.pyenv/shims/python3
+
+# Added by Antigravity
+export PATH="/Users/stan/.antigravity/antigravity/bin:$PATH"
