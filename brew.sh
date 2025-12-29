@@ -1,6 +1,6 @@
 # Used by the ./setup.sh --quick command
 
-# Make sure we’re using the latest Homebrew.
+# Make sure we're using the latest Homebrew.
 brew update
 
 # Upgrade any already-installed formulae.

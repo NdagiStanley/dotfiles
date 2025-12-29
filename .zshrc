@@ -1,248 +1,189 @@
-# Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
+# ==============================================================================
+# ZSH CONFIGURATION (MACOS: INTEL + APPLE SILICON)
+# ==============================================================================
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# 1. ARCHITECTURE DETECTION
+# ------------------------------------------------------------------------------
+# JUSTIFICATION: Detect Homebrew location dynamically.
+# M-Series (Apple Silicon) uses /opt/homebrew. Intel uses /usr/local.
+if [ -d "/opt/homebrew" ]; then
+  HOMEBREW_PREFIX="/opt/homebrew"
+else
+  HOMEBREW_PREFIX="/usr/local"
+fi
+
+# 2. CORE SHELL & OH-MY-ZSH
+# ------------------------------------------------------------------------------
+export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="rafiki"
-
-# Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="yyyy-mm-dd"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git z zsh-autosuggestions globalias)
+# Enforce unique paths automatically
+typeset -U path PATH
 
+plugins=(git z zsh-autosuggestions globalias)
 source $ZSH/oh-my-zsh.sh
 
-# Preferred editor all sessions
+# 3. GLOBAL ENVIRONMENT
+# ------------------------------------------------------------------------------
 export EDITOR='vim'
+export GPG_TTY=$(tty)
+export SSH_KEY_PATH="$HOME/.ssh/"
+export MANPAGER='less -X'
+export LESS_TERMCAP_md="${yellow}"
+export HOMEBREW_GITHUB_API_TOKEN=""
 
-# ssh
-export SSH_KEY_PATH="~/.ssh/"
-
-# zsh-syntax-highlighting
-if [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-  source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
-# .aliases
-if [ -f ~/.aliases ]; then
-  source ~/.aliases
-fi
-
-# .functions
-if [ -f ~/.functions ]; then
-  source ~/.functions
-fi
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/Applications/MacPorts/Emacs.app/Contents/MacOS:$PATH"
-export PATH="~/.emacs.d/bin:$PATH"
-
-# JAVASCRIPT
-## NVM
-## Install: https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/etc/bash_completion.d/nvm" ] && \. "$NVM_DIR/etc/bash_completion.d/nvm" # This loads nvm bash_completion
-
-if nvm --version &>/dev/null; then
-  # placed after nvm initialization!
-  autoload -U add-zsh-hook
-  load-nvmrc() {
-    local node_version="$(nvm version)"
-    local nvmrc_path="$(nvm_find_nvmrc)"
-
-    if [ -n "$nvmrc_path" ]; then
-      local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-      if [ "$nvmrc_node_version" = "N/A" ]; then
-        nvm install
-      elif [ "$nvmrc_node_version" != "$node_version" ]; then
-        nvm use
-      fi
-    elif [ "$node_version" != "$(nvm version default)" ]; then
-      echo "Reverting to nvm default version"
-      nvm use default
-    fi
-  }
-  corepack enable ## for yarn
-  echo "JS/TS | Node version - $(node -v) <- node -v | npm, npx, yarn are available"
-  echo "    nvm is available - nvm (ls|ls-remote) | nvm install (<version>|--lts) |"
-  echo "\tnvm use (node|--lts|--lts=<LTS name>)"
-  add-zsh-hook chpwd load-nvmrc
-  load-nvmrc
-fi
-
-## YARN
-# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-## PNPM
-if pnpm -h &>/dev/null; then
-  alias pn="corepack pnpm"
-  echo "    pnpm is available - pn add | pnpx | pni - pnpm i - pnpm install | pn -v"
-fi
-
-## NUXT
-if nuxi info &>/dev/null; then
-  echo "    nuxi is available - (nuxi|nuxt) init (''|--template|--offline)"
-  echo "\tMore: https://nuxt.com/docs/4.x/api/commands/dev"
-fi
-
-# PYTHON
-# export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-
-## PYENV
-# Install: brew install pyenv
-# Install Python build dependencies - brew install openssl readline sqlite3 xz zlib tcl-tk@8 libb2
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init - zsh)"
-  alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-  echo "Python version - $(pyenv version --bare | tr '\n' ' ') <- (python3|python2) -V"
-  echo "    pyenv is available - pyenv install (-l) | pyenv version(s) |"
-  echo "\tpyenv (global|local) (<version>|<version> <version>|2 3)"
-fi
-
-## Virtualenv
-## Precursor: brew install virtualenvwrapper
-## Comment the next 6 lines if using pipenv
-# if virtualenv --help &>/dev/null; then
-#   export WORKON_HOME=$HOME/.envs
-#   export PROJECT_HOME=$HOME/Projects/MD
-#   export VIRTUALENVWRAPPER_PYTHON=$(which python3)
-#   source /opt/homebrew/bin/virtualenvwrapper.sh
-#   echo "\t\tvirtualenvwrapper is available - mkvirtualenv | workon | deactivate"
-# fi
-
-## PIPX
-## Precursor: brew install pipx | pipx ensurepath
-## To activate completions in zsh, first make sure compinit is marked for
-## autoload and run autoload then enable completions for pipx
-if pipx --help &>/dev/null; then
-  autoload -U compinit && compinit
-  echo "    pipx is available"
-  export PATH="$PATH:/Users/stanmd/.local/bin"
-fi
-
-# RUBY
-## RBENV
-## Precursor: brew install rbenv ruby-build
-if [ -d "/opt/homebrew/opt/rbenv/bin" ]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init - zsh)"
-  echo "Ruby version: $(rbenv global)"
-  echo "\tCMDs: rbenv install (-l|<version>) | rbenv global <version>"
-fi
-
-## Rust
-# Install: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-if [ -f "$HOME/.cargo/env" ]; then
-  . "$HOME/.cargo/env"
-fi
-if cargo --help &>/dev/null; then
-  echo "Rust version - $(cargo --version) <- cargo --version"
-  echo "    CMDs: cargo -h | rustup update | rustup doc --book"
-fi
-
-# JAVA
-# Context: https://docs.oracle.com/en/java/javase/24/install/installation-jdk-macos.html
-# Download link: https://www.oracle.com/java/technologies/downloads/#jdk24-mac - Get the ARM64 DMG Installer
-# Refer to tauri-ref for more when developing w/ tauri
-alias javalts='export JAVA_HOME=$(/usr/libexec/java_home)'
-alias java24='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-24.jdk/Contents/Home'
-alias java23='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-23.jdk/Contents/Home'
-alias java21='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home' # 21 is now the latest LTS of Java SE
-# alias java8='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home'
-# java8 only works for x86_64 architecture
-
-# GROOVY
-export GROOVY_HOME=/opt/homebrew/opt/groovy/libexec
-export PATH="/opt/homebrew/opt/groovy/bin:$PATH"
-
-# KOTLIN
-export PATH="/opt/homebrew/opt/kotlin/bin:$PATH"
-
-# ANDROID
-export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-PATH=$PATH:$ANDROID_HOME/tools
-PATH=$PATH:$ANDROID_HOME/platform-tools
-
-# GOLANG
-# https://go.dev/doc/install OR via brew (brew install go)
-# Typically, this is not necessary because Installer and Homebrew sets it up correctly
-# If brew and when needed uncomment the lines below to set up the GOROOT environment variable
-if command -v go &>/dev/null; then
-  export GOPATH=$HOME/go
-  export PATH=$PATH:$GOPATH/bin
-  echo "Golang version - $(go version) <- go version"
-  echo "    CMDs: go help"
-fi
-
-## GCLOUD
-
-## JRNL
-# pipx install jrnl
+# JRNL Configuration
 setopt HIST_IGNORE_SPACE
 alias jrnl=" jrnl"
 alias jj=" jrnl jot"
 
-## GPG
-export GPG_TTY=$(tty)
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+# Load Aliases and Functions
+[ -f ~/.aliases ] && source ~/.aliases
+[ -f ~/.functions ] && source ~/.functions
 
-## Brew
-export HOMEBREW_GITHUB_API_TOKEN=
+# 4. SMART PATH HIERARCHY
+# ------------------------------------------------------------------------------
+# JUSTIFICATION: Instead of hardcoding paths that might not exist (causing 
+# "DOES NOT EXIST" audit errors), we loop through candidates and only add 
+# them if they exist on the disk.
 
-# pnpm
-export PNPM_HOME="/Users/stanmd/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+typeset -a candidate_paths=(
+  # Homebrew & System
+  "$HOMEBREW_PREFIX/sbin"
+  "$HOMEBREW_PREFIX/bin"
+  "$HOMEBREW_PREFIX/opt/kotlin/bin"
+  "$HOMEBREW_PREFIX/opt/groovy/bin"
 
-# Load Angular CLI autocompletion.
-# source <(ng completion script)
+  # User Binaries
+  "$HOME/.local/bin"
+  "$HOME/.fastlane/bin"
+  "$HOME/.antigravity/antigravity/bin"
+  "$HOME/.bun/bin"
+  "$HOME/.cargo/bin"
+  "$HOME/go/bin"
 
-# add fastlane
-PATH=$PATH:$HOME/.fastlane/bin
+  # Android (Modern & Legacy paths to catch what you have)
+  "$HOME/Library/Android/sdk/platform-tools"
+  "$HOME/Library/Android/sdk/cmdline-tools/latest/bin"
+  "$HOME/Library/Android/sdk/tools"
+  "$HOME/Library/Android/sdk/tools/bin"
 
-# bun completions
-[ -s "/Users/stanmd/.bun/_bun" ] && source "/Users/stanmd/.bun/_bun"
+  # PNPM
+  "$HOME/Library/pnpm"
+)
 
-# bun
+# Loop: Only add existing directories to the path
+for p in $candidate_paths; do
+  if [ -d "$p" ]; then
+    path=($p $path)
+  fi
+done
+
+# Export specific variables only if the tool exists
+if [ -d "$HOMEBREW_PREFIX/opt/groovy/libexec" ]; then
+  export GROOVY_HOME="$HOMEBREW_PREFIX/opt/groovy/libexec"
+fi
+
+if [ -d "$HOME/Library/Android/sdk" ]; then
+  export ANDROID_HOME="$HOME/Library/Android/sdk"
+  export ANDROID_SDK_ROOT="$ANDROID_HOME"
+fi
+
+# 5. LANGUAGE MANAGERS & SPECIFIC TOOLS
+# ------------------------------------------------------------------------------
+
+## NVM (Lazy Loading)
+export NVM_DIR="$HOME/.nvm"
+load_nvm() {
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/etc/bash_completion.d/nvm" ] && . "$NVM_DIR/etc/bash_completion.d/nvm"
+  [ -f .nvmrc ] && [ -r .nvmrc ] && nvm use --silent
+}
+nvm_triggers=(nvm node npm npx yarn pnpm corepack)
+for cmd in $nvm_triggers; do
+  unalias $cmd 2>/dev/null || true
+  eval "$cmd() { unset -f $nvm_triggers; load_nvm; $cmd \"\$@\" }"
+done
+
+# Bun Setup (Conditional)
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+if [ -s "$BUN_INSTALL/_bun" ]; then
+  source "$BUN_INSTALL/_bun"
+fi
 
-## x-cmd.com
-## eval "$(curl https://get.x-cmd.com)"
-# [ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.
+# PNPM Home (Exports for tools, path handled above)
+if [ -d "$HOME/Library/pnpm" ]; then
+  export PNPM_HOME="$HOME/Library/pnpm"
+fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/stanmd/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/stanmd/google-cloud-sdk/path.zsh.inc'; fi
+# Go Setup
+if [ -d "$HOME/go" ]; then
+  export GOPATH="$HOME/go"
+fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/stanmd/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/stanmd/google-cloud-sdk/completion.zsh.inc'; fi
+# Rust
+if [ -f "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi
 
-CLOUDSDK_PYTHON=/Users/stanmd/.pyenv/shims/python3
+# Pipx & UV
+if command -v pipx >/dev/null; then
+  eval "$(register-python-argcomplete pipx)"
+fi
+if command -v uv >/dev/null; then
+  eval "$(uv generate-shell-completion zsh)"
+fi
 
-# Added by Antigravity
-export PATH="/Users/stan/.antigravity/antigravity/bin:$PATH"
+# Ruby (rbenv - Dynamic)
+if [ -d "$HOMEBREW_PREFIX/opt/rbenv/bin" ]; then
+  eval "$(rbenv init - zsh)"
+fi
+
+# Java Switchers (macOS Native)
+alias javalts='export JAVA_HOME=$(/usr/libexec/java_home)'
+alias java25='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home'
+alias java23='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-23.jdk/Contents/Home'
+alias java21='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home'
+
+# ==============================================================================
+# 🛑 STOP 🛑
+# DO NOT ADD NEW INSTALLER PATHS BELOW THIS LINE
+# ==============================================================================
+
+# 6. PRIORITY OVERRIDES (The "Winner" Section)
+# ------------------------------------------------------------------------------
+
+# Google Cloud SDK
+# Using 'if' ensures exit code 0 even if GCloud is missing.
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then 
+  . "$HOME/google-cloud-sdk/path.zsh.inc"
+fi
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then 
+  . "$HOME/google-cloud-sdk/completion.zsh.inc"
+fi
+
+# Explicitly use Pyenv shim for Cloud SDK
+export CLOUDSDK_PYTHON="$HOME/.pyenv/shims/python3"
+
+# Pyenv initialization
+export PYENV_ROOT="$HOME/.pyenv"
+if command -v pyenv >/dev/null; then
+  # Explicitly add shims to front of path
+  path=($PYENV_ROOT/bin $path)
+  
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init -)"
+  
+  if pyenv root >/dev/null 2>&1; then
+    alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+  fi
+fi
+
+# Syntax highlighting (Dynamic)
+if [ -f "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+  source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
