@@ -2,10 +2,10 @@
   "bundleId" : "com.knollsoft.Rectangle",
   "defaults" : {
     "SUEnableAutomaticChecks" : {
-      "bool" : true
+      "bool" : false
     },
     "allowAnyShortcut" : {
-      "bool" : false
+      "bool" : true
     },
     "almostMaximizeHeight" : {
       "float" : 0
@@ -74,7 +74,7 @@
       "float" : 0.3
     },
     "footprintAnimationDurationMultiplier" : {
-      "float" : 0.75
+      "float" : 0
     },
     "footprintBorderWidth" : {
       "float" : 2
@@ -92,7 +92,7 @@
       "float" : 0
     },
     "hapticFeedbackOnSnap" : {
-      "int" : 2
+      "int" : 0
     },
     "hideMenubarIcon" : {
       "bool" : true
@@ -104,7 +104,7 @@
       "int" : 0
     },
     "landscapeSnapAreas" : {
-      "string" : "null"
+
     },
     "launchOnLogin" : {
       "bool" : true
@@ -137,7 +137,7 @@
       "int" : 0
     },
     "portraitSnapAreas" : {
-      "string" : "null"
+
     },
     "relaunchOpensMenu" : {
       "bool" : false
@@ -167,7 +167,7 @@
       "int" : 0
     },
     "selectedCycleSizes" : {
-      "int" : 7
+      "int" : 31
     },
     "shortEdgeSnapAreaSize" : {
       "float" : 145
@@ -235,8 +235,11 @@
     "unsnapRestore" : {
       "int" : 0
     },
+    "widthStepSize" : {
+      "float" : 30
+    },
     "windowSnapping" : {
-      "int" : 2
+      "int" : 0
     }
   },
   "shortcuts" : {
@@ -258,6 +261,10 @@
     },
     "center" : {
       "keyCode" : 8,
+      "modifierFlags" : 786432
+    },
+    "firstFourth" : {
+      "keyCode" : 4,
       "modifierFlags" : 786432
     },
     "firstThird" : {
@@ -333,5 +340,5 @@
       "modifierFlags" : 786432
     }
   },
-  "version" : "97"
+  "version" : "98"
 }
