@@ -1,11 +1,9 @@
 # ==============================================================================
-# ZSH CONFIGURATION (MACOS: INTEL + APPLE SILICON)
+# ZSH CONFIGURATION
 # ==============================================================================
 
-# 1. ARCHITECTURE DETECTION
+# 1. ARCHITECTURE DETECTION - MACOS: INTEL + APPLE SILICON
 # ------------------------------------------------------------------------------
-# JUSTIFICATION: Detect Homebrew location dynamically.
-# M-Series (Apple Silicon) uses /opt/homebrew. Intel uses /usr/local.
 if [ -d "/opt/homebrew" ]; then
   HOMEBREW_PREFIX="/opt/homebrew"
 else
@@ -36,64 +34,62 @@ export MANPAGER='less -X'
 export LESS_TERMCAP_md="${yellow}"
 export HOMEBREW_GITHUB_API_TOKEN=""
 
-# JRNL Configuration
+# JRNL
 setopt HIST_IGNORE_SPACE
 alias jrnl=" jrnl"
 alias jj=" jrnl jot"
 
 # Load Aliases and Functions
 [ -f ~/.aliases ] && source ~/.aliases
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
 [ -f ~/.functions ] && source ~/.functions
 
-# 4. SMART PATH HIERARCHY
+# 4. PATH HIERARCHY
 # ------------------------------------------------------------------------------
-# JUSTIFICATION: Instead of hardcoding paths that might not exist (causing 
-# "DOES NOT EXIST" audit errors), we loop through candidates and only add 
-# them if they exist on the disk.
+# JUSTIFICATION: Direct assignment is faster than checking [ -d ].
+# We rely on HOMEBREW_PREFIX to get the right path for the right chip.
 
-typeset -a candidate_paths=(
-  # Homebrew & System
-  "$HOMEBREW_PREFIX/sbin"
-  "$HOMEBREW_PREFIX/bin"
-  "$HOMEBREW_PREFIX/opt/kotlin/bin"
-  "$HOMEBREW_PREFIX/opt/groovy/bin"
+path=(
+  # System Basics
+  /usr/local/bin
+  /usr/bin
+  /bin
+  /usr/sbin
+  /sbin
+
+  # Homebrew (Dynamic)
+  $HOMEBREW_PREFIX/sbin
+  $HOMEBREW_PREFIX/bin
+  $HOMEBREW_PREFIX/opt/kotlin/bin
+  $HOMEBREW_PREFIX/opt/groovy/bin
 
   # User Binaries
-  "$HOME/.local/bin"
-  "$HOME/.fastlane/bin"
-  "$HOME/.antigravity/antigravity/bin"
-  "$HOME/.bun/bin"
-  "$HOME/.cargo/bin"
-  "$HOME/go/bin"
+  $HOME/.local/bin
+  $HOME/.fastlane/bin
+  $HOME/.antigravity/antigravity/bin
+  $HOME/.bun/bin
+  $HOME/.cargo/bin
+  $HOME/go/bin
 
-  # Android (Modern & Legacy paths to catch what you have)
-  "$HOME/Library/Android/sdk/platform-tools"
-  "$HOME/Library/Android/sdk/cmdline-tools/latest/bin"
-  "$HOME/Library/Android/sdk/tools"
-  "$HOME/Library/Android/sdk/tools/bin"
+  # Android (Modern & Legacy)
+  $HOME/Library/Android/sdk/platform-tools
+  $HOME/Library/Android/sdk/cmdline-tools/latest/bin
+  $HOME/Library/Android/sdk/tools
+  $HOME/Library/Android/sdk/tools/bin
 
   # PNPM
-  "$HOME/Library/pnpm"
+  $HOME/Library/pnpm
+
+  # Existing Path
+  $path
 )
 
-# Loop: Only add existing directories to the path
-for p in $candidate_paths; do
-  if [ -d "$p" ]; then
-    path=($p $path)
-  fi
-done
+# Export specific variables
+export GROOVY_HOME="$HOMEBREW_PREFIX/opt/groovy/libexec"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export ANDROID_SDK_ROOT="$ANDROID_HOME"
 
-# Export specific variables only if the tool exists
-if [ -d "$HOMEBREW_PREFIX/opt/groovy/libexec" ]; then
-  export GROOVY_HOME="$HOMEBREW_PREFIX/opt/groovy/libexec"
-fi
-
-if [ -d "$HOME/Library/Android/sdk" ]; then
-  export ANDROID_HOME="$HOME/Library/Android/sdk"
-  export ANDROID_SDK_ROOT="$ANDROID_HOME"
-fi
-
-# 5. LANGUAGE MANAGERS & SPECIFIC TOOLS
+# 5. TOOLS & LANGUAGES
 # ------------------------------------------------------------------------------
 
 ## NVM (Lazy Loading)
@@ -109,26 +105,16 @@ for cmd in $nvm_triggers; do
   eval "$cmd() { unset -f $nvm_triggers; load_nvm; $cmd \"\$@\" }"
 done
 
-# Bun Setup (Conditional)
+# Bun (Conditional - fast check)
 export BUN_INSTALL="$HOME/.bun"
-if [ -s "$BUN_INSTALL/_bun" ]; then
-  source "$BUN_INSTALL/_bun"
-fi
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
 
-# PNPM Home (Exports for tools, path handled above)
-if [ -d "$HOME/Library/pnpm" ]; then
-  export PNPM_HOME="$HOME/Library/pnpm"
-fi
+# PNPM Home
+export PNPM_HOME="$HOME/Library/pnpm"
 
-# Go Setup
-if [ -d "$HOME/go" ]; then
-  export GOPATH="$HOME/go"
-fi
-
-# Rust
-if [ -f "$HOME/.cargo/env" ]; then
-  . "$HOME/.cargo/env"
-fi
+# Go & Rust
+export GOPATH="$HOME/go"
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 # Pipx & UV
 if command -v pipx >/dev/null; then
@@ -143,7 +129,7 @@ if [ -d "$HOMEBREW_PREFIX/opt/rbenv/bin" ]; then
   eval "$(rbenv init - zsh)"
 fi
 
-# Java Switchers (macOS Native)
+# Java
 alias javalts='export JAVA_HOME=$(/usr/libexec/java_home)'
 alias java25='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home'
 alias java23='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-23.jdk/Contents/Home'
@@ -154,15 +140,14 @@ alias java21='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-21.jdk/Cont
 # DO NOT ADD NEW INSTALLER PATHS BELOW THIS LINE
 # ==============================================================================
 
-# 6. PRIORITY OVERRIDES (The "Winner" Section)
+# 6. PRIORITY OVERRIDES
 # ------------------------------------------------------------------------------
 
 # Google Cloud SDK
-# Using 'if' ensures exit code 0 even if GCloud is missing.
-if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then 
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then
   . "$HOME/google-cloud-sdk/path.zsh.inc"
 fi
-if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then 
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then
   . "$HOME/google-cloud-sdk/completion.zsh.inc"
 fi
 
@@ -174,16 +159,19 @@ export PYENV_ROOT="$HOME/.pyenv"
 if command -v pyenv >/dev/null; then
   # Explicitly add shims to front of path
   path=($PYENV_ROOT/bin $path)
-  
+
   eval "$(pyenv init --path)"
   eval "$(pyenv init -)"
-  
+
   if pyenv root >/dev/null 2>&1; then
     alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
   fi
 fi
 
-# Syntax highlighting (Dynamic)
+# Syntax highlighting
 if [ -f "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
   source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
+
+# bun completions
+[ -s "/Users/stan/.bun/_bun" ] && source "/Users/stan/.bun/_bun"

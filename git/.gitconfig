@@ -2,7 +2,7 @@
 	name = Stanley M Ndagi
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = codium -n --wait
+	# editor = zed -n --wait
 [alias]
 	# log #
 

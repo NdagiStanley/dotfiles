@@ -34,11 +34,12 @@ alias miniresetmincss="curl https://raw.githubusercontent.com/jgthms/minireset.c
 alias notify="tput bel & say done"
 alias offline='wifi-off & bt-off'
 alias online='wifi-on & bt-on'
-alias reload="source ~/.zshrc"
+alias strip='sudo pkill "TouchBarServer"; killall "ControlStrip"'
 alias today="date -I && date -I | pbcopy"
+alias urlencode='python -c "import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]));"'
 alias wifi-off='networksetup -setairportpower en0 off'
 alias wifi-on='networksetup -setairportpower en0 on'
-alias strip='sudo pkill "TouchBarServer"; killall "ControlStrip"'
+
 
 # More Directories (To add more specific workstation directories, do so in this format)
 alias cci="cd ~/Projects/Work/cci"
@@ -110,6 +111,12 @@ alias arc="/Applications/Arc.app/Contents/MacOS/Arc"
 
 # Get week number
 alias week='date +%V'
+
+# Reload the shell (i.e. invoke as a login shell)
+alias reload="exec ${SHELL} -l"
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
 
 # Lock the screen (when going AFK - Away from Keyboard)
 alias afk="pmset displaysleepnow"

@@ -16,8 +16,8 @@
     - (Easy and quick) Copy [.basic.aliases](/.basic.aliases) to `.aliases` and run `source .aliases` for every new shell session
 
       ```sh
-      curl https://raw.githubusercontent.com/NdagiStanley/dotfiles/main/.basic.aliases > .aliases
-      source .aliases
+      curl https://raw.githubusercontent.com/NdagiStanley/dotfiles/main/.basic.aliases > .bash_aliases
+      source .bash_aliases
       ```
 
     - Install `zsh`, [install oh-my-zsh](/install.sh#L20), copy [.zshrc-basic](/.zshrc-basic) to `.zshrc` and run `source .zshrc`

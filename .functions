@@ -22,7 +22,7 @@ nd() {
   fi
 }
 
-function server() {
+server() {
   python3 -m http.server "$@"
 }
 
@@ -30,15 +30,15 @@ function server() {
 # the `.git` directory, listing directories first. The output gets piped into
 # `less` with options to preserve color and line numbers, unless the output is
 # small enough for one screen.
-function tre() {
+tre() {
   tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX
 }
 
-function compare() {
+compare() {
   hub compare "${1:=develop}"..."$(git rev-parse --abbrev-ref HEAD)"
 }
 
-function compare_branch() {
+compare_branch() {
   hub compare ${1:="$@"}..."$(git rev-parse --abbrev-ref HEAD)"
 }
 
@@ -125,4 +125,104 @@ o() {
   else
     open "$@"
   fi
+}
+
+path_audit() {
+  echo "\033[1;34m=== PATH PRIORITY AUDIT ===\033[0m"
+
+  # Iterate over the unique 'path' array
+  local i=1
+  for entry in $path; do
+    if [ -d "$entry" ]; then
+      # Check if this is a high-priority shim folder
+      if [[ "$entry" == *".pyenv/shims"* ]]; then
+        echo " $i. \033[1;32m$entry\033[0m (Pyenv Shims)"
+      elif [[ "$entry" == *".nvm"* ]]; then
+        echo " $i. \033[1;33m$entry\033[0m (Node Manager)"
+      else
+        echo " $i. $entry"
+      fi
+    else
+      # Highlight dead paths in RED
+      echo " $i. \033[1;31m$entry\033[0m [DOES NOT EXIST - REMOVE ME]"
+    fi
+    ((i++))
+  done
+
+  echo "\033[1;34m===========================\033[0m"
+  echo "Total paths: ${#path[@]}"
+}
+
+dev_info() {
+  echo "\n\033[1;34m=== DEVELOPMENT ENVIRONMENT DASHBOARD ===\033[0m"
+
+  # 1. PYTHON (Pyenv & Pipx)
+  if command -v pyenv >/dev/null; then
+    echo "\n\033[1;33m[PYTHON]\033[0m"
+    echo "  Version:  $(pyenv version --bare | tr '\n' ' ')"
+    echo "  Location: $(which python3)"
+    echo "  Cheats:   pyenv install (-l) | pyenv global <version> | pyenv local <version>"
+  fi
+
+  if command -v pipx >/dev/null; then
+    echo "  Pipx:     Available (pipx ensurepath | pipx install <package>)"
+  fi
+
+  # 2. JAVASCRIPT (Node, NVM, PNPM, Bun)
+  echo "\n\033[1;33m[JAVASCRIPT]\033[0m"
+  if type nvm >/dev/null 2>&1 || command -v node >/dev/null; then
+    # Check if Node is actually loaded or just lazy-shimmed
+    if command -v node >/dev/null; then
+      echo "  Node:     $(node -v)"
+    else
+      echo "  Node:     (Lazy Loaded - Run 'nvm' or 'node' to initialize)"
+    fi
+    echo "  Cheats:   nvm ls | nvm install --lts | nvm use <version>"
+  fi
+
+  if command -v pnpm >/dev/null; then
+    echo "  PNPM:     $(pnpm --version)"
+  fi
+
+  if command -v bun >/dev/null; then
+    echo "  Bun:      $(bun --version)"
+  fi
+
+  if command -v nuxi >/dev/null; then
+    echo "  Nuxt:     nuxi init <project>"
+  fi
+
+  # 3. RUBY (Rbenv)
+  if command -v rbenv >/dev/null; then
+    echo "\n\033[1;33m[RUBY]\033[0m"
+    echo "  Version:  $(rbenv global)"
+    echo "  Cheats:   rbenv install -l | rbenv global <version>"
+  fi
+
+  # 4. RUST (Cargo)
+  if command -v cargo >/dev/null; then
+    echo "\n\033[1;33m[RUST]\033[0m"
+    echo "  Version:  $(cargo --version | awk '{print $2}')"
+    echo "  Cheats:   rustup update | cargo build | cargo run"
+  fi
+
+  # 5. GOLANG
+  if command -v go >/dev/null; then
+    echo "\n\033[1;33m[GOLANG]\033[0m"
+    echo "  Version:  $(go version | awk '{print $3}')"
+  fi
+
+  # 6. JAVA
+  if [ -n "$JAVA_HOME" ]; then
+    echo "\n\033[1;33m[JAVA]\033[0m"
+    echo "  Home:     $JAVA_HOME"
+    echo "  Switch:   java21 | java25 | javalts"
+  fi
+
+  echo "\n\033[1;34m=========================================\033[0m"
+}
+
+ids() {
+  echo "\n\033[1;34m=== BUNDLE IDS ===\033[0m"
+  find /Applications -maxdepth 2 -name "*.app" -exec mdls -name kMDItemCFBundleIdentifier -raw {} \; -exec echo " : {}" \;
 }
