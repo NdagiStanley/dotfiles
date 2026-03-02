@@ -116,10 +116,7 @@ export PNPM_HOME="$HOME/Library/pnpm"
 export GOPATH="$HOME/go"
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
-# Pipx & UV
-if command -v pipx >/dev/null; then
-  eval "$(register-python-argcomplete pipx)"
-fi
+# UV
 if command -v uv >/dev/null; then
   eval "$(uv generate-shell-completion zsh)"
 fi
@@ -132,7 +129,6 @@ fi
 # Java
 alias javalts='export JAVA_HOME=$(/usr/libexec/java_home)'
 alias java25='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home'
-alias java23='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-23.jdk/Contents/Home'
 alias java21='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home'
 
 # ==============================================================================
@@ -175,3 +171,4 @@ fi
 
 # bun completions
 [ -s "/Users/stan/.bun/_bun" ] && source "/Users/stan/.bun/_bun"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
