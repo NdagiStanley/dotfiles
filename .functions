@@ -227,11 +227,15 @@ dev_info() {
 
   # 6. JAVA
   # https://www.oracle.com/java/technologies/downloads
-  if command -v java >/dev/null; then
-    echo "\n\033[1;33m[JAVA]\033[0m"
-    echo "  JAVA_HOME:$(if [ -n "$JAVA_HOME" ]; then echo "$JAVA_HOME"; else echo "Not set. Run a switch command"; fi)"
-    echo "  Version:  $(java --version | head -n 1)"
-    echo "  Switch:   java21 | java25 | javalts | java --version | head -n 1 | awk '{print \$3}'"
+  if [ -n "$JAVA_HOME" ]; then
+    printf "\n\033[1;33m[JAVA]\033[0m\n"
+    if command -v java >/dev/null; then
+      echo "  You've set \$JAVA_HOME but not installed java"
+    else
+      echo "  $(if [ -n "$JAVA_HOME" ]; then echo "JAVA_HOME: $JAVA_HOME"; fi)"
+      echo "  Version:  $(java --version | head -n 1)"
+      echo "  Switch:   java21 | java25 | javalts | java --version | head -n 1 | awk '{print \$3}'"
+    fi
   fi
 
   # 7. ZIG
