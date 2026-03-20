@@ -39,7 +39,7 @@ compare() {
 }
 
 compare_branch() {
-  hub compare ${1:="$@"}..."$(git rev-parse --abbrev-ref HEAD)"
+  hub compare "${1:="$@"}"..."$(git rev-parse --abbrev-ref HEAD)"
 }
 
 # Call from a local repo to open the repository on github/bitbucket in browser
@@ -62,7 +62,7 @@ repo() {
   # Fix git@gitlab.com: URLs
   base_url=${base_url//git@gitlab\.com:/https:\/\/gitlab\.com\/}
 
-  echo $base_url
+  echo "$base_url"
 
   # Validate that this folder is a git folder
   if ! git branch 2>/dev/null 1>&2; then
@@ -76,14 +76,14 @@ repo() {
     cd "./$(git rev-parse --show-cdup)" || exit 1
     pwd
   )
-  relative_path=${full_path#$git_base_path} # remove leading git_base_path from working directory
+  relative_path=${full_path#"$git_base_path"} # remove leading git_base_path from working directory
 
   # If filename argument is present, append it
   if [ "$1" ]; then
     relative_path="$relative_path/$1"
   fi
 
-  echo $relative_path
+  echo "$relative_path"
   # Figure out current git branch
   # git_where=$(command git symbolic-ref -q HEAD || command git name-rev --name-only --no-undefined --always HEAD) 2>/dev/null
   git_where=$(command git name-rev --name-only --no- undefined --always HEAD) 2>/dev/null
@@ -128,7 +128,7 @@ o() {
 }
 
 path_audit() {
-  echo "\033[1;34m=== PATH PRIORITY AUDIT ===\033[0m"
+  printf "\033[1;34m=== PATH PRIORITY AUDIT ===\033[0m\n"
 
   # Iterate over the unique 'path' array
   local i=1
@@ -136,31 +136,31 @@ path_audit() {
     if [ -d "$entry" ]; then
       # Check if this is a high-priority shim folder
       if [[ "$entry" == *".pyenv/shims"* ]]; then
-        echo " $i. \033[1;32m$entry\033[0m (Pyenv Shims)"
+        printf " %s. \033[1;32m$entry\033[0m (Pyenv Shims)\n" "$i"
       elif [[ "$entry" == *".nvm"* ]]; then
-        echo " $i. \033[1;33m$entry\033[0m (Node Manager)"
+        printf " %s. \033[1;33m$entry\033[0m (Node Manager)\n" "$i"
       else
         echo " $i. $entry"
       fi
     else
       # Highlight dead paths in RED
-      echo " $i. \033[1;31m$entry\033[0m [DOES NOT EXIST - REMOVE ME]"
+      printf " %s. \033[1;31m$entry\033[0m [DOES NOT EXIST - REMOVE ME]\n" "$i"
     fi
     ((i++))
   done
 
-  echo "\033[1;34m===========================\033[0m"
+  printf "\033[1;34m===========================\033[0m\n"
   echo "Total paths: ${#path[@]}"
 }
 
 dev_info() {
-  echo "\n\033[1;34m=== DEVELOPMENT ENVIRONMENT DASHBOARD ===\033[0m"
+  printf "\n\033[1;34m=== DEVELOPMENT ENVIRONMENT DASHBOARD ===\033[0m\n"
 
   # 1. PYTHON (Pyenv & Pipx)
   # https://github.com/pyenv/pyenv?tab=readme-ov-file#macos
   # brew install pyenv
   if command -v pyenv >/dev/null; then
-    echo "\n\033[1;33m[PYTHON]\033[0m"
+    printf "\n\033[1;33m[PYTHON]\033[0m\n"
     echo "  Version:  $(pyenv version --bare | tr '\n' ' ')"
     echo "  Location: $(which python3)"
     echo "  Cheats:   pyenv install -l | pyenv install <version> | pyenv (global|local) <version>"
@@ -176,7 +176,7 @@ dev_info() {
 
   # 2. JAVASCRIPT (Node, NVM, PNPM, Bun)
   # https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
-  echo "\n\033[1;33m[JAVASCRIPT]\033[0m"
+  printf "\n\033[1;33m[JAVASCRIPT]\033[0m\n"
   if type nvm >/dev/null 2>&1 || command -v node >/dev/null; then
     # Check if Node is actually loaded or just lazy-shimmed
     if command -v node >/dev/null; then
@@ -204,7 +204,7 @@ dev_info() {
   # brew install rbenv
   # rbenv init
   if command -v rbenv >/dev/null; then
-    echo "\n\033[1;33m[RUBY]\033[0m"
+    printf "\n\033[1;33m[RUBY]\033[0m\n"
     echo "  Version:  $(rbenv global)"
     echo "  Cheats:   rbenv install -l | rbenv global <version>"
   fi
@@ -212,7 +212,7 @@ dev_info() {
   # 4. RUST (Cargo)
   # https://rust-lang.org/tools/install/
   if command -v cargo >/dev/null; then
-    echo "\n\033[1;33m[RUST]\033[0m"
+    printf "\n\033[1;33m[RUST]\033[0m\n"
     echo "  Version:  $(cargo --version | awk '{print $2}')"
     echo "  Cheats:   rustup update | cargo install | cargo build | cargo run"
   fi
@@ -220,7 +220,7 @@ dev_info() {
   # 5. GOLANG
   # https://go.dev/doc/install
   if command -v go >/dev/null; then
-    echo "\n\033[1;33m[GOLANG]\033[0m"
+    printf "\n\033[1;33m[GOLANG]\033[0m\n"
     echo "  Version:  $(go version | awk '{print $3}')"
     echo "  Cheats:   go install | go build | go run | go fmt | go test | go vet | go get | go doc"
   fi
@@ -238,16 +238,16 @@ dev_info() {
   # https://ziglang.org/learn/getting-started/#managers
   # brew install zig
   if command -v zig >/dev/null; then
-    echo "\n\033[1;33m[ZIG]\033[0m"
+    printf "\n\033[1;33m[ZIG]\033[0m\n"
     echo "  Version:  $(zig version)"
-    echo "  Cheats:   zig cc <file>.c -o <executable> | zig c++ <file>.[cpp|cc] -o <executable>\n\tRUN ./<executable>"
+    printf "  Cheats:   zig cc <file>.c -o <executable> | zig c++ <file>.[cpp|cc] -o <executable>\n\tRUN ./<executable>\n"
     echo "            zig init | zig build | zig run | zig build run | zig fmt"
   fi
 
-  echo "\n\033[1;34m=========================================\033[0m"
+  printf "\n\033[1;34m=========================================\033[0m"
 }
 
 ids() {
-  echo "\n\033[1;34m=== BUNDLE IDS ===\033[0m"
+  printf "\n\033[1;34m=== BUNDLE IDS ===\033[0m\n"
   find /Applications -maxdepth 2 -name "*.app" -exec mdls -name kMDItemCFBundleIdentifier -raw {} \; -exec echo " : {}" \;
 }
