@@ -1,0 +1,91 @@
+{
+  // Language-specific editor settings
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[markdown]": {
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[zig]": {
+    "editor.defaultFormatter": "ziglang.vscode-zig",
+    "editor.formatOnSave": true,
+    "files.eol": "\n"
+  },
+  "claudeCode.preferredLocation": "sidebar",
+  "diffEditor.renderSideBySide": false,
+  "editor.cursorStyle": "line-thin",
+  "editor.fontFamily": "'Jetbrains Mono', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 15,
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+  "editor.formatOnType": false,
+  "editor.lineHeight": 1.2,
+  "editor.renderWhitespace": "boundary",
+  "editor.rulers": [
+    100,
+    79
+  ],
+  "editor.tabSize": 2,
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 80,
+  "explorer.compactFolders": false,
+  "files.associations": {
+    ".env": "env",
+    "config": "shellscript"
+  },
+  "files.exclude": {
+    "**/.DS_Store": false, // Desktop Services Store, a hidden file created by macOS in folders to store custom folder display preferences, such as icon positions, window size, and sorting preferences
+    "**/.git": false,
+    "**/.hg": false, // Mercurial, a distributed version control system similar to Git
+    "**/.svn": false, // Subversion (SVN), a centralized version control system
+    "**/CVS": false, // associated with the Concurrent Versions System (CVS), an older version control system
+    "**/Thumbs.db": false // a hidden system file created by Windows to store thumbnail previews of images, videos, and other content in a folder.
+  },
+  "prettier.singleAttributePerLine": true,
+  "redhat.telemetry.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "snyk.advanced.cliPath": "/Users/stanmd/Library/Application Support/snyk/vscode-cli/snyk-macos",
+  "snyk.securityAtInception.autoConfigureSnykMcpServer": true,
+  "snyk.securityAtInception.executionFrequency": "Smart Scan",
+  "snyk.trustedFolders": [
+    "/Users/stanmd/dotfiles"
+  ],
+  "snyk.yesWelcomeNotification": false,
+  "terminal.external.osxExec": "Warp.app",
+  "terminal.integrated.confirmOnExit": "always",
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorStyleInactive": "none",
+  "terminal.integrated.fontSize": 15,
+  "window.zoomLevel": 0.75,
+  "workbench.colorTheme": "GitHub Dark Dimmed",
+  "workbench.editor.wrapTabs": true,
+  "workbench.editorAssociations": {
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "*.docx": "docxreader.docxEditor"
+  },
+  "workbench.fontAliasing": "antialiased",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "none",
+  "zig.zls.enabled": "on",
+  "workbench.colorCustomizations": {},
+  "geminicodeassist.displayInlineContextHint": false
+}
