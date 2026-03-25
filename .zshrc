@@ -172,3 +172,6 @@ fi
 # bun completions
 [ -s "/Users/stan/.bun/_bun" ] && source "/Users/stan/.bun/_bun"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Added by Antigravity
+export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
