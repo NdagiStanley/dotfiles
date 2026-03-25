@@ -277,3 +277,11 @@ Once in a while I run:
 - `cleanup`
 
     _to clean **.Trashes**, **.DS_Store** among others, plus **docker system prune**_
+
+### IDEs
+
+```sh
+code --list-extensions > Brefile-VSCode
+agy --list-extensions > Brewfile-AGY
+codium --list-extensions > Brefile-VSCode
+```
