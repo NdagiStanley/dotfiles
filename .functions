@@ -153,6 +153,9 @@ path_audit() {
   echo "Total paths: ${#path[@]}"
 }
 
+# Prints out dev_info function definition. Helpful with the install/ uninstall scripts
+alias dev_install="sed -n '159,256p' ~/dotfiles/.functions"
+
 dev_info() {
   printf "\n\033[1;34m=== DEVELOPMENT ENVIRONMENT DASHBOARD ===\033[0m\n"
 
