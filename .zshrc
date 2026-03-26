@@ -130,6 +130,7 @@ fi
 alias javalts='export JAVA_HOME=$(/usr/libexec/java_home)'
 alias java25='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home'
 alias java21='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home'
+alias nojava='export JAVA_HOME=""'
 
 # ==============================================================================
 # 🛑 STOP 🛑
