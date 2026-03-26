@@ -39,6 +39,8 @@ disabled:
     uuid: 9d720434-951c-4717-b57d-77a2c4f2259a
   - id: google.gemini-cli-vscode-ide-companion
     uuid: 3f22f99d-2695-4d6c-9a37-0450025dc16b
+  - id: google.geminicodeassist
+    uuid: 51643712-2cb2-4384-b7cc-d55b01b8274b
   - id: googlecloudtools.cloudcode
     uuid: 5e8803a2-3dc8-42b3-9c5f-ea9d37828c03
   - id: GrapeCity.gc-excelviewer
@@ -113,6 +115,8 @@ disabled:
     uuid: 06574cb4-e5dc-4631-8174-a543a4533621
   - id: samuelcolvin.jinjahtml
     uuid: 8b477a76-974c-403d-a454-58028c1709d1
+  - id: snyk-security.snyk-vulnerability-scanner
+    uuid: 360bbbc1-6275-43ce-a7e0-84027eddd2b0
   - id: svelte.svelte-vscode
     uuid: c5463f77-75d9-4a25-8cc4-d8541a461285
   - id: Terrastruct.d2
@@ -125,6 +129,16 @@ disabled:
     uuid: 0efda145-8595-4ff7-98ef-1e3abc5e5757
   - id: void-zero.vite-plus-extension-pack
     uuid: 5fd479cd-27df-4acb-a1ca-1e9f4db786e0
+  - id: vscjava.vscode-gradle
+    uuid: a226f06e-9b5e-493b-b92a-553d3572f969
+  - id: vscjava.vscode-java-debug
+    uuid: 61fcd0cf-64d7-4836-8d6b-d55f4fb83281
+  - id: vscjava.vscode-java-dependency
+    uuid: 7865e561-1c83-410e-9b99-aabada597a7e
+  - id: vscjava.vscode-java-pack
+    uuid: 96f11e1f-1a46-4592-b084-f025b2c2a81f
+  - id: vscjava.vscode-java-test
+    uuid: 67c06b0d-1891-42ca-b2a8-113e79bff069
   - id: vscjava.vscode-maven
     uuid: b0f06c6b-24fb-4d7b-bd79-bc5e2fa17312
   - id: vscodevim.vim
@@ -192,8 +206,6 @@ enabled:
     uuid: 7328a705-91fc-49e6-8293-da6f112e482d
   - id: GitHub.vscode-pull-request-github
     uuid: 69ddd764-339a-4ecc-97c1-9c4ece58e36d
-  - id: google.geminicodeassist
-    uuid: 51643712-2cb2-4384-b7cc-d55b01b8274b
   - id: Gruntfuggly.activitusbar
     uuid: 47137038-6832-49c2-a31c-9ad3d95187fc
   - id: Gruntfuggly.bettercomment
@@ -246,12 +258,12 @@ enabled:
     uuid: 2061917f-f76a-458a-8da9-f162de22b97e
   - id: shailen.netlify
     uuid: null
+  - id: Shopify.ruby-lsp
+    uuid: ef656a13-3703-477b-9f36-672a0c949b96
   - id: simonhe.common-intellisense
     uuid: a3ab6e63-389e-43e9-914e-537d44040511
   - id: sleistner.vscode-fileutils
     uuid: d637104e-1fd7-4063-98fc-8afe46012c9b
-  - id: snyk-security.snyk-vulnerability-scanner
-    uuid: 360bbbc1-6275-43ce-a7e0-84027eddd2b0
   - id: tauri-apps.tauri-vscode
     uuid: 53763e89-ec31-4d0c-b220-f714761180e5
   - id: timonwong.shellcheck
@@ -268,6 +280,8 @@ enabled:
     uuid: a95ee795-1576-4ffa-acda-8d6e6a95c584
   - id: WakaTime.vscode-wakatime
     uuid: f2fd462f-f1bd-4c62-b54f-59a4e5ffc6a3
+  - id: wix.vscode-import-cost
+    uuid: c46b0018-f317-4b6c-a785-d2039b27338f
   - id: yzane.markdown-pdf
     uuid: f015bc3c-a098-4245-8765-615e002e09ab
   - id: yzhang.markdown-all-in-one

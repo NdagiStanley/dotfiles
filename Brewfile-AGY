@@ -109,6 +109,7 @@ redhat.vscode-yaml
 rust-lang.rust-analyzer
 samuelcolvin.jinjahtml
 shailen.netlify
+shopify.ruby-lsp
 simonhe.common-intellisense
 sleistner.vscode-fileutils
 snyk-security.snyk-vulnerability-scanner
@@ -123,6 +124,11 @@ vadimcn.vscode-lldb
 vitest.explorer
 vmware.vscode-spring-boot
 void-zero.vite-plus-extension-pack
+vscjava.vscode-gradle
+vscjava.vscode-java-debug
+vscjava.vscode-java-dependency
+vscjava.vscode-java-pack
+vscjava.vscode-java-test
 vscjava.vscode-maven
 vscodevim.vim
 vsls-contrib.codetour

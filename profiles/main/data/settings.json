@@ -64,7 +64,9 @@
   "snyk.securityAtInception.autoConfigureSnykMcpServer": true,
   "snyk.securityAtInception.executionFrequency": "Smart Scan",
   "snyk.trustedFolders": [
-    "/Users/stanmd/dotfiles"
+    "/Users/stanmd/dotfiles",
+    "/Users/stanmd/Projects/Work/TM/home",
+    "/Users/stanmd/Projects/Work/TM/pLIAM"
   ],
   "snyk.yesWelcomeNotification": false,
   "terminal.external.osxExec": "Warp.app",
@@ -87,5 +89,9 @@
   "workbench.startupEditor": "none",
   "zig.zls.enabled": "on",
   "workbench.colorCustomizations": {},
-  "geminicodeassist.displayInlineContextHint": false
+  "geminicodeassist.displayInlineContextHint": false,
+  "vscode-office.editorTheme": "Github Dark",
+  "remote-control.tunnelMode": "quick",
+  "remote-control.tunnelName": "",
+  "remote-control.customDomain": ""
 }
