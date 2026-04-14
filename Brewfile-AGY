@@ -35,6 +35,8 @@ eamodio.gitlens
 editorconfig.editorconfig
 esbenp.prettier-vscode
 fill-labs.dependi
+formulahendry.auto-close-tag
+formulahendry.auto-rename-tag
 foxundermoon.shell-format
 fwcd.kotlin
 george-alisson.html-preview-vscode
@@ -113,6 +115,7 @@ shopify.ruby-lsp
 simonhe.common-intellisense
 sleistner.vscode-fileutils
 snyk-security.snyk-vulnerability-scanner
+streetsidesoftware.code-spell-checker
 svelte.svelte-vscode
 tauri-apps.tauri-vscode
 terrastruct.d2

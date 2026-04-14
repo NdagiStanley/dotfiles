@@ -4,6 +4,8 @@
 [![OS](https://img.shields.io/badge/OS-Linux-informational?style=flat-square&logo=linux&logoColor=white)](https://en.wikipedia.org/wiki/Linux)
 [![OS](https://img.shields.io/badge/OS-Windows-informational?style=flat-square&logo=windows&logoColor=white)](https://en.wikipedia.org/wiki/Windows)
 
+This repository contains a collection of configuration files (dotfiles) and automated setup scripts to bootstrap and deploy personalized development environments across macOS, Linux, and Windows machines. It features a modular, interactive installation process - supporting `Basic`, `Core`, `Python`, `JavaScript`, `Work`, and `Pro` profiles - to seamlessly install system dependencies, CLI utilities, dotfile configurations, and language environments.
+
 ## Summary
 
 1. [Install GIT](#1-git)
@@ -102,7 +104,7 @@ source install.sh homebrew
 
 - change the network to a faster one
 - Configure your network settings to use the IP addresses `8.8.8.8` and `8.8.4.4` as your DNS servers. This is Google's Public DNS.
-- There are other prescribed solutions [here](https://gist.github.com/daopk/0a95772d582cafb202142ff7871da2fc).</i>
+- There are [other prescribed solutions](https://gist.github.com/daopk/0a95772d582cafb202142ff7871da2fc).</i>
 
 Install basic brew packages and oh-my-zsh.
 
@@ -227,7 +229,7 @@ git config user.email <email>           # per repo
 
 To use Conventional Commits, use [commitizen CLI](https://commitizen-tools.github.io/commitizen). For *nix (**macOS** (Unix) and **Linux**), use Homebrew to install `commitizen`. The [default Brewfile](/mac_os/Brewfile) has it.
 
-Common commands below. Find more [here](https://commitizen-tools.github.io/commitizen/#usage).
+Common commands below. Find more in the [commitizen usage documentation](https://commitizen-tools.github.io/commitizen/#usage).
 
 ```sh
 cz c # OR cz commit               - commit
@@ -281,7 +283,7 @@ Once in a while I run:
 ### IDEs
 
 ```sh
-code --list-extensions > Brefile-VSCode
+code --list-extensions > Brewfile-VSCode
 agy --list-extensions > Brewfile-AGY
-codium --list-extensions > Brefile-VSCode
+codium --list-extensions > Brewfile-VSCode
 ```
