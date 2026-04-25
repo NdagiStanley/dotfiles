@@ -176,3 +176,6 @@ fi
 
 # Added by Antigravity
 export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
+
+# Vite+ bin (https://viteplus.dev)
+. "$HOME/.vite-plus/env"
