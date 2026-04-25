@@ -95,5 +95,6 @@
   "vscode-office.editorTheme": "Github Dark",
   "remote-control.tunnelMode": "quick",
   "remote-control.tunnelName": "",
-  "remote-control.customDomain": ""
+  "remote-control.customDomain": "",
+  "syncSettings.additionalFiles": []
 }
