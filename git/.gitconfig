@@ -1,5 +1,6 @@
 [user]
 	name = Stanley M Ndagi
+	email = stan@md.bio
 [core]
 	excludesfile = ~/.gitignore_global
 	# editor = zed -n --wait # code | codium | agy

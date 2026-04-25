@@ -80,7 +80,9 @@
   "workbench.editor.wrapTabs": true,
   "workbench.editorAssociations": {
     "*.copilotmd": "vscode.markdown.preview.editor",
-    "*.docx": "docxreader.docxEditor"
+    "*.docx": "docxreader.docxEditor",
+    "*.md": "default",
+    "*.markdown": "default"
   },
   "workbench.fontAliasing": "antialiased",
   "workbench.iconTheme": "material-icon-theme",

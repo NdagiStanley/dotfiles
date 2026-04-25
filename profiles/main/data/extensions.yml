@@ -7,6 +7,8 @@ disabled:
     uuid: 4b41a5a8-170e-4156-b2c0-10efb270abbc
   - id: biomejs.biome
     uuid: 2c992d35-3965-4369-856e-fdfbb0af2ce2
+  - id: bradlc.vscode-tailwindcss
+    uuid: 4db62a7c-7d70-419c-96d2-6c3a4dc77ea5
   - id: charliermarsh.ruff
     uuid: c2ca9b43-fa38-44fc-928e-5125970b9c00
   - id: chouzz.vscode-better-align
@@ -29,8 +31,14 @@ disabled:
     uuid: 5960f38e-0bbe-4644-8f9c-9c8824e82511
   - id: donjayamanne.python-extension-pack
     uuid: f5188937-53e0-45bb-a16d-61231003fa3b
+  - id: ducfilan.pug-formatter
+    uuid: 00000000-0000-0000-0000-000000000000
+  - id: esbenp.prettier-vscode
+    uuid: 96fa4707-6983-4489-b7c5-d5ffdfdcce90
   - id: fwcd.kotlin
     uuid: c86bc8a9-fd3b-44db-b28a-2d146cb78d3c
+  - id: ginie.pug2html
+    uuid: 00000000-0000-0000-0000-000000000000
   - id: github.vscode-github-actions
     uuid: 04f49bfc-8330-4eee-8237-ea938fb755ef
   - id: golang.go
@@ -71,6 +79,8 @@ disabled:
     uuid: 0479fc1c-3d67-49f9-b087-fb9069afe48f
   - id: ms-kubernetes-tools.vscode-kubernetes-tools
     uuid: 4837e4f3-1b01-4732-b1a6-daa57ef64cab
+  - id: ms-playwright.playwright
+    uuid: f53b1d43-eef4-4909-99ca-56b5fa3e108c
   - id: ms-python.debugpy
     uuid: 4bd5d2c9-9d65-401a-b0b2-7498d9f17615
   - id: ms-python.python
@@ -115,10 +125,14 @@ disabled:
     uuid: 06574cb4-e5dc-4631-8174-a543a4533621
   - id: samuelcolvin.jinjahtml
     uuid: 8b477a76-974c-403d-a454-58028c1709d1
+  - id: Shopify.ruby-lsp
+    uuid: 00000000-0000-0000-0000-000000000000
   - id: snyk-security.snyk-vulnerability-scanner
     uuid: 360bbbc1-6275-43ce-a7e0-84027eddd2b0
   - id: svelte.svelte-vscode
     uuid: c5463f77-75d9-4a25-8cc4-d8541a461285
+  - id: tauri-apps.tauri-vscode
+    uuid: 53763e89-ec31-4d0c-b220-f714761180e5
   - id: Terrastruct.d2
     uuid: 00000000-0000-0000-0000-000000000000
   - id: vadimcn.vscode-lldb
@@ -170,8 +184,6 @@ enabled:
     uuid: 5cbdf58a-694a-4aba-af08-61d00842eb03
   - id: bpruitt-goddard.mermaid-markdown-syntax-highlighting
     uuid: 08792992-bb56-41fb-b5dd-8551bbee0cb6
-  - id: bradlc.vscode-tailwindcss
-    uuid: 4db62a7c-7d70-419c-96d2-6c3a4dc77ea5
   - id: bruno-api-client.bruno
     uuid: d9d9d9f5-a013-42bb-bc1d-a22090e5d31c
   - id: codezombiech.gitignore
@@ -186,21 +198,19 @@ enabled:
     uuid: 583b2b34-2c1e-4634-8c0b-0b82e283ea3a
   - id: deerawan.vscode-dash
     uuid: null
-  - id: ducfilan.pug-formatter
-    uuid: null
   - id: eamodio.gitlens
     uuid: 4de763bd-505d-4978-9575-2b7696ecf94e
   - id: EditorConfig.EditorConfig
     uuid: f60a60a6-95ba-42d4-b41c-3d24c1b89588
-  - id: esbenp.prettier-vscode
-    uuid: 96fa4707-6983-4489-b7c5-d5ffdfdcce90
   - id: fill-labs.dependi
     uuid: 456278dd-7f50-4cbe-8314-ab06540c1057
+  - id: formulahendry.auto-close-tag
+    uuid: d3836729-9cc1-42c1-b2af-d50071f57d29
+  - id: formulahendry.auto-rename-tag
+    uuid: 6e440e71-8ed9-4f25-bb78-4b13096b8a03
   - id: foxundermoon.shell-format
     uuid: 5fb19573-2183-4cf2-b53d-0fb869dae7ae
   - id: george-alisson.html-preview-vscode
-    uuid: null
-  - id: ginie.pug2html
     uuid: null
   - id: GitHub.github-vscode-theme
     uuid: 7328a705-91fc-49e6-8293-da6f112e482d
@@ -236,8 +246,6 @@ enabled:
     uuid: 532533c9-a894-4a58-9eee-bbfbe7c06f71
   - id: ms-azuretools.vscode-containers
     uuid: 2cd1d691-3d69-4d2d-ae39-fda4bc4cfd3d
-  - id: ms-playwright.playwright
-    uuid: f53b1d43-eef4-4909-99ca-56b5fa3e108c
   - id: ms-vscode.live-server
     uuid: 4eae7368-ec63-429d-8449-57a7df5e2117
   - id: ms-vscode.vscode-typescript-next
@@ -258,14 +266,12 @@ enabled:
     uuid: 2061917f-f76a-458a-8da9-f162de22b97e
   - id: shailen.netlify
     uuid: null
-  - id: Shopify.ruby-lsp
-    uuid: ef656a13-3703-477b-9f36-672a0c949b96
   - id: simonhe.common-intellisense
     uuid: a3ab6e63-389e-43e9-914e-537d44040511
   - id: sleistner.vscode-fileutils
     uuid: d637104e-1fd7-4063-98fc-8afe46012c9b
-  - id: tauri-apps.tauri-vscode
-    uuid: 53763e89-ec31-4d0c-b220-f714761180e5
+  - id: streetsidesoftware.code-spell-checker
+    uuid: f6dbd813-b0a0-42c1-90ea-10dde9d925a7
   - id: timonwong.shellcheck
     uuid: f95d8fff-f70a-4ae5-bb06-5c47ddbc8fc6
   - id: tombonnike.vscode-status-bar-format-toggle
