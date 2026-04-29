@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-echo "Starting System Preferences setup"
+echo "Starting System Settings setup"
 
 # Borrowed heavily from https://mths.be/macos
 # Reference: https://ss64.com/mac/, https://macos-defaults.com/
 
-# Close any open System Preferences panes, to prevent them from overriding
+# Close any open System Settings panes, to prevent them from overriding
 # settings we're about to change
-osascript -e 'tell application "System Preferences" to quit'
+osascript -e 'tell application "System Settings" to quit'
 
 # Ask for the administrator password upfront
 sudo -v
@@ -19,13 +19,13 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # General UI/UX                                                               #
 ###############################################################################
 
-# Set computer name (as done via System Preferences → Sharing)
+# Set computer name (as done via System Settings → General → Sharing)
 sudo scutil --set ComputerName "abacus"
 sudo scutil --set HostName "silicon_savannah"
 sudo scutil --set LocalHostName "0x008080"
 
-# Set highlight color to green
-defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
+# Set highlight color to the nearest websafe teal from #008080 (#009999)
+defaults write NSGlobalDomain AppleHighlightColor -string "0.000000 0.600000 0.600000"
 
 # Always show scrollbars
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
@@ -76,15 +76,16 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
 # Set language and text formats
-# Note: if you're in the US, replace `EUR` with `USD`, `Centimeters` with
-# `Inches`, `en_GB` with `en_US`, and `true` with `false`.
-defaults write NSGlobalDomain AppleLanguages -array "en" "sw"
-defaults write NSGlobalDomain AppleLocale -string "en_GB@currency=USD"
-defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
-defaults write NSGlobalDomain AppleMetricUnits -bool true
+# Keep English (US) as the language while applying Kenya regional formatting.
+defaults write NSGlobalDomain AppleLanguages -array "en-US"
+defaults write NSGlobalDomain AppleLocale -string "en_US@rg=kezzzz"
+# Remove explicit unit overrides so locale-driven KE defaults apply and stay future-proof.
+defaults delete NSGlobalDomain AppleMeasurementUnits 2> /dev/null || true
+defaults delete NSGlobalDomain AppleMetricUnits 2> /dev/null || true
 
 # Stop Apple Music from responding to the keyboard media keys
-launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+launchctl disable "gui/$(id -u)/com.apple.rcd" 2> /dev/null || true
+launchctl bootout "gui/$(id -u)" /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null || true
 
 ###############################################################################
 # Screen                                                                      #
@@ -107,7 +108,7 @@ defaults write com.apple.finder QuitMenuItem -bool true
 # Finder: disable window animations and Get Info animations
 defaults write com.apple.finder DisableAllAnimations -bool true
 
-# Set Desktop as the default location for new Finder windows
+# Set Home as the default location for new Finder windows
 # For other paths, use `PfLo` and `file:///full/path/here/`
 defaults write com.apple.finder NewWindowTarget -string "PfLo"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
@@ -178,8 +179,6 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 # Disable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
-# Enable AirDrop over Ethernet and on unsupported Macs running Lion
-defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 
 # Show the ~/Library folder
 chflags nohidden ~/Library
@@ -230,16 +229,16 @@ defaults write com.apple.dock showhidden -bool true
 # 10: Put display to sleep
 # 11: Launchpad
 # 12: Notification Center
-# Top left screen corner → Mission Control
+# Top left screen corner → Launchpad
 defaults write com.apple.dock wvous-tl-corner -int 11
 defaults write com.apple.dock wvous-tl-modifier -int 0
 # Top right screen corner → Notification Center
 defaults write com.apple.dock wvous-tr-corner -int 12
 defaults write com.apple.dock wvous-tr-modifier -int 0
-# Bottom left screen corner → Start screen saver
+# Bottom left screen corner → Put display to sleep
 defaults write com.apple.dock wvous-bl-corner -int 10
 defaults write com.apple.dock wvous-bl-modifier -int 0
-# Bottom right screen corner → Desktop
+# Bottom right screen corner → Mission Control
 defaults write com.apple.dock wvous-br-corner -int 2
 defaults write com.apple.dock wvous-br-modifier -int 0
 
@@ -268,7 +267,7 @@ defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
 defaults write com.apple.ActivityMonitor SortDirection -int 0
 
 ###############################################################################
-# Google Chrome & Google Chrome Canary                                        #
+# Brave Browser & Brave Beta                                                  #
 ###############################################################################
 
 # Use the system-native print preview dialog

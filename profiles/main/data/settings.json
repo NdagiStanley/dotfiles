@@ -75,7 +75,7 @@
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorStyleInactive": "none",
   "terminal.integrated.fontSize": 15,
-  "window.zoomLevel": 0.75,
+  "window.zoomLevel": 0.3,
   "workbench.colorTheme": "GitHub Dark Dimmed",
   "workbench.editor.wrapTabs": true,
   "workbench.editorAssociations": {
@@ -95,5 +95,8 @@
   "vscode-office.editorTheme": "Github Dark",
   "remote-control.tunnelMode": "quick",
   "remote-control.tunnelName": "",
-  "remote-control.customDomain": ""
+  "remote-control.customDomain": "",
+  "claudeCode.useTerminal": true,
+  "git.autofetch": true,
+  "git.confirmSync": false
 }

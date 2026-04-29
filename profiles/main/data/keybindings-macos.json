@@ -59,5 +59,25 @@
     "key": "ctrl+shift+g",
     "command": "-workbench.view.scm",
     "when": "workbench.scm.active && !gitlens:disabled && config.gitlens.keymap == 'chorded'"
+  },
+  {
+    "key": "alt+b",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "cmd+b",
+    "command": "-workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "shift+alt+b",
+    "command": "antigravity.openAgent"
+  },
+  {
+    "key": "alt+cmd+b",
+    "command": "-antigravity.openAgent"
+  },
+  {
+    "key": "shift+alt+c",
+    "command": "claude-vscode.sidebar.open"
   }
 ]
