@@ -34,6 +34,7 @@ alias miniresetmincss="curl https://raw.githubusercontent.com/jgthms/minireset.c
 alias notify="tput bel & say done"
 alias offline='wifi-off & bt-off'
 alias online='wifi-on & bt-on'
+alias pr='gh pr view --web'
 alias strip='sudo pkill "TouchBarServer"; killall "ControlStrip"'
 alias today="date -I && date -I | pbcopy"
 alias urlencode='python -c "import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]));"'
