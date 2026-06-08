@@ -87,3 +87,5 @@ MD.php
 MD.py
 MD.sh
 .MD/
+
+**/.claude/settings.local.json

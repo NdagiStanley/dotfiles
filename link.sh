@@ -29,6 +29,11 @@ function __cz__() {
     ln -sfv "$(pwd)/.czrc" "$HOME/.czrc"
 }
 
+function __claude__() {
+    mkdir -p "$HOME/.claude"
+    ln -sfv "$(pwd)/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+}
+
 function __windows__() {
     cd windows_os && source link.sh
 }
@@ -42,6 +47,7 @@ elif [ "$1" == "--main" ]; then
     __git__
     __vim__
     __cz__
+    __claude__
 else
-    echo "Usage: ./link.sh (zsh/ functions/ aliases/ tmux/ git/ vim/ cz/ windows (for Windows OS) | --main)"
+    echo "Usage: ./link.sh (zsh/ functions/ aliases/ tmux/ git/ vim/ cz/ claude/ windows (for Windows OS) | --main)"
 fi
