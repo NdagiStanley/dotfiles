@@ -34,6 +34,16 @@ function __claude__() {
     ln -sfv "$(pwd)/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
 }
 
+function __gemini__() {
+    mkdir -p "$HOME/.gemini"
+    ln -sfv "$(pwd)/gemini/GEMINI.md" "$HOME/.gemini/GEMINI.md"
+}
+
+function __openai__() {
+    mkdir -p "$HOME/.codex"
+    ln -sfv "$(pwd)/openai/AGENTS.md" "$HOME/.codex/AGENTS.md"
+}
+
 function __windows__() {
     cd windows_os && source link.sh
 }
@@ -48,6 +58,8 @@ elif [ "$1" == "--main" ]; then
     __vim__
     __cz__
     __claude__
+    __gemini__
+    __openai__
 else
-    echo "Usage: ./link.sh (zsh/ functions/ aliases/ tmux/ git/ vim/ cz/ claude/ windows (for Windows OS) | --main)"
+    echo "Usage: ./link.sh (zsh/ functions/ aliases/ tmux/ git/ vim/ cz/ claude/ gemini/ openai/ windows (for Windows OS) | --main)"
 fi

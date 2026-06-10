@@ -1,4 +1,27 @@
-# Personal Claude Code Config
+# Personal Claude Code Config — Stanley
+
+## AGENTS.md Convention
+
+Every project that uses AI agents should have an `AGENTS.md` at the repo root. It is the authoritative context document for agents and engineers alike.
+
+**When starting work on any repo:**
+1. Check for `AGENTS.md` at the root — read it before making any changes
+2. If it points elsewhere (e.g. `CLAUDE.md` → `AGENTS.md`), follow the pointer
+3. `AGENTS.md` contains: project purpose, file structure, env vars, scripts, key design decisions, ISO/compliance notes
+
+**After making changes:**
+1. Update `AGENTS.md` to reflect new scripts, env vars, changed behaviour, or new design decisions
+2. Update `README.md` for anything user-facing
+3. If no `AGENTS.md` exists, use the bootstrap snippet from an existing one or create one from scratch — the template is in any project's `AGENTS.md` under "Bootstrap Snippet"
+
+**Update triggers** (any of these = update AGENTS.md):
+- New file or script added
+- Env variable added or renamed
+- Default behaviour changed
+- New compliance/security control added
+- Feature removed
+
+---
 
 ## Committing with czg
 
