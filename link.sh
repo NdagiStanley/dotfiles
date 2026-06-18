@@ -63,6 +63,14 @@ function __antigravity_ide__() {
     ln -sfv "$(pwd)/antigravity-ide/settings.json" "$agy_ide_dir/settings.json"
 }
 
+
+function __warp__() {
+    mkdir -p "$HOME/.warp/tab_configs"
+    ln -sfv "$(pwd)/warp/settings.toml" "$HOME/.warp/settings.toml"
+    ln -sfv "$(pwd)/warp/keybindings.yaml" "$HOME/.warp/keybindings.yaml"
+    ln -sfv "$(pwd)/warp/tab_configs/startup_config.toml" "$HOME/.warp/tab_configs/startup_config.toml"
+}
+
 function __windows__() {
     cd windows_os && source link.sh
 }
@@ -82,6 +90,7 @@ elif [ "$1" == "--main" ]; then
     __zed__
     __antigravity__
     __antigravity_ide__
+    __warp__
 else
-    echo "Usage: ./link.sh (zsh/ functions/ aliases/ tmux/ git/ vim/ cz/ claude/ gemini/ openai/ zed/ antigravity/ antigravity_ide/ windows (for Windows OS) | --main)"
+    echo "Usage: ./link.sh (zsh/ functions/ aliases/ tmux/ git/ vim/ cz/ claude/ gemini/ openai/ zed/ antigravity/ antigravity_ide/ warp/ windows (for Windows OS) | --main)"
 fi

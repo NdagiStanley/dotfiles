@@ -1,0 +1,77 @@
+[terminal]
+
+[terminal.input]
+input_box_type_setting = "universal"
+alias_expansion_enabled = true
+honor_ps1 = false
+
+[agents]
+
+[agents.warp_agent]
+
+[agents.warp_agent.input]
+
+[agents.warp_agent.other]
+
+[agents.voice]
+voice_input_toggle_key = "fn"
+
+[agents.third_party]
+auto_open_composer_on_cli_agent_start = false
+auto_dismiss_composer_after_submit = false
+cli_agent_toolbar_chip_selection_setting= "default"
+
+[privacy]
+
+[privacy.secret_redaction]
+
+[appearance]
+
+[appearance.themes]
+
+[appearance.text]
+notebook_font_size = 14.0
+font_size = 13.0
+
+[appearance.window]
+zoom_level = 100
+
+[appearance.tabs]
+
+[appearance.input]
+input_mode = "pinned_to_bottom"
+
+[appearance.vertical_tabs]
+
+[appearance.panes]
+
+[warp_drive]
+
+[general]
+
+[code]
+
+[code.editor]
+auto_open_code_review_pane_on_first_agent_change = true
+open_code_panels_file_editor = { external_editor = "zed" }
+open_file_editor = { external_editor = "zed" }
+
+[warpify]
+
+[warpify.ssh]
+
+[account]
+
+[notifications]
+toast_duration_secs = 8
+
+[notifications.preferences]
+is_agent_task_completed_enabled = true
+is_long_running_enabled = true
+is_needs_attention_enabled = true
+is_password_prompt_enabled = true
+long_running_threshold = 30
+mode = "dismissed"
+play_notification_sound = true
+
+[accessibility]

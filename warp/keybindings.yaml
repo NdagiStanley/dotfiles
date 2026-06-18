@@ -1,0 +1,4 @@
+---
+"input:open_completion_suggestions": ctrl-space
+"editor_view:insert_autosuggestion": tab
+"pane_group:toggle_maximize_pane": alt-t
