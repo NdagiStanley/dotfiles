@@ -285,5 +285,8 @@ Once in a while I run:
 ```sh
 code --list-extensions > Brewfile-VSCode
 agy --list-extensions > Brewfile-AGY
-codium --list-extensions > Brewfile-VSCode
+agy-ide --list-extensions > Brewfile-AGY-IDE
+codium --list-extensions > Brewfile-VSCodium
 ```
+
+AGY also has extensions installed from `.vsix` files. These are stored at `~/Downloads/AGY/`.

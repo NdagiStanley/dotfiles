@@ -1,0 +1,91 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "code_lens": "on",
+  "calls": {
+    "mute_on_join": true
+  },
+  "edit_predictions": {
+    "open_ai_compatible_api": {
+      "model": ""
+    },
+    "allow_data_collection": "no"
+  },
+  "terminal": {
+    "copy_on_select": true,
+  },
+  "show_whitespaces": "boundary",
+  "soft_wrap": "editor_width",
+  "diff_view_style": "unified",
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "context_servers": {
+    "dgtx-ae": {
+      "enabled": true,
+      "url": "https://ae.docs.digitax.tech/mcp",
+    },
+    "dgtx-zm": {
+      "enabled": true,
+      "url": "https://zm.docs.digitax.tech/mcp",
+    },
+    "dgtx-ng": {
+      "enabled": true,
+      "url": "https://ng.docs.digitax.tech/mcp",
+    },
+    "dgtx-ke": {
+      "enabled": true,
+      "url": "https://ke.docs.digitax.tech/mcp",
+    },
+  },
+  "cli_default_open_behavior": "new_window",
+  "disable_ai": false,
+  "agent": {
+    "default_model": {
+      "provider": "openai",
+      "model": "gpt-5-mini",
+      "enable_thinking": false
+    },
+    "sidebar_side": "right",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "agent_servers": {
+    "gemini": {
+      "favorite_models": ["auto-gemini-3"],
+      "type": "registry",
+    },
+    "claude-acp": {
+      "default_config_options": {
+        "mode": "default"
+      },
+      "type": "registry",
+    },
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark",
+  },
+  "buffer_font_features": {
+    "calt": false, // Disable ligatures
+  },
+  "title_bar": {
+    "show_sign_in": false, // Show/hide sign-in button
+    "show_menus": true, // Show/hide menus
+  },
+  "sticky_scroll": {
+    "enabled": true, // Whether to stick scopes to the top of the editor. Disabled by default.
+  },
+  "minimap": {
+    "show": "auto",
+  },
+}
