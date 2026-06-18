@@ -1,5 +1,2 @@
-ijavascript
+corepack
 npm
-vsce
-vue
-yarn
