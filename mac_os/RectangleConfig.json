@@ -52,6 +52,15 @@
     "cycleSizesIsChanged" : {
       "bool" : true
     },
+    "cyclingOverlapMaxCascade" : {
+      "int" : 1
+    },
+    "cyclingOverlapOffset" : {
+      "int" : 0
+    },
+    "cyclingOverlapOffsetSize" : {
+      "float" : 11
+    },
     "disabledApps" : {
 
     },
@@ -131,6 +140,9 @@
       "int" : 0
     },
     "moveCursorAcrossDisplays" : {
+      "int" : 0
+    },
+    "moveFixedSizeToEdge" : {
       "int" : 0
     },
     "notifiedOfProblemApps" : {
@@ -349,5 +361,5 @@
       "modifierFlags" : 786432
     }
   },
-  "version" : "101"
+  "version" : "102"
 }

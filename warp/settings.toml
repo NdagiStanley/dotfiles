@@ -1,9 +1,9 @@
 [terminal]
 
 [terminal.input]
-input_box_type_setting = "universal"
+input_box_type_setting = "classic"
 alias_expansion_enabled = true
-honor_ps1 = false
+honor_ps1 = true
 
 [agents]
 
@@ -22,6 +22,8 @@ auto_dismiss_composer_after_submit = false
 cli_agent_toolbar_chip_selection_setting= "default"
 
 [privacy]
+telemetry_enabled = false
+crash_reporting_enabled = false
 
 [privacy.secret_redaction]
 
@@ -37,11 +39,21 @@ font_size = 13.0
 zoom_level = 100
 
 [appearance.tabs]
+workspace_decoration_visibility = "always_show"
+
+[appearance.tabs.header_toolbar_chip_selection]
+
+[appearance.tabs.header_toolbar_chip_selection.custom]
+left = ["tabs_panel"]
+right = ["code_review", "tools_panel", "notifications_mailbox"]
 
 [appearance.input]
-input_mode = "pinned_to_bottom"
+input_mode = "waterfall"
 
 [appearance.vertical_tabs]
+enabled = true
+compact_subtitle = "command"
+primary_info = "branch"
 
 [appearance.panes]
 
