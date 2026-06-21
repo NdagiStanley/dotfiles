@@ -23,6 +23,11 @@ Every project that uses AI agents should have an `AGENTS.md` at the repo root. I
 
 ---
 
+## Guidelines
+
+### URLs
+Never generate or guess URLs. Only share URLs that are fully confident and correct. If unsure about a specific path or link, provide the root/landing page URL and direct the user to navigate from there. Always flag when a URL cannot be confidently provided rather than risk sharing a broken link. Always include the full URL in the output — never use a label or hyperlink text alone without the full URL alongside it.
+
 ## Committing with czg
 
 Always use `czg` for git commits — never `git commit` directly.
