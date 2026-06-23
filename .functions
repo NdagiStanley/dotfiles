@@ -256,7 +256,54 @@ dev_info() {
   printf "\n\033[1;34m=========================================\033[0m\n"
 }
 
-ids() {
+appid() {
+  setopt localoptions noxTrace noVerbose 2>/dev/null
+  local app="$1"
+  if [[ "$app" == /* ]]; then
+    mdls -name kMDItemCFBundleIdentifier "$app"
+  else
+    app="${app%.app}"
+    local app_path
+    app_path=$(find /Applications -maxdepth 2 -iname "${app}.app" 2>/dev/null | head -1)
+    if [[ -z "$app_path" ]]; then
+      echo "appid: '${app}.app' not found in /Applications" >&2
+      return 1
+    fi
+    mdls -name kMDItemCFBundleIdentifier "$app_path"
+  fi
+}
+
+appids() {
+  setopt localoptions noxTrace noVerbose 2>/dev/null
   printf "\n\033[1;34m=== BUNDLE IDS ===\033[0m\n"
-  find /Applications -maxdepth 2 -name "*.app" -exec mdls -name kMDItemCFBundleIdentifier -raw {} \; -exec echo " : {}" \;
+
+  # Normalize installed Homebrew Cask names for matching (e.g. "brave-browser")
+  local -a brew_casks
+  brew_casks=($(brew list --cask 2>/dev/null))
+
+  printf "%-12s %-25s %-45s %s\n" "SOURCE" "CASK NAME" "BUNDLE ID" "PATH"
+  printf "%-12s %-25s %-45s %s\n" "────────────" "─────────────────────────" "─────────────────────────────────────────────" "────────────────────────────────────"
+
+  local bundle_id src cask_name app_name app_slug app
+  while IFS= read -r app; do
+    bundle_id=$(mdls -name kMDItemCFBundleIdentifier -raw "$app" 2>/dev/null | head -1 | tr -d '\n')
+    [[ -z "$bundle_id" || "$bundle_id" == "(null)" ]] && continue
+
+    app_name=$(basename "$app" .app)
+    app_slug=$(echo "$app_name" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
+    cask_name="-"
+
+    if [[ "$app" == *"/Setapp/"* ]]; then
+      src="Setapp"
+    elif [[ -d "${app}/Contents/_MASReceipt" ]]; then
+      src="AppStore"
+    elif cask_name=$(printf '%s\n' "${brew_casks[@]}" | grep -x -e "$app_slug" -e ".*@${app_slug}"); then
+      src="Brew"
+    else
+      src="Manual"
+      cask_name="-"
+    fi
+
+    printf "%-12s %-25s %-45s %s\n" "[$src]" "$cask_name" "$bundle_id" "$app"
+  done < <(find /Applications -maxdepth 2 -name "*.app" | sort)
 }

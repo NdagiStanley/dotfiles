@@ -36,3 +36,4 @@ duti -s dev.zed.Zed .conf all
 duti -s dev.zed.Zed .yaml all
 duti -s dev.zed.Zed .yml all
 duti -s dev.zed.Zed .toml all
+duti -s com.tablecruncher.Tablecruncher .csv all

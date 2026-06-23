@@ -8,10 +8,13 @@ honor_ps1 = true
 [agents]
 
 [agents.warp_agent]
+is_any_ai_enabled = false
 
 [agents.warp_agent.input]
 
 [agents.warp_agent.other]
+show_agent_notifications = true
+show_conversation_history = true
 
 [agents.voice]
 voice_input_toggle_key = "fn"
@@ -20,6 +23,7 @@ voice_input_toggle_key = "fn"
 auto_open_composer_on_cli_agent_start = false
 auto_dismiss_composer_after_submit = false
 cli_agent_toolbar_chip_selection_setting= "default"
+should_render_cli_agent_toolbar = true
 
 [privacy]
 telemetry_enabled = false
@@ -30,6 +34,7 @@ crash_reporting_enabled = false
 [appearance]
 
 [appearance.themes]
+system_theme = true
 
 [appearance.text]
 notebook_font_size = 14.0
@@ -60,6 +65,7 @@ primary_info = "branch"
 [warp_drive]
 
 [general]
+default_session_mode = "agent"
 
 [code]
 
@@ -67,6 +73,9 @@ primary_info = "branch"
 auto_open_code_review_pane_on_first_agent_change = true
 open_code_panels_file_editor = { external_editor = "zed" }
 open_file_editor = { external_editor = "zed" }
+show_code_review_button = true
+show_project_explorer = true
+show_global_search = true
 
 [warpify]
 

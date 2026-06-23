@@ -21,72 +21,63 @@
   {
     "context": "Workspace",
     "bindings": {
-      "alt-shift-b": "workspace::ToggleLeftDock"
-    }
+      "alt-shift-b": "workspace::ToggleLeftDock",
+    },
   },
   {
     "context": "Workspace",
     "unbind": {
-      "cmd-b": "workspace::ToggleLeftDock"
-    }
-  },
-  {
-    "context": "Terminal",
-    "unbind": {
-      "alt-b": [
-        "terminal::SendText",
-        "b"
-      ]
-    }
+      "cmd-b": "workspace::ToggleLeftDock",
+    },
   },
   {
     "context": "Workspace",
     "bindings": {
-      "alt-b": "workspace::ToggleRightDock"
-    }
+      "alt-b": "workspace::ToggleRightDock",
+    },
   },
   {
     "context": "Workspace",
     "unbind": {
-      "cmd-r": "workspace::ToggleRightDock"
-    }
+      "cmd-r": "workspace::ToggleRightDock",
+    },
   },
   {
     "bindings": {
-      "alt-n": "multi_workspace::NextThread"
-    }
+      "alt-n": "multi_workspace::NextThread",
+    },
   },
   {
     "context": "Workspace",
     "bindings": {
-      "alt-g": "git_panel::ToggleFocus"
-    }
+      "alt-g": "git_panel::ToggleFocus",
+    },
   },
   {
     "context": "Workspace",
     "unbind": {
-      "ctrl-shift-g": "git_panel::ToggleFocus"
-    }
+      "ctrl-shift-g": "git_panel::ToggleFocus",
+    },
   },
   {
     "bindings": {
-      "alt-shift-g": "git_graph::Open"
-    }
+      "alt-shift-g": "git_graph::Open",
+    },
   },
   {
     "bindings": {
-      "alt-t": "workspace::ToggleZoom"
-    }
+      "alt-t": "workspace::ToggleZoom",
+    },
   },
   {
     "unbind": {
-      "shift-escape": "workspace::ToggleZoom"
-    }
+      "shift-escape": "workspace::ToggleZoom",
+    },
   },
   {
     "context": "Workspace",
     "unbind": {
-      "cmd-shift-s": "workspace::SaveAs"
-    }
-  }
+      "cmd-shift-s": "workspace::SaveAs",
+    },
+  },
 ]
