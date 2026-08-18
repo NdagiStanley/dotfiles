@@ -90,7 +90,6 @@
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorStyleInactive": "none",
   "window.zoomLevel": 0.3,
-  "workbench.colorTheme": "GitHub Dark Dimmed",
   "workbench.editor.wrapTabs": true,
   "workbench.editorAssociations": {
     "*.copilotmd": "vscode.markdown.preview.editor",

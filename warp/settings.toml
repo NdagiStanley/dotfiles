@@ -1,4 +1,5 @@
 [terminal]
+osc52_clipboard_access = "write_only"
 
 [terminal.input]
 input_box_type_setting = "classic"
@@ -38,7 +39,9 @@ system_theme = true
 
 [appearance.text]
 notebook_font_size = 14.0
-font_size = 13.0
+font_size = 14.0
+font_name = "Jetbrains Mono"
+line_height_ratio = 1.399999976158142
 
 [appearance.window]
 zoom_level = 100
@@ -59,10 +62,13 @@ input_mode = "waterfall"
 enabled = true
 compact_subtitle = "command"
 primary_info = "branch"
+display_granularity = "panes"
+view_mode = "compact"
 
 [appearance.panes]
 
 [warp_drive]
+enabled = true
 
 [general]
 default_session_mode = "agent"

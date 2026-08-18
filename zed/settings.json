@@ -7,6 +7,23 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "ssh_connections": [
+    {
+      "host": "app.hemd.dev",
+      "username": "md",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/md"
+          ]
+        }
+      ]
+    }
+  ],
+  "show_wrap_guides": true,
+  "cursor_shape": "bar",
+  "buffer_font_family": "JetBrains Mono",
   "code_lens": "on",
   "calls": {
     "mute_on_join": true
@@ -21,7 +38,7 @@
     "copy_on_select": true,
   },
   "show_whitespaces": "boundary",
-  "soft_wrap": "editor_width",
+  "soft_wrap": "bounded",
   "diff_view_style": "unified",
   "collaboration_panel": {
     "dock": "left",
@@ -63,13 +80,14 @@
     },
     "claude-acp": {
       "default_config_options": {
-        "mode": "default"
+        "model": "sonnet",
+        "mode": "plan"
       },
       "type": "registry",
     },
   },
-  "ui_font_size": 16,
-  "buffer_font_size": 15,
+  "ui_font_size": 16.0,
+  "buffer_font_size": 14.0,
   "theme": {
     "mode": "system",
     "light": "One Light",
